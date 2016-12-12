@@ -1,2 +1,3 @@
-# flightdeck
-Interactive Dashboard for Predictive Models
+# FlightDeck
+
+Interactive Dashboards for Predictive Models.

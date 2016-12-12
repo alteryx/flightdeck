@@ -1,0 +1,7 @@
+Metric,Abbreviation,Definition
+Proportion of correct predictions in the data,Accuracy,Proportion of correct predictions in the data
+"Proportion of values predicted positive, that were actually positive",Precision,"Proportion of values predicted positive, that were actually positive"
+"Proportion of values actually positive, that were predicted positive",Recall,"Proportion of values actually positive, that were predicted positive"
+Harmonic mean of Recall and Precision,F1_Score,Harmonic mean of Recall and Precision
+Error metric that takes into account predicted probabilities,LogLoss,Error metric that takes into account predicted probabilities
+Area under the ROC Curve (0.5 for Random and 1 for Perfect),AUC,Area under the ROC Curve (0.5 for Random and 1 for Perfect)

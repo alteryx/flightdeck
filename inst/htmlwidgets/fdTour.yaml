@@ -1,0 +1,7 @@
+dependencies:
+- name: intro.js
+  version: 2.3.0
+  src: "htmlwidgets/lib/introjs/minified"
+  script: intro.min.js
+  style: introjs.min.css
+
