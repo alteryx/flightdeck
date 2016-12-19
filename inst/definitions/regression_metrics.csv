@@ -1,11 +1,1 @@
-Metric,Abbreviation,Definition
-Mean Absolute Error,MAE,Average of the absolute value of the regression error
-Mean Average Percentage Error,MAPE,Average of the absolute value of the regression error (in % of actual value)
-Mean Squared Error,MSE,Average of the squares of the errors
-Relative Absolute Error,RAE,Relative Absolute Error Loss
-Root Mean Squared Error,RMSE,Square root of the average of the squares of the errors
-Root Mean Squared Logarithmic Error,RMSLE,Square root of the average of the squares of the natural log of the errors
-Root Mean Squared Percentage Error,RMSPE,Square root of the average of the squares of the percentage of the errors
-Pearson Coefficient,Rho,Correlation coefficient between the actual and predicted values
-Coefficient of Determination,R2_Score,Coefficient of Determination
-Explained Variance Score,EVS,Percentage of variance explained by the predictors
+Metric,Abbreviation,Definition,ScaledMean Absolute Error,MAE,Average of the absolute value of the regression error,NoMean Average Percentage Error,MAPE,Average of the absolute value of the regression error (in % of actual value),YesMean Squared Error,MSE,Average of the squares of the errors,NoRelative Absolute Error,RAE,Relative Absolute Error Loss,NoRoot Mean Squared Error,RMSE,Square root of the average of the squares of the errors,NoRoot Mean Squared Logarithmic Error,RMSLE,Square root of the average of the squares of the natural log of the errors,NoRoot Mean Squared Percentage Error,RMSPE,Square root of the average of the squares of the percentage of the errors,NoPearson Coefficient,Rho,Correlation coefficient between the actual and predicted values,YesCoefficient of Determination,R2_Score,Coefficient of Determination,YesExplained Variance Score,EVS,Percentage of variance explained by the predictors,Yes
