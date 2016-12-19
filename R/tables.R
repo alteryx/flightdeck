@@ -87,9 +87,9 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue'){
     )
 }
 
-#' Interactive variable importance table
+#' Panel displaying variable importance.
 #'
-#' @inheritParams fdCoefTable
+#' @inheritParams fdPanelCoefficients
 #' @import DT
 #' @export
 #' @example inst/examples/fdPanelImportance.R
@@ -207,16 +207,4 @@ fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
       backgroundPosition = 'center',
       color = 'transparent'
     )
-}
-
-#' @export
-fdCoefTable <- function(mod, digits = 3, barColor = 'steelblue'){
-  .Deprecated('fdPanelCoefficients')
-  fdPanelCoefficients(mod, digits = digits, barColor = barColor)
-}
-
-#' @export
-fdVariableImportanceTable <- function(mod, digits = 3, barColor = 'steelblue'){
-  .Deprecated('fdPanelImportance')
-  fdPanelImportance(mod, digits = digits, barColor = barColor)
 }
