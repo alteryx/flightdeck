@@ -10,6 +10,7 @@
 #' @param height height of the tour button
 #' @import htmlwidgets
 #' @export
+#' @example inst/examples/fdTour.R
 fdTour <- function(steps, options, button = NULL, width = 30, height = 10) {
 
   # forward options using x
