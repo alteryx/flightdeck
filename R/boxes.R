@@ -28,7 +28,8 @@
 #' @export
 fdBox <- function(..., title = NULL, footer = NULL, status = NULL,
     solidHeader = FALSE, background = NULL, width = 6,
-    height = NULL, collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL) {
+    height = NULL, collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL,
+    extraHeader = NULL) {
 
   boxClass <- "box"
   if (solidHeader || !is.null(background)) {
@@ -77,7 +78,8 @@ fdBox <- function(..., title = NULL, footer = NULL, status = NULL,
   if (!is.null(titleTag) || !is.null(collapseTag)) {
     headerTag <- div(class = "box-header",
       titleTag,
-      collapseTag
+      collapseTag,
+      extraHeader
     )
   }
 
