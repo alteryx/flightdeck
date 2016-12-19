@@ -1,5 +1,8 @@
-#' Add a modal to an html element
+#' Add a modal, popover or tooltip
 #' 
+#' 
+#' This functions lets the user add a modal, popover or tooltip to a html
+#' element that will be displayed on click or hover.
 #' @param x html element
 #' @param message message to dispaly in modal
 #' @param title title to display in modal
@@ -7,6 +10,7 @@
 #' @param .list options as a list. makes it easier with programmatic generation.
 #' @import commonmark jsonlite
 #' @export
+#' @example inst/examples/fdModal.R
 fdModal <- function(x, message, title = NULL, ..., .list = NULL){
   scr <- "$('%s').on('click', function(e){bootbox.alert(%s)})"
   if (is.null(x$attribs$id)) x$attribs$id <- paste0('modal-', rpois(1, 10000))
