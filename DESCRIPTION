@@ -3,7 +3,7 @@ Title: Interactive Dashboards for Predictive Models
 Version: 0.1
 Authors@R: c(
     person("Ramnath", "Vaidyanathan", role = c("aut", "cre"), email = "ramnath@alteryx.com"),
-    person(family = "Alteryx", role = "cph")
+    person("Alteryx", role = c("cph", "fnd"))
   )
 Description: Interactive Dashboards for Predictive Models
 Depends:
@@ -19,7 +19,9 @@ Imports:
   htmlwidgets (>= 0.8),
   magrittr,
   DT (>= 0.2),
-  MLmetrics
+  MLmetrics,
+  commonmark,
+  jsonlite
 Suggests: 
   knitr,
   rmarkdown,
