@@ -1,12 +1,12 @@
-#' A light wrapper around plotly.js
+#' Create an interactive plot using plotly.
 #'
 #' This function is a lightweight wrapper around plotly.js. For complete
-#' documentation, please refer to \url{https://plot.ly/javascript/reference/}
+#' documentation, please refer to \url{https://plot.ly/javascript/reference/}.
 #'
 #' @import htmlwidgets
 #' @export
-#' @example inst/examples/plotlyLite.R
-plotlyLite <- function(data, layout = NULL, config = NULL, width = NULL,
+#' @example inst/examples/fdPlotly.R
+fdPlotly <- function(data, layout = NULL, config = NULL, width = NULL,
     height = NULL) {
   # forward options using x
   x = list(
@@ -25,3 +25,5 @@ plotlyLite <- function(data, layout = NULL, config = NULL, width = NULL,
     package = 'flightdeck'
   )
 }
+
+
