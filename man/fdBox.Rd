@@ -6,7 +6,8 @@
 \usage{
 fdBox(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,
-  collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL)
+  collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL,
+  extraHeader = NULL)
 }
 \arguments{
 \item{...}{Contents of the box.}

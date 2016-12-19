@@ -2,21 +2,21 @@
 % Please edit documentation in R/regression.R
 \name{computeRegressionMetrics}
 \alias{computeRegressionMetrics}
-\title{Compute performance metrics for a regression model}
+\title{Compute metrics to evaluate performance of a regression model.}
 \usage{
 computeRegressionMetrics(actual, predicted, metrics = c("MAE", "MAPE",
   "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score"))
 }
 \arguments{
-\item{actual}{vector of actual values}
+\item{actual}{vector of actual values.}
 
-\item{predicted}{vector of predicted values}
+\item{predicted}{vector of predicted values.}
 
-\item{metrics}{vector of metrics to compute. See \code{\link{MLmetrics}} for list
-of potential metrics}
+\item{metrics}{vector of metrics to compute. See \code{\link{MLmetrics}} for
+a complete list of metrics that can be used}
 }
 \description{
-Compute performance metrics for a regression model
+Compute metrics to evaluate performance of a regression model.
 }
 \examples{
 mod <- lm(mpg ~ ., data = mtcars)

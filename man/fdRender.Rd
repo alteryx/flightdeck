@@ -8,13 +8,15 @@ fdRender(x, libdir = NULL, nOutput = 3, debug = FALSE,
   selfcontained = TRUE)
 }
 \arguments{
-\item{x}{an object of class htmlwidget or shiny.tag}
+\item{x}{an object of class htmlwidget or shiny.tag.}
 
-\item{libdir}{directory to copy js/css dependencies to}
+\item{libdir}{directory to copy js/css dependencies to.}
 
-\item{nOutput}{node to pipe output back into Alteryx}
+\item{nOutput}{connection to pipe output back into Alteryx.}
 
 \item{debug}{only for use in development}
+
+\item{selfcontained}{boolean indicating if html generated should be selfcontained.}
 }
 \description{
 Render dashboard in Alteryx Composer

@@ -2,9 +2,12 @@
 % Please edit documentation in R/tables.R
 \name{fdCoefTable}
 \alias{fdCoefTable}
+\alias{fdTidyTable}
 \title{Interactive table of regression coefficients}
 \usage{
 fdCoefTable(mod, digits = 3, barColor = "steelblue")
+
+fdTidyTable(coefTable, digits = 3, barColor = "steelblue")
 }
 \arguments{
 \item{mod}{model object}
@@ -12,8 +15,16 @@ fdCoefTable(mod, digits = 3, barColor = "steelblue")
 \item{digits}{number of digits to display}
 
 \item{barColor}{bar color}
+
+\item{coefTable}{tidy table}
+
+\item{digits}{number of digits to display}
+
+\item{barColor}{bar color}
 }
 \description{
+Interactive table of regression coefficients
+
 Interactive table of regression coefficients
 }
 \examples{

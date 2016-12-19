@@ -4,7 +4,7 @@
 \alias{fdStat}
 \title{Display a statistic}
 \usage{
-fdStat(name, value, color = "aqua", note = name, pct = value * 100,
+fdStat(name, value, color = "green", note = name, pct = value * 100,
   showBar = TRUE, digits = 4)
 }
 \description{
