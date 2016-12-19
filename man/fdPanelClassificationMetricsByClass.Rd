@@ -24,18 +24,16 @@ Display performance metrics by class for a classification model
 }
 \examples{
 library(rpart)
-data(ptitanic, package = 'rpart.plot')
-fit <- rpart(survived ~ ., data = ptitanic)
-actual <- ptitanic$survived
+fit <- rpart(Species ~ ., data = iris)
+actual <- iris$Species
 predicted <- predict(fit, type = 'class')
 
-computeClassificationMetrics(actual = actual, predicted = predicted)
+computeClassificationMetricsByClass(actual = actual, predicted = predicted)
 
 if (interactive()){
-  fdPanelClassificationMetrics(actual = actual, predicted = predicted) \%>\%
+  fdPanelClassificationMetricsByClass(actual = actual, predicted = predicted) \%>\%
     fdPreview("Classification Metrics") 
 }
-
 
 }
 \seealso{

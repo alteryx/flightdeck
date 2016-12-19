@@ -7,7 +7,7 @@
 #'   of potential metrics
 #' @import plyr
 #' @export
-#' @example inst/examples/classification-metrics.R
+#' @example inst/examples/fdPanelClassificationMetrics.R
 #' @family classification
 fdPanelClassificationMetrics <- function(actual, predicted,
     metrics = c("Accuracy", "Recall", "Precision", "F1_Score")){
@@ -26,7 +26,7 @@ fdPanelClassificationMetrics <- function(actual, predicted,
 #' @param cutoffs vector of cutoffs to use for deciding bar colors.
 #' @param vertical boolean indicating if panel should display measures in columns.
 #' @export
-#' @example inst/examples/classification-metrics.R
+#' @example inst/examples/fdPanelClassificationMetricsByClass.R
 #' @family classification
 fdPanelClassificationMetricsByClass <- function(actual, predicted, vertical = TRUE,  
     cutoffs = c(0, 0.6, 0.75, 1)){

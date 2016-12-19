@@ -23,6 +23,7 @@ of potential metrics}
 Display performance metrics for a classification model
 }
 \examples{
+library(flightdeck)
 library(rpart)
 data(ptitanic, package = 'rpart.plot')
 fit <- rpart(survived ~ ., data = ptitanic)
