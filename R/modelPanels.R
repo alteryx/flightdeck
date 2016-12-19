@@ -22,7 +22,7 @@ fdResidualsPanel <- function(mod, digits = 4){
     list(displaylogo = FALSE, displayModeBar = FALSE),
     height = 325
   )
-  tagList(
+  div(class = 'fd-panel-residuals',
     fdColumn(8, residualHistogram),
     fdColumn(4, fdSimpleTable(residualSummary))
   )
