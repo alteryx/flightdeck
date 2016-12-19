@@ -1,6 +1,6 @@
 library(flightdeck)
 mod <- lm(mpg ~ ., data = mtcars)
-residualHistogram <- plotlyLite(
+residualHistogram <- fdPlotly(
   data = list(list(
     x = unname(residuals(mod)),
     type = 'histogram'

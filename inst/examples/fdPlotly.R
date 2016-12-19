@@ -7,8 +7,9 @@ dat <- list(
 )
 layout <- list(margin = list(t = 40))
 config <- list(displaylogo = FALSE, displayModeBar = FALSE)
+
 if (interactive()){
-  plotlyLite(
+  fdPlotly(
     data = list(dat),
     layout = layout,
     config = config,
@@ -41,8 +42,7 @@ trace3 = list(
 )
 
 if (interactive()){
-  plotlyLite(
+  fdPlotly(
     data = list(trace1, trace2, trace3)
   )
 }
-
