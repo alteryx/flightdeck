@@ -1,12 +1,15 @@
-fdPreview2 <- function(widget, title = deparse(substitute(widget)), wrapBox = TRUE, ...){
-  if (title == ".") title = "Preview"
+#' @rdname fdPreview
+#' @inheritParams fdPreview
+#' @export
+fdPreviewBoard <- function(widget, title = deparse(substitute(widget)), 
+    wrapBox = TRUE, ...){
+  if (title[1] == ".") title = "Preview"
   html <- fdBoard(
     fdHeader(title = 'Alteryx', miniTitle = 'A'),
     fdSidebar(
       fdSidebarMenu(
         fdMenuItem("Page", icon = fdIcon("th"), tabName = 'preview')
-      ),
-      disable = TRUE
+      )
     ),
     fdBody(
       fdRow(
@@ -41,7 +44,7 @@ fdPreview2 <- function(widget, title = deparse(substitute(widget)), wrapBox = TR
 #' library(flightdeck)
 #' fdSimpleTable(mtcars) %>% fdPreview(title = 'Simple Table')
 fdPreview <- function(widget, title = deparse(substitute(widget)), wrapBox = TRUE, ...){
-  if (title == ".") title = "Preview"
+  if (title[1] == ".") title = "Preview"
   html <- fdBoard(div(), div(),
     fdBody(
       fdRow(
