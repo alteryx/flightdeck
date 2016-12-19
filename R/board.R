@@ -8,7 +8,7 @@
 #' @export
 #' @family dashboard
 #' @import htmltools
-#' @example inst/examples/board.R
+#' @example inst/examples/fdBoard.R
 fdBoard <- function(header, sidebar, body, theme = 'skin-blue-light'){
   content <- div(class = "wrapper", header, sidebar, body)
   dashboard <- tags$body(class=paste('hold-transition sidebar-mini', theme), content)
