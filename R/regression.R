@@ -1,17 +1,23 @@
-#' Compute metrics to evaluate performance of a regression model.
+#' Display performance metrics for a regression model
 #'
 #' @param actual vector of actual values.
 #' @param predicted vector of predicted values.
 #' @param metrics vector of metrics to compute. See \code{\link{MLmetrics}} for
-#'   a complete list of metrics that can be used
+#'   a complete list of metrics that can be used.
 #' @import plyr MLmetrics
 #' @export
-#' @examples 
-#' mod <- lm(mpg ~ ., data = mtcars)
-#' pred <- predict(mod)
-#' computeRegressionMetrics(mtcars$mpg, pred)
-# TODOS: 
-# 1. add an extra argument to let user customize definitions file.
+#' @example inst/examples/fdPanelRegressionMetrics.R
+fdPanelRegressionMetrics <- function(actual, predicted,
+    metrics = c("MAE", "MAPE", "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score")){
+  metricsDF = computeRegressionMetrics(actual, predicted, metrics)
+  fdPanelMetrics(metricsDF)
+}
+
+#' Compute metrics to evaluate performance of a regression model
+#' 
+#' @inheritParams fdPanelRegressionMetrics
+#' @rdname fdPanelRegressionMetrics
+#' @export
 computeRegressionMetrics <- function(actual, predicted,
    metrics = c("MAE", "MAPE", "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score")){
   d <- plyr::ldply(metrics, function(f){
@@ -25,51 +31,14 @@ computeRegressionMetrics <- function(actual, predicted,
   merge(defn, d)
 }
 
-#' Display regression metrics in a panel
-#'
-#' @inheritParams computeRegressionMetrics
-#' @import plyr
-#' @export
-#' @examples
-#' data(cars)
-#' reg <- lm(log(dist) ~ log(speed), data = cars)
-#' fdRegressionMetricsTable(
-#'   actual = cars$dist,
-#'   predicted = exp(reg$fitted.values)
-#' ) %>%
-#' fdPreview("Regression Metrics")
-fdRegressionMetricsTable <- function(actual, predicted,
-    metrics = c("MAE", "MAPE", "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score")){
-  metricsDF = computeRegressionMetrics(actual, predicted, metrics)
-  l <- plyr::alply(metricsDF, 1, function(d){
-    percentBars <- c('MAPE', 'R2_Score')
-    fdStat(d$Abbreviation, d$Value, note = d$Metric,
-      showBar = d$Abbreviation %in% percentBars
-    )
-  })
-  do.call(tagList, l)
-}
-
-#' @export
-fdMetricsPanel <- function(x){
-  l <- plyr::alply(x, 1, function(d){
-    fdStat(d$Abbreviation, d$Value, note = d$Metric, showBar = d$Scaled == "Yes")
-  })
-  do.call(tagList, l)
-}
-
-#' Scatterplot of actual vs. predicted values for a regression model
+#' Panel dispalying scatterplot of actual vs. predicted for a regression model.
 #' 
 #' @param actual vector of actual values
 #' @param predicted vector of predicted values
 #' @export
 #' @family regression
-#' @examples 
-#' fit <- lm(mpg ~ ., data = mtcars)
-#' actual <- mtcars$mpg
-#' predicted <- predict(fit)
-#' fdRegressionScatterplot(actual, predicted) %>% fdPreview
-fdRegressionScatterplot <- function(actual, predicted){
+#' @example inst/examples/fdPanelRegressionScatterplot.R
+fdPanelRegressionScatterplot <- function(actual, predicted){
   actual <- unname(actual)
   predicted <- unname(predicted)
   data = list(
@@ -108,6 +77,48 @@ fdRegressionScatterplot <- function(actual, predicted){
   
   config <- list(displaylogo = FALSE, displayModeBar = FALSE)
   
-  plotlyLite(data, layout, config)
+  fdPlotly(data, layout, config)
+}
+
+#' Displaying model residuals for a regression model.
+#'
+#' @param mod model object
+#' @export
+#' @examples
+#' library(flightdeck)
+#' mod <- lm(mpg ~ ., data = mtcars)
+#' if (interactive()){
+#'   mod %>% fdPanelRegressionResiduals %>% fdPreview
+#' }
+fdPanelRegressionResiduals <- function(mod, digits = 4){
+  res <- residuals(mod)
+  residualSummary <- data.frame(
+    Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
+      "3rd Quartile", "Maximum"
+    ),
+    Value = format(summary(mod$residuals), digits = digits)
+  )
+  residualHistogram <- fdPlotly(
+    data = list(list(
+      x = unname(res),
+      type = 'histogram'
+    )),
+    list(margin = list(t = 40), bargap = 0.05),
+    list(displaylogo = FALSE, displayModeBar = FALSE),
+    height = 325
+  )
+  div(class = 'fd-panel-residuals',
+    fdColumn(8, residualHistogram),
+    fdColumn(4, fdSimpleTable(residualSummary))
+  )
+}
+
+
+#' @export
+fdPanelMetrics <- function(x){
+  l <- plyr::alply(x, 1, function(d){
+    fdStat(d$Abbreviation, d$Value, note = d$Metric, showBar = d$Scaled == "Yes")
+  })
+  do.call(tagList, l)
 }
 
