@@ -5,7 +5,7 @@
 #' @param ... Items to put in the sidebar.
 #' @export
 #' @seealso \code{\link{fdSidebarMenu}}
-#' @example inst/examples/sidebar.R
+#' @example inst/examples/fdSidebar.R
 fdSidebar <- function(...) {
   tags$aside(class = "main-sidebar fd-main-sidebar",
     tags$section(class = "sidebar fd-sidebar", list(...))
