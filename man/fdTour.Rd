@@ -2,7 +2,7 @@
 % Please edit documentation in R/tour.R
 \name{fdTour}
 \alias{fdTour}
-\title{Add a tour}
+\title{Create an interactive tour of a page.}
 \usage{
 fdTour(steps, options, button = NULL, width = 30, height = 10)
 }
@@ -18,6 +18,7 @@ fdTour(steps, options, button = NULL, width = 30, height = 10)
 \item{height}{height of the tour button}
 }
 \description{
-This widget creates a tour on a web page.
+This widget makes it easy to create an interactive tour of the various panels
+on a page of the dashboard. It relies on the \url{http://introjs.com/}.
 }
 

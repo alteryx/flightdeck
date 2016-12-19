@@ -1,7 +1,8 @@
-#' Add a tour
+#' Create an interactive tour of a page.
 #'
-#' This widget creates a tour on a web page.
-#'
+#' This widget makes it easy to create an interactive tour of the various panels
+#' on a page of the dashboard. It relies on the \url{http://introjs.com/}.
+#' 
 #' @param steps list of steps for the tour
 #' @param options options for the tour
 #' @param button boolean indicating if a tour button should be displayed
