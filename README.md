@@ -1,8 +1,6 @@
-# FlightDeck
+## Interactive Dashboards for Predictive Models
 
-__Interactive Dashboards for Predictive Models__
-
-flightdeck is designed to make it easy to create interactive dashboards for reporting outputs of predictive Models.
+__flightdeck__ is an R package designed to make it easy to create interactive dashboards for reporting outputs of predictive models.
 
 ## Installation
 
@@ -12,13 +10,14 @@ flightdeck is not currently available from CRAN, but you can install the develop
 devtools::install_github('alteryx/flightdeck')
 ```
 
+## Usage
+
+Here is a single page dashboard generated using flightdeck.
+
 <div class='figure'>
   <img src='http://i.imgur.com/A8mK1oH.png' width='90%' />
 </div>
 
-## Usage
-
-Here is a single page dashboard generated using flightdeck.
 
 ```r
 library(htmltools)
