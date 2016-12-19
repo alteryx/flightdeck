@@ -1,9 +1,10 @@
 #' Render dashboard in Alteryx Composer
 #'
-#' @param x an object of class htmlwidget or shiny.tag
-#' @param libdir directory to copy js/css dependencies to
-#' @param nOutput node to pipe output back into Alteryx
+#' @param x an object of class htmlwidget or shiny.tag.
+#' @param libdir directory to copy js/css dependencies to.
+#' @param nOutput connection to pipe output back into Alteryx.
 #' @param debug only for use in development
+#' @param selfcontained boolean indicating if html generated should be selfcontained.
 #' @import htmltools htmlwidgets
 #' @export
 fdRender <- function(x, libdir = NULL, nOutput = 3, debug = FALSE,
@@ -27,10 +28,6 @@ fdRender <- function(x, libdir = NULL, nOutput = 3, debug = FALSE,
     }))
   } else {
     options(htmlwidgets.copybindingdir = FALSE)
-    #unlockBinding("getDependency", env = asNamespace("htmlwidgets"))
-    #assign("getDependency", getDependency2,
-    #  envir = asNamespace("htmlwidgets")
-    #)
     rendered <- renderTags(x)
     deps = rendered$dependencies
     scripts = unlist(lapply(deps, function(x){
@@ -52,27 +49,21 @@ fdRender <- function(x, libdir = NULL, nOutput = 3, debug = FALSE,
     )
   } else {
     html_deps <- NULL
-    js <- lapply(scripts, function(x){paste(readLines(x, warn = F), collapse = '\n')})
-    #js2 <- do.call(function(...){paste(..., collapse = '\n')}, js)
-    #js3 <- paste(c("<div><script type='text/javascript' charset='UTF-8'>", utils::URLencode(js2), "</script></div>"), collapse = '\n')
+    js <- lapply(scripts, function(x){
+      paste(readLines(x, warn = F), collapse = '\n')
+    })
 
-    js2 <- paste("<div><script type='text/javascript' charset='UTF-8'>",      js, "</script></div>")
-
+    js2 <- paste(
+      "<div><script type='text/javascript' charset='UTF-8'>", js, "</script></div>"
+    )
     js3 <- do.call(function(...){paste(..., collapse = '\n')}, as.list(js2))
 
-    # js2 <- lapply(js, function(x){
-    #   tags$script(src = paste0(
-    #     "data:application/x-javascript;base64,",
-    #     base64encode(x)
-    #   ))
-    # })
-    #
-    # js3 <- do.call(function(...)paste(..., collapse = '\n'), js2)
-    css <- lapply(styles, function(x){paste(readLines(x, warn = F), collapse = '\n')})
+    css <- lapply(styles, function(x){
+      paste(readLines(x, warn = F), collapse = '\n')
+    })
     css2 <- do.call(function(...){paste(..., collapse = '\n')}, css)
     css3 <- paste(c("<style>", css2, "</style>"), collapse = '\n')
     tpl <- '<htmlpassthrough><![CDATA[ \n <div>%s\n  %s\n %s\n</div>\n ]]></htmlpassthrough>'
-    #tpl2 <- '<div>%s\n  %s\n %s\n</div>'
     tpl2 <- '<htmlcontent><![CDATA[ %s\n  %s\n %s\n ]]></htmlcontent>'
     html_content = enc2utf8(sprintf(
       tpl2,
