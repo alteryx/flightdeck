@@ -5,25 +5,7 @@
 #' @param ... Items to put in the sidebar.
 #' @export
 #' @seealso \code{\link{fdSidebarMenu}}
-#' @examples 
-#' ## Only run this example in interactive R sessions
-#' if (interactive()) {
-#'   fdBoard(
-#'     fdHeader(title='Sidebar'),
-#'     fdSidebar(
-#'       fdSidebarMenu(
-#'         fdMenuItem("Page1",icon = fdIcon("table"),
-#'           fdMenuSubItem('Page1A', pageName = 'page1')
-#'         ),
-#'         fdMenuItem("Page2",icon=fdIcon("bar-chart"), pageName = 'page2')
-#'       ) 
-#'     ),
-#'     fdBody(
-#'       fdPage(p('Page 1'), id = 'page1', display = TRUE),
-#'       fdPage(p('Page 2'),id = 'page2')
-#'     )
-#'   )
-#' }
+#' @example inst/examples/sidebar.R
 fdSidebar <- function(...) {
   tags$aside(class = "main-sidebar fd-main-sidebar",
     tags$section(class = "sidebar fd-sidebar", list(...))

@@ -4,13 +4,8 @@
 #' documentation, please refer to \url{https://plot.ly/javascript/reference/}
 #'
 #' @import htmlwidgets
-#' @examples
-#'  d = data.frame(
-#'    x = 1:5,
-#'    y = (1:5)*2
-#'  )
-#'  plotlyLite(data = list(d))
 #' @export
+#' @example inst/examples/plotlyLite.R
 plotlyLite <- function(data, layout = NULL, config = NULL, width = NULL,
     height = NULL) {
   # forward options using x

@@ -8,13 +8,7 @@
 #' @export
 #' @family dashboard
 #' @import htmltools
-#' @examples 
-#' library(flightdeck)
-#' fdBoard(
-#'   fdHeader(title = 'My Board'),
-#'   fdSidebar(),
-#'   fdBody()
-#' )
+#' @example inst/examples/board.R
 fdBoard <- function(header, sidebar, body, theme = 'skin-blue-light'){
   content <- div(class = "wrapper", header, sidebar, body)
   dashboard <- tags$body(class=paste('hold-transition sidebar-mini', theme), content)
