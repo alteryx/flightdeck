@@ -3,7 +3,7 @@
 \name{fdBox}
 \alias{fdBox}
 \alias{fdRowBox}
-\title{Create a box.}
+\title{Create a box}
 \usage{
 fdBox(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,

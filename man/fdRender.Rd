@@ -2,7 +2,7 @@
 % Please edit documentation in R/render.R
 \name{fdRender}
 \alias{fdRender}
-\title{Render dashboard in Alteryx Composer}
+\title{Render a dashboard in Alteryx.}
 \usage{
 fdRender(x, libdir = NULL, nOutput = 3, debug = FALSE,
   selfcontained = TRUE)
@@ -19,6 +19,6 @@ fdRender(x, libdir = NULL, nOutput = 3, debug = FALSE,
 \item{selfcontained}{boolean indicating if html generated should be selfcontained.}
 }
 \description{
-Render dashboard in Alteryx Composer
+Render a dashboard in Alteryx.
 }
 

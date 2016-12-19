@@ -4,7 +4,7 @@
 \alias{fdMenuItem}
 \alias{fdMenuSubItem}
 \alias{fdSidebarMenu}
-\title{Sidebar menu}
+\title{Create a menu in the sidebar}
 \usage{
 fdSidebarMenu(...)
 

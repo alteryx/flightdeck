@@ -2,7 +2,7 @@
 % Please edit documentation in R/tables.R
 \name{fdPanelCoefficients}
 \alias{fdPanelCoefficients}
-\title{Panel displaying regression coefficients}
+\title{Displaying regression coefficients}
 \usage{
 fdPanelCoefficients(mod, digits = 3, barColor = "steelblue")
 }
@@ -14,7 +14,7 @@ fdPanelCoefficients(mod, digits = 3, barColor = "steelblue")
 \item{barColor}{bar color}
 }
 \description{
-Panel displaying regression coefficients
+Displaying regression coefficients
 }
 \examples{
 library(flightdeck)

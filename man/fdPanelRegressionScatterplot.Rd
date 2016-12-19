@@ -2,7 +2,7 @@
 % Please edit documentation in R/regression.R
 \name{fdPanelRegressionScatterplot}
 \alias{fdPanelRegressionScatterplot}
-\title{Panel dispalying scatterplot of actual vs. predicted for a regression model.}
+\title{Dispaly scatterplot of actual vs. predicted values for a regression model.}
 \usage{
 fdPanelRegressionScatterplot(actual, predicted)
 }
@@ -12,7 +12,7 @@ fdPanelRegressionScatterplot(actual, predicted)
 \item{predicted}{vector of predicted values}
 }
 \description{
-Panel dispalying scatterplot of actual vs. predicted for a regression model.
+Dispaly scatterplot of actual vs. predicted values for a regression model.
 }
 \examples{
 library(flightdeck)
