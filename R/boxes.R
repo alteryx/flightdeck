@@ -172,12 +172,7 @@ fdValueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @seealso \code{\link{fdBox}} for usage examples.
 #'
 #' @export
-#' @examples
-#' tagList(
-#'   fdInfoBox('RSquared', '92%', icon = fdIcon('credit-card')),
-#'   fdInfoBox('F Statistic', 20.2, color = 'lime')
-#' ) %>%
-#'   fdPreview(wrapBox = F)
+#' @example inst/examples/fdInfoBox.R
 fdInfoBox <- function(title, value = NULL, subtitle = NULL,
   icon = fdIcon("bar-chart"), color = "aqua", width = 4, href = NULL,
   fill = FALSE) {

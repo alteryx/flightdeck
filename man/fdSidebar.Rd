@@ -13,7 +13,9 @@ fdSidebar(...)
 This creates a sidebar for the dashboard
 }
 \examples{
+library(flightdeck)
 library(htmltools)
+
 # Set up menu for dashboard sidebar
 mySidebar <- fdSidebarMenu(
   fdMenuItem("Page1", icon = fdIcon("table"), pageName = 'page1'),
