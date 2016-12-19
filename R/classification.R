@@ -7,8 +7,8 @@
 #' library(rpart)
 #' fit <- rpart(Species ~ ., data = iris)
 #' pred <- predict(fit, type = 'class')
-#' computeMultiClassMetrics(iris$Species, pred)
-computeMultiClassMetrics <- function(actual, predicted){
+#' computeClassificationMetricsByClass(iris$Species, pred)
+computeClassificationMetricsByClass <- function(actual, predicted){
   cm <- as.matrix(xtabs(~ actual + predicted))
 
   n = sum(cm) # number of instances
@@ -62,7 +62,7 @@ computeMultiClassMetrics <- function(actual, predicted){
 
 #' Classification Performance By Class
 #'
-#' @inheritParams computeMultiClassMetrics
+#' @inheritParams computeClassificationMetricsByClass
 #' @param cutoffs vector of breaks
 #' @export
 #' @examples
@@ -73,7 +73,7 @@ computeMultiClassMetrics <- function(actual, predicted){
 #'   pred = predict(fit1, type = 'class')
 #' ) %>%
 #'   fdPreview('Classification Performance Metrics')
-fdClassificationPerformance <- function(actual, predicted,
+computeClassificationPerformanceByClass <- function(actual, predicted,
     cutoffs = c(0, 0.6, 0.75, 1)){
   getStatus <- function(x, cutoffs){
     cut(x, cutoffs, c('danger', 'warning', 'success'))
@@ -86,15 +86,24 @@ fdClassificationPerformance <- function(actual, predicted,
       as.character(progressBar(x*100, getStatus(x, cutoffs)))
     }
   }
-  d2 <- computeMultiClassMetrics(actual, predicted)
+  d2 <- computeClassificationMetricsByClass(actual, predicted)
   d2$F1_Score = sapply(d2$F1_Score, getBar)
   d2$Precision = sapply(d2$Precision, getBar)
   d2$Recall = sapply(d2$Recall, getBar)
   d2$Accuracy = sapply(d2$Accuracy, getBar)
-  d2 %>% fdSimpleTable
+  return(d2)
 }
 
-#' Compute performance metrics for a regression model
+#' @rdname computeClassificationMetrics
+#' @inheritParams computeClassificationPerformanceByClass
+#' @export
+fdClassificationPerformance <- function(actual, predicted,  
+    cutoffs = c(0, 0.6, 0.75, 1)){
+  computeClassificationPerformanceByClass(actual, predicted, cutoffs) %>%
+    fdSimpleTable
+}
+
+#' Compute metrics to evaluate performance of a classification model.
 #'
 #' @param actual vector of actual values
 #' @param predicted vector of predicted values
@@ -110,10 +119,10 @@ fdClassificationPerformance <- function(actual, predicted,
 #'   predicted = predict(fit, type = 'class')
 #' )
 computeClassificationMetrics <- function(actual, predicted,
-   metrics = c("Accuracy", "Recall", "Precision", "F1_Score")){
+   metrics = c("Precision", "Recall", "F1_Score", "Accuracy")){
   d <- plyr::ldply(metrics, function(f){
     fn = getFromNamespace(f, 'MLmetrics')
-    value = fn(predicted, actual)
+    value = fn(y_pred = predicted, y_true = actual)
     data.frame(Abbreviation = f, Value = value)
   })
   defn <- read.csv(
