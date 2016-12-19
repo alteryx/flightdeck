@@ -13,7 +13,7 @@ lib.file <- function(x){
 }
 
 # Add dashboard dependencies to a tag object
-addDeps <- function(x) {
+addDeps <- function(x, theme) {
   dashboardDeps <- list(
     htmlDependency("jquery", '2.2.3',
       c(file = lib.file('jquery')),
@@ -24,10 +24,14 @@ addDeps <- function(x) {
       script = "js/bootstrap.min.js",
       stylesheet = 'css/bootstrap.min.css'
     ),
+    htmlDependency("bootbox", '4.4.0',
+      c(file = lib.file('bootbox')),
+      script = "bootbox.min.js"
+    ),
     htmlDependency("AdminLTE", "2.3.7",
       c(file = lib.file("AdminLTE")),
       script = 'js/app.min.js',
-      stylesheet = c('css/AdminLTEAyx.css', 'css/skins/skin-alteryx.css')
+      stylesheet = c('css/AdminLTEAyx.css', sprintf('css/skins/%s.css', theme))
     ),
     htmlDependency("flightdeck", "0.1.0",
       c(file = lib.file("flightdeck")),
