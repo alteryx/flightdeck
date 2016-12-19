@@ -1,6 +1,6 @@
 Package: flightdeck
 Title: Interactive Dashboards for Predictive Models
-Version: 0.1
+Version: 0.2
 Authors@R: c(
     person("Ramnath", "Vaidyanathan", role = c("aut", "cre"), email = "ramnath@alteryx.com"),
     person("Alteryx", role = c("cph", "fnd"))
@@ -27,3 +27,5 @@ Suggests:
   rmarkdown,
   AlteryxRviz
 VignetteBuilder: knitr
+URL: https://github.com/alteryx/flightdeck
+BugReports: https://github.com/alteryx/flightdeck/issues
