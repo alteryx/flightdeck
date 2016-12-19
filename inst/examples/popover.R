@@ -1,6 +1,12 @@
 library(flightdeck)
 library(htmltools)
-title <- fdTitleWithPopover('Hello', note = 'This is to say hello')
+title <- span('Hello', 
+  fdIcon('info-circle') %>%
+    fdPopover(
+      message = 'Welcome to flighdeck! The best dashboarding package ever.', 
+      title = 'Hello'
+    )
+)
 fdBox(
     p("This is a really cool thing..."),
     title = title,

@@ -1,15 +1,16 @@
+library(htmltools)
 myMenu <- fdDropdownMenu(type = "messages",
-  messageItem(
+  fdMessage(
     from = "Sales Dept",
     message = "Sales are steady this month."
   ),
-  messageItem(
+  fdMessage(
     from = "New User",
     message = "How do I register?",
     icon = fdIcon("question"),
     time = "13:45"
   ),
-  messageItem(
+  fdMessage(
     from = "Support",
     message = "The new server is ready.",
     icon = fdIcon("life-ring"),
@@ -19,22 +20,27 @@ myMenu <- fdDropdownMenu(type = "messages",
 
 
 myNotifications <- fdDropdownMenu(type = "notifications",
-  fdNotificationItem(
+  fdNotification(
     text = "5 new users today",
-    fdIcon("users")
+    icon = fdIcon("users")
   ),
-  fdNotificationItem(
+  fdNotification(
     text = "12 items delivered",
-    fdIcon("truck"),
+    icon = fdIcon("truck"),
     status = "success"
   ),
-  fdNotificationItem(
+  fdNotification(
     text = "Server load at 86%",
     icon = fdIcon("exclamation-triangle"),
     status = "warning"
   )
 )
+myHeader <- tagList(myMenu, myNotifications)
 
-fdBoard(
-  fdHeader(myMenu, myNotifications), fdSidebar(), fdBody()
-)
+if (interactive()){
+  fdBoard(
+    fdHeader(title = 'Header Menu', myHeader), 
+    fdSidebar(), 
+    fdBody()
+  )
+}
