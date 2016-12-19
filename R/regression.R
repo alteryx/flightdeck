@@ -1,20 +1,22 @@
-#' Compute performance metrics for a regression model
+#' Compute metrics to evaluate performance of a regression model.
 #'
-#' @param actual vector of actual values
-#' @param predicted vector of predicted values
-#' @param metrics vector of metrics to compute. See \code{\link{MLmetrics}} for list
-#'   of potential metrics
+#' @param actual vector of actual values.
+#' @param predicted vector of predicted values.
+#' @param metrics vector of metrics to compute. See \code{\link{MLmetrics}} for
+#'   a complete list of metrics that can be used
 #' @import plyr MLmetrics
 #' @export
 #' @examples 
 #' mod <- lm(mpg ~ ., data = mtcars)
 #' pred <- predict(mod)
 #' computeRegressionMetrics(mtcars$mpg, pred)
+# TODOS: 
+# 1. add an extra argument to let user customize definitions file.
 computeRegressionMetrics <- function(actual, predicted,
    metrics = c("MAE", "MAPE", "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score")){
   d <- plyr::ldply(metrics, function(f){
     fn <- getFromNamespace(f, 'MLmetrics')
-    value = fn(predicted, actual)
+    value = fn(y_pred = predicted, y_true = actual)
     data.frame(Abbreviation = f, Value = value)
   })
   defn <- read.csv(
@@ -44,6 +46,14 @@ fdRegressionMetricsTable <- function(actual, predicted,
     fdStat(d$Abbreviation, d$Value, note = d$Metric,
       showBar = d$Abbreviation %in% percentBars
     )
+  })
+  do.call(tagList, l)
+}
+
+#' @export
+fdMetricsPanel <- function(x){
+  l <- plyr::alply(x, 1, function(d){
+    fdStat(d$Abbreviation, d$Value, note = d$Metric, showBar = d$Scaled == "Yes")
   })
   do.call(tagList, l)
 }
