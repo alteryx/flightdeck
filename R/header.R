@@ -9,7 +9,7 @@
 #'   format. This is useful when the elements going into the header are
 #'   programatically generated using \code{lapply} calls
 #' @export
-#' @example inst/examples/header.R
+#' @example inst/examples/fdHeader.R
 fdHeader <- function(..., title = NULL, miniTitle = NULL, .list = NULL) {
   items <- c(list(...), .list)
   tags$header(class = "main-header",
