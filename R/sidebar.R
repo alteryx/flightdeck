@@ -12,7 +12,7 @@ fdSidebar <- function(...) {
   )
 }
 
-#' Sidebar menu
+#' Create a menu in the sidebar
 #' 
 #' 
 #' This creates a sidebar menu which mainly consists of

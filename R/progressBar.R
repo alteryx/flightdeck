@@ -1,6 +1,4 @@
 #' Progress Bar
-#'
-#' @export
 progressBar <- function(pct, status = 'success', showText = TRUE){
   div(class = 'progress',
     div(

@@ -1,4 +1,4 @@
-#' Add a modal, popover or tooltip
+#' Create a modal, popover or tooltip
 #' 
 #' 
 #' This functions lets the user add a modal, popover or tooltip to a html

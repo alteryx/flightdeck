@@ -1,4 +1,4 @@
-#' Create a box.
+#' Create a box
 #'
 #' Boxes can be used to hold content in the main body of a dashboard.
 #'

@@ -31,7 +31,7 @@ computeRegressionMetrics <- function(actual, predicted,
   merge(defn, d)
 }
 
-#' Panel dispalying scatterplot of actual vs. predicted for a regression model.
+#' Dispaly scatterplot of actual vs. predicted values for a regression model.
 #' 
 #' @param actual vector of actual values
 #' @param predicted vector of predicted values
@@ -80,7 +80,7 @@ fdPanelRegressionScatterplot <- function(actual, predicted){
   fdPlotly(data, layout, config)
 }
 
-#' Displaying model residuals for a regression model.
+#' Displaying model residuals for a regression model
 #'
 #' @param mod model object
 #' @export

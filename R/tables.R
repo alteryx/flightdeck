@@ -26,7 +26,7 @@ fdTable <- function(..., class = 'table table-striped'){
 }
 
 
-#' Panel displaying regression coefficients
+#' Displaying regression coefficients
 #'
 #'
 #' @param mod model object
@@ -87,7 +87,7 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue'){
     )
 }
 
-#' Panel displaying variable importance.
+#' Displaying variable importance
 #'
 #' @inheritParams fdPanelCoefficients
 #' @import DT
@@ -150,15 +150,7 @@ fdStat <- function(name, value, color = 'green', note = name, pct = value*100,
   )
 }
 
-#' Interactive table of regression coefficients
-#'
-#'
-#' @param coefTable tidy table
-#' @param digits number of digits to display
-#' @param barColor bar color
-#' @rdname fdCoefTable
-#' @inheritParams fdCoefTable
-#' @export
+# Interactive table of regression coefficients
 fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
   names(coefTable) <- c('Term', 'Estimate', 'Std. Error', 'Statistic', 'P Value')
   coefTable$Impact <- abs(coefTable$Estimate)

@@ -1,4 +1,4 @@
-#' Render dashboard in Alteryx Composer
+#' Render a dashboard in Alteryx.
 #'
 #' @param x an object of class htmlwidget or shiny.tag.
 #' @param libdir directory to copy js/css dependencies to.
