@@ -7,8 +7,8 @@
 \usage{
 fdClassificationPerformance(actual, predicted, cutoffs = c(0, 0.6, 0.75, 1))
 
-computeClassificationMetrics(actual, predicted, metrics = c("Accuracy",
-  "Recall", "Precision", "F1_Score"))
+computeClassificationMetrics(actual, predicted, metrics = c("Precision",
+  "Recall", "F1_Score", "Accuracy"))
 }
 \arguments{
 \item{actual}{vector of actual values}

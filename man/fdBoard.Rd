@@ -4,7 +4,7 @@
 \alias{fdBoard}
 \title{Dashboard}
 \usage{
-fdBoard(header, sidebar, body)
+fdBoard(header, sidebar, body, theme = "skin-blue-light")
 }
 \arguments{
 \item{header}{A header created by \code{fdHeader}.}
@@ -12,16 +12,31 @@ fdBoard(header, sidebar, body)
 \item{sidebar}{A sidebar created by \code{fdSidebar}.}
 
 \item{body}{A body created by \code{fdBody}.}
+
+\item{theme}{A string indicating theme to use for the dashboard.}
 }
 \description{
 This creates a dashboard.
 }
 \examples{
-library(flightdeck)
-fdBoard(
-  fdHeader(title = 'My Board'),
-  fdSidebar(),
-  fdBody()
-)
+#' Example 1
+if (interactive()){
+  fdBoard(
+    fdHeader(),
+    fdSidebar(),
+    fdBody()
+  ) 
+}
+
+#' Example 2
+if (interactive()){
+  fdBoard(
+    fdHeader(title = 'My Board'),
+    fdSidebar(),
+    fdBody(
+      h3("Hello World!")
+    )
+  ) 
+}
 }
 
