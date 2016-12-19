@@ -7,14 +7,17 @@
 fdHeader(..., title = NULL, miniTitle = NULL, .list = NULL)
 }
 \arguments{
-\item{...}{Items to put in the header.}
+\item{...}{Elements to in the dashboard header.}
 
-\item{title}{The title to show in the header bar.}
+\item{title}{The title to display in the header bar.}
 
-\item{miniTitle}{The title to show in the header bar when sidebar is collapsed.}
+\item{miniTitle}{The title to display in the header bar when the sidebar is
+collapsed.}
 
-\item{.list}{An optional list containing items to put in the header. Same as
-the \code{...} arguments, but in list format.}
+\item{.list}{An optional list containing elements to put in the header. These
+are the identical to the \code{...} arguments, but provided in a list
+format. This is useful when the elements going into the header are
+programatically generated using \code{lapply} calls}
 }
 \description{
 Dashboard header
