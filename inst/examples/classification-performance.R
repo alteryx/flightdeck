@@ -1,5 +1,5 @@
 library(flightdeck)
-
+library(htmltools)
 #' Example 1
 fit <- rpart::rpart(Species ~ ., data = iris)
 pred <- predict(fit, type = 'class')
@@ -19,7 +19,7 @@ fdClassificationPerformance(
   actual = iris$Species,
   pred = predict(fit, type = 'class')
 ) %>%
-  fdPreview(title = 'Classification Performance', wrapBox = T, tour)
+  fdPreviewBoard(title = 'Classification Performance', wrapBox = T, tour)
 
 
 #' Example 2
@@ -29,13 +29,21 @@ logreg <- glm(formula = vs ~ hp + wt, family = binomial(link = "logit"),
 pred <- ifelse(logreg$fitted.values < 0.5, 0, 1)
 
 fdClassificationPerformance(mtcars$vs, pred) %>%
-  fdPreview(
-    fdTitleWithPopover(
-      'Classification Performance Metrics',
-      note = 'This is a help note'
+  fdPreviewBoard(title = span(
+     'Classification Performance Metrics',
+     fdIcon('info-sign') %>% fdPopover('This is a popover')
     )
   )
 
+
+fdBox(
+  title = span(
+    'Classification Performance Metrics', 
+    fdIcon('info-circle') %>% fdPopover(message = 'This is a popover', title = 'Hi')
+  ),
+  fdClassificationPerformance(mtcars$vs, pred)
+) %>%
+  fdPreview(wrapBox = F)
 
 
 

@@ -24,8 +24,9 @@ notes <- c(
   'Proportion of correct predictions in the data'
 )
 
+x <- sparkline::sparkline(rnorm(5), type = 'bar')
 metricsNoBar <- tagList(
-  fdStat("Precision", 0.10, note = notes[1], showBar = F),
+  fdStat("Precision", HTML(x), note = notes[1], showBar = F),
   fdStat("Recall", 0.90, note = notes[2], showBar = F),
   fdStat("F1-Score", 0.95, note = notes[3], showBar = F),
   fdStat("Accuracy", 0.80, note = notes[4], showBar = F)
