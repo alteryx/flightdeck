@@ -26,7 +26,7 @@ fdTable <- function(..., class = 'table table-striped'){
 }
 
 
-#' Interactive table of regression coefficients
+#' Panel displaying regression coefficients
 #'
 #'
 #' @param mod model object
@@ -34,12 +34,8 @@ fdTable <- function(..., class = 'table table-striped'){
 #' @param barColor bar color
 #' @import DT
 #' @export
-#' @examples
-#' data(diamonds, package = 'ggplot2')
-#' lm(price ~ ., data = diamonds) %>%
-#'   fdCoefTable %>%
-#'   fdPreview
-fdCoefTable <- function(mod, digits = 3, barColor = 'steelblue'){
+#' @example inst/examples/fdPanelCoefficients.R
+fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue'){
   coefTable <- as.data.frame(summary(mod)$coef)
   coefTable$Impact <- abs(coefTable$Estimate)
 
@@ -96,12 +92,8 @@ fdCoefTable <- function(mod, digits = 3, barColor = 'steelblue'){
 #' @inheritParams fdCoefTable
 #' @import DT
 #' @export
-#' @examples
-#' library(rpart)
-#' data(ptitanic, package = 'rpart.plot')
-#' m1 <- rpart(survived ~ ., data = ptitanic)
-#' fdVariableImportanceTable(m1) %>% fdPreview
-fdVariableImportanceTable <- function(mod, digits = 2, barColor = 'steelblue'){
+#' @example inst/examples/fdPanelImportance.R
+fdPanelImportance <- function(mod, digits = 2, barColor = 'steelblue'){
   coefTable <- data.frame(
     Variable = names(mod$variable.importance),
     Impact = mod$variable.importance/sum(mod$variable.importance)
@@ -215,4 +207,16 @@ fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
       backgroundPosition = 'center',
       color = 'transparent'
     )
+}
+
+#' @export
+fdCoefTable <- function(mod, digits = 3, barColor = 'steelblue'){
+  .Deprecated('fdPanelCoefficients')
+  fdPanelCoefficients(mod, digits = digits, barColor = barColor)
+}
+
+#' @export
+fdVariableImportanceTable <- function(mod, digits = 3, barColor = 'steelblue'){
+  .Deprecated('fdPanelImportance')
+  fdPanelImportance(mod, digits = digits, barColor = barColor)
 }

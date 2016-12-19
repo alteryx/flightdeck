@@ -3,9 +3,12 @@
 #' @param mod model object
 #' @export
 #' @examples
+#' library(flightdeck)
 #' mod <- lm(mpg ~ ., data = mtcars)
-#' mod %>% fdResidualsPanel %>% fdPreview
-fdResidualsPanel <- function(mod, digits = 4){
+#' if (interactive()){
+#'   mod %>% fdPanelRegressionResiduals %>% fdPreview
+#' }
+fdPanelRegressionResiduals <- function(mod, digits = 4){
   res <- residuals(mod)
   residualSummary <- data.frame(
     Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
