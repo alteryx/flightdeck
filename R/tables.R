@@ -134,7 +134,7 @@ fdVariableImportanceTable <- function(mod, digits = 2, barColor = 'steelblue'){
 #' Display a statistic
 #'
 #' @export
-fdStat <- function(name, value, color = 'aqua', note = name, pct = value*100,
+fdStat <- function(name, value, color = 'green', note = name, pct = value*100,
     showBar = TRUE, digits = 4){
   div(class = 'progress-group',
     tags$div(class = 'progress-metrics',
@@ -156,4 +156,63 @@ fdStat <- function(name, value, color = 'aqua', note = name, pct = value*100,
       div(style='margin-bottom: 15px;')
     }
   )
+}
+
+#' Interactive table of regression coefficients
+#'
+#'
+#' @param coefTable tidy table
+#' @param digits number of digits to display
+#' @param barColor bar color
+#' @rdname fdCoefTable
+#' @inheritParams fdCoefTable
+#' @export
+fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
+  names(coefTable) <- c('Term', 'Estimate', 'Std. Error', 'Statistic', 'P Value')
+  coefTable$Impact <- abs(coefTable$Estimate)
+
+  add_star <- function(x){
+    paste(rep('&starf;', x), collapse = "")
+  }
+  coefTable$Confidence <-cut(
+    coefTable$`P Value`,
+    c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
+    c(add_star(3), add_star(2), add_star(1), "&#8226;", "")
+  )
+  coefTable <- coefTable[, c('Term', 'Estimate', 'Impact',
+    'Confidence', "Std. Error", "Statistic", "P Value"
+  )]
+  numericCols <- c('Estimate', 'Std. Error', 'Statistic', 'P Value')
+  coefTable[,numericCols] <- format(coefTable[,numericCols], digits = digits)
+  table1 <- datatable(
+    coefTable,
+    rownames = FALSE,
+    extensions = c('Buttons', 'Responsive'),
+    options = list(
+      dom = 'Bfrtip',
+      buttons = list(
+        list(
+          extend = 'colvis',
+          text = 'Display Advanced Statistics', columns =4:6
+        )
+      ),
+      columnDefs = list(
+        list(targets = 4:6, visible = F)
+      )
+    ),
+    style = 'bootstrap',
+    width = '100%',
+    height = if (NROW(coefTable) > 10) 550 else NULL,
+    class = c('stripe', 'hover', 'cell-border'),
+    escape = FALSE
+  )
+
+  table1 %>%
+    formatStyle('Impact',
+      background = styleColorBar(range(coefTable$Impact), barColor),
+      backgroundSize = '98% 88%',
+      backgroundRepeat = 'no-repeat',
+      backgroundPosition = 'center',
+      color = 'transparent'
+    )
 }
