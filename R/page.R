@@ -4,6 +4,7 @@
 #' @param header A header created by \code{fdHeader}.
 #' @param sidebar A sidebar created by \code{fdSidebar}.
 #' @param body A body created by \code{fdBody}.
+#' @param theme A string indicating theme to use for the dashboard.
 #' @export
 #' @family dashboard
 #' @import htmltools
@@ -14,10 +15,10 @@
 #'   fdSidebar(),
 #'   fdBody()
 #' )
-fdBoard <- function(header, sidebar, body){
+fdBoard <- function(header, sidebar, body, theme = 'skin-blue-light'){
   content <- div(class = "wrapper", header, sidebar, body)
-  dashboard <- tags$body(class='hold-transition skin-blue sidebar-mini', content)
-  addDeps(dashboard) %>% browsable
+  dashboard <- tags$body(class=paste('hold-transition sidebar-mini', theme), content)
+  addDeps(dashboard, theme) %>% browsable
 }
 
 
