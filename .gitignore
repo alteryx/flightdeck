@@ -25,3 +25,7 @@ vignettes/*.pdf
 *.knit.md
 .Rproj.user
 inst/doc
+vignettes
+docs
+inst/pkgdown
+_pkgdown.yml
