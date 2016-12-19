@@ -1,4 +1,4 @@
-#' Icon
+#' Create a font icon.
 #'
 #' @param name name of the icon
 #' @param class class to add

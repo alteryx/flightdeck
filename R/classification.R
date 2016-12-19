@@ -1,4 +1,4 @@
-#' Panel displaying classification model metrics
+#' Display performance metrics for a classification model
 #' 
 #' 
 #' @param actual vector of actual values
@@ -19,7 +19,7 @@ fdPanelClassificationMetrics <- function(actual, predicted,
   do.call(tagList, l)
 }
 
-#' Panel displaying classification model metrics by class
+#' Display performance metrics by class for a classification model
 #' 
 #' @param actual vector of actual classes.
 #' @param predicted vector of predicted classes.

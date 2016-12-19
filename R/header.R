@@ -1,4 +1,4 @@
-#' Dashboard header
+#' Create the header of the dashboard
 #'
 #' @param ... Elements to in the dashboard header.
 #' @param title The title to display in the header bar.
@@ -33,7 +33,7 @@ fdHeader <- function(..., title = NULL, miniTitle = NULL, .list = NULL) {
   )
 }
 
-#' Create a dropdown menu to place in a dashboard header
+#' Create a dropdown menu
 #'
 #' @param type The type of menu. Should be one of "messages", "notifications",
 #'   "tasks".
@@ -102,7 +102,7 @@ fdDropdownMenu <- function(...,
 
 }
 
-#' Create a message item to place in a dropdown message menu
+#' Create a message
 #'
 #' @param from Who the message is from.
 #' @param message Text of the message.
@@ -153,7 +153,7 @@ fdMessage <- function(from, message, icon = fdIcon("user"), time = NULL,
   )
 }
 
-#' Create a notification item to place in a dropdown notification menu
+#' Create a notification
 #'
 #' @param text The notification text.
 #' @param icon An icon tag, created by \code{\link{fdIcon}}.

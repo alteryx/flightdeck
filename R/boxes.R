@@ -1,4 +1,4 @@
-#' Create a box for the main body of a dashboard (copied over from shinydashboard)
+#' Create a box.
 #'
 #' Boxes can be used to hold content in the main body of a dashboard.
 #'
@@ -96,6 +96,7 @@ fdBox <- function(..., title = NULL, footer = NULL, status = NULL,
 #' Syntactic sugar for Box in a Row
 #'
 #' @inheritParams fdBox
+#' @rdname fdBox
 #' @export
 #' @family boxes
 fdRowBox <- function(..., title = NULL, footer = NULL, status = NULL,
@@ -108,7 +109,7 @@ fdRowBox <- function(..., title = NULL, footer = NULL, status = NULL,
   ))
 }
 
-#' Create a value box for the main body of a dashboard.
+#' Create a value box.
 #'
 #' A value box displays a value (usually a number) in large text, with a smaller
 #' subtitle beneath, and a large icon on the right side. Value boxes are meant
@@ -147,7 +148,7 @@ fdValueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
   )
 }
 
-#' Create an info box for the main body of a dashboard.
+#' Create an info box.
 #'
 #' An info box displays a large icon on the left side, and a title, value
 #' (usually a number), and an optional smaller subtitle on the right side. Info
