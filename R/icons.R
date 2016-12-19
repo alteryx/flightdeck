@@ -8,7 +8,8 @@ fdIcon <- function (name, class = NULL, lib = "font-awesome", ...){
   prefixes <- list(
     `font-awesome` = "fa",
     glyphicon = "glyphicon",
-    ionicons = 'ion'
+    ionicons = 'ion',
+    entypo = 'en'
   )
   prefix <- prefixes[[lib]]
   if (is.null(prefix)) {
@@ -35,13 +36,17 @@ fdIcon <- function (name, class = NULL, lib = "font-awesome", ...){
       stylesheet = 'css/ionicons.min.css'
     )
   }
+  if (lib == "entypo"){
+    htmlDependencies(iconTag) <- htmlDependency(
+      "Entypo", "2.0.1",
+      c(file = lib.file('entypo')),
+      stylesheet = 'entypo.css'
+    )
+  }
   iconTag
 }
 
-#' Icon with tooltip
-#'
-#' @inheritParams fdIcon
-#' @export
+# Icon with tooltip
 fdIconWithPopover <- function(name = 'info-sign', note = "", class = NULL,
    lib = "glyphicon"){
   fdIcon('info-sign', lib = lib,
@@ -53,12 +58,7 @@ fdIconWithPopover <- function(name = 'info-sign', note = "", class = NULL,
   )
 }
 
-#' Text with tooltip that has a popover
-#'
-#' @param title text of the title.
-#' @param note note to add to the popover.
-#' @inheritParams fdIconWithPopover
-#' @export
+# Text with tooltip that has a popover
 fdTitleWithPopover <- function(text, note = "", name = 'info-sign',
     class = NULL, lib = 'glyphicon', ...){
   tagList(
