@@ -2,7 +2,7 @@
 % Please edit documentation in R/icons.R
 \name{fdIcon}
 \alias{fdIcon}
-\title{Icon}
+\title{Create a font icon.}
 \usage{
 fdIcon(name, class = NULL, lib = "font-awesome", ...)
 }
@@ -14,6 +14,6 @@ fdIcon(name, class = NULL, lib = "font-awesome", ...)
 \item{lib}{font library to use}
 }
 \description{
-Icon
+Create a font icon.
 }
 

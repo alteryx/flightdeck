@@ -2,7 +2,7 @@
 % Please edit documentation in R/header.R
 \name{fdDropdownMenu}
 \alias{fdDropdownMenu}
-\title{Create a dropdown menu to place in a dashboard header}
+\title{Create a dropdown menu}
 \usage{
 fdDropdownMenu(..., type = c("messages", "notifications", "tasks"),
   badgeStatus = "primary", icon = NULL, .list = NULL)
@@ -30,7 +30,7 @@ with this argument.}
 with programmatically generated items.}
 }
 \description{
-Create a dropdown menu to place in a dashboard header
+Create a dropdown menu
 }
 \seealso{
 \code{\link{fdHeader}} for example usage.

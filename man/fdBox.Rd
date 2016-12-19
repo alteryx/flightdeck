@@ -2,12 +2,17 @@
 % Please edit documentation in R/boxes.R
 \name{fdBox}
 \alias{fdBox}
-\title{Create a box for the main body of a dashboard (copied over from shinydashboard)}
+\alias{fdRowBox}
+\title{Create a box.}
 \usage{
 fdBox(..., title = NULL, footer = NULL, status = NULL,
   solidHeader = FALSE, background = NULL, width = 6, height = NULL,
   collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL,
   extraHeader = NULL)
+
+fdRowBox(..., title = NULL, footer = NULL, status = NULL,
+  solidHeader = FALSE, background = NULL, width = 6, height = NULL,
+  collapsible = FALSE, collapsed = FALSE, extraBoxClass = NULL)
 }
 \arguments{
 \item{...}{Contents of the box.}
@@ -42,9 +47,14 @@ the user to collapse the box.}
 }
 \description{
 Boxes can be used to hold content in the main body of a dashboard.
+
+Syntactic sugar for Box in a Row
 }
 \seealso{
 Other boxes: \code{\link{fdInfoBox}},
-  \code{\link{fdRowBox}}, \code{\link{fdValueBox}}
+  \code{\link{fdValueBox}}
+
+Other boxes: \code{\link{fdInfoBox}},
+  \code{\link{fdValueBox}}
 }
 

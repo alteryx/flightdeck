@@ -2,7 +2,7 @@
 % Please edit documentation in R/sidebar.R
 \name{fdSidebar}
 \alias{fdSidebar}
-\title{Dashboard sidebar}
+\title{Create the sidebar of the dashboard.}
 \usage{
 fdSidebar(...)
 }

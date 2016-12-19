@@ -2,7 +2,7 @@
 % Please edit documentation in R/header.R
 \name{fdMessage}
 \alias{fdMessage}
-\title{Create a message item to place in a dropdown message menu}
+\title{Create a message}
 \usage{
 fdMessage(from, message, icon = fdIcon("user"), time = NULL, href = NULL)
 }
@@ -21,7 +21,7 @@ If NULL, no time will be displayed.}
 \item{href}{An optional URL to link to.}
 }
 \description{
-Create a message item to place in a dropdown message menu
+Create a message
 }
 \examples{
 myMenu <- fdDropdownMenu(type = "messages",

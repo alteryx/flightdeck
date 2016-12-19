@@ -2,7 +2,7 @@
 % Please edit documentation in R/header.R
 \name{fdHeader}
 \alias{fdHeader}
-\title{Dashboard header}
+\title{Create the header of the dashboard}
 \usage{
 fdHeader(..., title = NULL, miniTitle = NULL, .list = NULL)
 }
@@ -20,7 +20,7 @@ format. This is useful when the elements going into the header are
 programatically generated using \code{lapply} calls}
 }
 \description{
-Dashboard header
+Create the header of the dashboard
 }
 \examples{
 library(htmltools)

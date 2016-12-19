@@ -2,7 +2,7 @@
 % Please edit documentation in R/boxes.R
 \name{fdValueBox}
 \alias{fdValueBox}
-\title{Create a value box for the main body of a dashboard.}
+\title{Create a value box.}
 \usage{
 fdValueBox(value, subtitle, icon = NULL, color = "aqua", width = 4,
   href = NULL)
@@ -33,7 +33,6 @@ to be placed in the main body of a dashboard.
 \seealso{
 \code{\link{fdBox}} for usage examples.
 
-Other boxes: \code{\link{fdBox}}, \code{\link{fdInfoBox}},
-  \code{\link{fdRowBox}}
+Other boxes: \code{\link{fdBox}}, \code{\link{fdInfoBox}}
 }
 

@@ -3,7 +3,7 @@
 \name{fdPanelClassificationMetricsByClass}
 \alias{computeClassificationMetricsByClass}
 \alias{fdPanelClassificationMetricsByClass}
-\title{Panel displaying classification model metrics by class}
+\title{Display performance metrics by class for a classification model}
 \usage{
 fdPanelClassificationMetricsByClass(actual, predicted, vertical = TRUE,
   cutoffs = c(0, 0.6, 0.75, 1))
@@ -20,7 +20,7 @@ computeClassificationMetricsByClass(actual, predicted, vertical = TRUE)
 \item{cutoffs}{vector of cutoffs to use for deciding bar colors.}
 }
 \description{
-Panel displaying classification model metrics by class
+Display performance metrics by class for a classification model
 }
 \examples{
 library(rpart)

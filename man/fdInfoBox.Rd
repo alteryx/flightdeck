@@ -2,7 +2,7 @@
 % Please edit documentation in R/boxes.R
 \name{fdInfoBox}
 \alias{fdInfoBox}
-\title{Create an info box for the main body of a dashboard.}
+\title{Create an info box.}
 \usage{
 fdInfoBox(title, value = NULL, subtitle = NULL,
   icon = fdIcon("bar-chart"), color = "aqua", width = 4, href = NULL,
@@ -49,7 +49,6 @@ tagList(
 \seealso{
 \code{\link{fdBox}} for usage examples.
 
-Other boxes: \code{\link{fdBox}}, \code{\link{fdRowBox}},
-  \code{\link{fdValueBox}}
+Other boxes: \code{\link{fdBox}}, \code{\link{fdValueBox}}
 }
 

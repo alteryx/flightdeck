@@ -3,7 +3,7 @@
 \name{fdPanelClassificationMetrics}
 \alias{computeClassificationMetrics}
 \alias{fdPanelClassificationMetrics}
-\title{Panel displaying classification model metrics}
+\title{Display performance metrics for a classification model}
 \usage{
 fdPanelClassificationMetrics(actual, predicted, metrics = c("Accuracy",
   "Recall", "Precision", "F1_Score"))
@@ -20,7 +20,7 @@ computeClassificationMetrics(actual, predicted, metrics = c("Precision",
 of potential metrics}
 }
 \description{
-Panel displaying classification model metrics
+Display performance metrics for a classification model
 }
 \examples{
 library(rpart)

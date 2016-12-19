@@ -2,7 +2,7 @@
 % Please edit documentation in R/header.R
 \name{fdNotification}
 \alias{fdNotification}
-\title{Create a notification item to place in a dropdown notification menu}
+\title{Create a notification}
 \usage{
 fdNotification(text, icon = fdicon("warning"), status = "success",
   href = NULL)
@@ -18,7 +18,7 @@ color. Valid statuses are listed in \link{validStatuses}.}
 \item{href}{An optional URL to link to.}
 }
 \description{
-Create a notification item to place in a dropdown notification menu
+Create a notification
 }
 \seealso{
 Other menu items: \code{\link{fdMessage}}

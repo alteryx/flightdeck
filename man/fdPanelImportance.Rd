@@ -2,12 +2,19 @@
 % Please edit documentation in R/tables.R
 \name{fdPanelImportance}
 \alias{fdPanelImportance}
-\title{Interactive variable importance table}
+\title{Panel displaying variable importance.}
 \usage{
 fdPanelImportance(mod, digits = 2, barColor = "steelblue")
 }
+\arguments{
+\item{mod}{model object}
+
+\item{digits}{number of digits to display}
+
+\item{barColor}{bar color}
+}
 \description{
-Interactive variable importance table
+Panel displaying variable importance.
 }
 \examples{
 library(rpart)
