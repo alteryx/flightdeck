@@ -1,4 +1,4 @@
-#' Dashboard sidebar
+#' Create the sidebar of the dashboard.
 #'
 #'
 #' This creates a sidebar for the dashboard
