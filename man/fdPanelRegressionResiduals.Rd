@@ -2,7 +2,7 @@
 % Please edit documentation in R/regression.R
 \name{fdPanelRegressionResiduals}
 \alias{fdPanelRegressionResiduals}
-\title{Displaying model residuals for a regression model.}
+\title{Displaying model residuals for a regression model}
 \usage{
 fdPanelRegressionResiduals(mod, digits = 4)
 }
@@ -10,7 +10,7 @@ fdPanelRegressionResiduals(mod, digits = 4)
 \item{mod}{model object}
 }
 \description{
-Displaying model residuals for a regression model.
+Displaying model residuals for a regression model
 }
 \examples{
 library(flightdeck)

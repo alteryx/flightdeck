@@ -1,6 +1,8 @@
-#' Create a simple html table
+#' Create a table
 #'
-#'
+#' @details 
+#' The \code{\link{fdTable}} function is just syntactic sugar for
+#' \code{\link{fdSimpleTable}}
 #' @param x data frame to be displayed as a html table
 #' @export
 #' @examples
@@ -16,10 +18,10 @@ fdSimpleTable <- function(x, class = 'table table-striped'){
   )
 }
 
-#' Syntactic sugar to create a html table from a list of columns
-#'
+
+#' @inheritParams fdSimpleTable
 #' @param ... columns for the table.
-#' @param class css calss for table.
+#' @rdname fdSimpleTable
 #' @export
 fdTable <- function(..., class = 'table table-striped'){
   fdSimpleTable(data.frame(...))

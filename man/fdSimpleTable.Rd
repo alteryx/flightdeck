@@ -2,15 +2,24 @@
 % Please edit documentation in R/tables.R
 \name{fdSimpleTable}
 \alias{fdSimpleTable}
-\title{Create a simple html table}
+\alias{fdTable}
+\title{Create a table}
 \usage{
 fdSimpleTable(x, class = "table table-striped")
+
+fdTable(..., class = "table table-striped")
 }
 \arguments{
 \item{x}{data frame to be displayed as a html table}
+
+\item{...}{columns for the table.}
 }
 \description{
-Create a simple html table
+Create a table
+}
+\details{
+The \code{\link{fdTable}} function is just syntactic sugar for
+\code{\link{fdSimpleTable}}
 }
 \examples{
 fdSimpleTable(mtcars) \%>\% fdPreview
