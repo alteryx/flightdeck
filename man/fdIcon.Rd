@@ -9,9 +9,10 @@ fdIcon(name, class = NULL, lib = "font-awesome", ...)
 \arguments{
 \item{name}{name of the icon}
 
-\item{class}{class to add}
+\item{class}{\link[=http://www.w3schools.com/tags/att_global_class.asp]{class} attribute
+to add. See details for an example.}
 
-\item{lib}{font library to use}
+\item{lib}{font library to use. See details.}
 }
 \description{
 Create a font icon.
@@ -22,6 +23,11 @@ can be found on the pages listed below. The name to pass to \code{\link{fdIcon}}
 should be devoid of any of the suffixes used. For example to use a glyphicon
 named \code{glyphicon glyphicon-asterisk}, you would use the name
 \code{asterisk} and set \code{lib} to \code{glyphicon}.
+
+You can use the \code{class} argument to add extra classes to the icon. This
+is useful when you want to drive behavior. For example an icon marked with
+the class \code{popover} could display a help note on being clicked.
+
 \itemize{
   \item font-awesome \url{http://fontawesome.io/icons/}
   \item glyphicon \url{http://fontello.github.io/entypo/demo.html}

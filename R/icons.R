@@ -1,8 +1,10 @@
 #' Create a font icon.
 #'
 #' @param name name of the icon
-#' @param class class to add
-#' @param lib font library to use
+#' @param class
+#'   \link[=http://www.w3schools.com/tags/att_global_class.asp]{class} attribute
+#'   to add. See details for an example.
+#' @param lib font library to use. See details.
 #' @export
 #' @details 
 #' This function supports four font libraries at present. A detailed list of fonts
@@ -10,6 +12,11 @@
 #' should be devoid of any of the suffixes used. For example to use a glyphicon
 #' named \code{glyphicon glyphicon-asterisk}, you would use the name
 #' \code{asterisk} and set \code{lib} to \code{glyphicon}.
+#' 
+#' You can use the \code{class} argument to add extra classes to the icon. This
+#' is useful when you want to drive behavior. For example an icon marked with
+#' the class \code{popover} could display a help note on being clicked.
+#' 
 #' \itemize{
 #'   \item font-awesome \url{http://fontawesome.io/icons/}
 #'   \item glyphicon \url{http://fontello.github.io/entypo/demo.html}

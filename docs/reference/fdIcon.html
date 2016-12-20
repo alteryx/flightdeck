@@ -91,9 +91,10 @@
       <dt>name</dt>
       <dd>name of the icon</dd>
       <dt>class</dt>
-      <dd>class to add</dd>
+      <dd>class attribute
+to add. See details for an example.</dd>
       <dt>lib</dt>
-      <dd>font library to use</dd>
+      <dd>font library to use. See details.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -102,8 +103,11 @@
 can be found on the pages listed below. The name to pass to <code>fdIcon</code>
 should be devoid of any of the suffixes used. For example to use a glyphicon
 named <code>glyphicon glyphicon-asterisk</code>, you would use the name
-<code>asterisk</code> and set <code>lib</code> to <code>glyphicon</code>.
-<ul>
+<code>asterisk</code> and set <code>lib</code> to <code>glyphicon</code>.</p>
+    <p>You can use the <code>class</code> argument to add extra classes to the icon. This
+is useful when you want to drive behavior. For example an icon marked with
+the class <code>popover</code> could display a help note on being clicked.</p>
+    <p><ul>
 <li> font-awesome <a href = 'http://fontawesome.io/icons/'>http://fontawesome.io/icons/</a>
   </li>
 <li> glyphicon <a href = 'http://fontello.github.io/entypo/demo.html'>http://fontello.github.io/entypo/demo.html</a>
