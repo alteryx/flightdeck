@@ -41,7 +41,7 @@ fdPreview <- function(widget, title = deparse(substitute(widget)),
 fdPreviewBoard <- function(widget, title = deparse(substitute(widget)), 
     wrap = 'rowbox', ...,  wrapBox = NULL){
   if (title[1] == ".") title = "Preview"
-  if (!is.null(wrapBox) && !wrapBox) wrap = 'row'
+  if (!is.null(wrapBox) && !wrapBox) wrap <- 'row'
   if (wrap == 'rowbox' || wrap == 'box'){
     widget <- fdBox(width = 12, title = title, widget, solidHeader = TRUE)
   }
@@ -62,7 +62,6 @@ fdPreviewBoard <- function(widget, title = deparse(substitute(widget)),
         .dataTables_filter{margin-bottom: 10px;}")
     )
   )
-  html
   if (isTRUE(getOption('knitr.in.progress'))){
     html
   } else {
