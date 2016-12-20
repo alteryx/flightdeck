@@ -44,7 +44,7 @@ row1 <- fdRow(
     color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
 )
 
-row2 <- fdRow(fdBox(fdCoefTable(mod), width = 12))
+row2 <- fdRow(fdBox(fdPanelCoefficients(mod), width = 12))
 
 page1 <- fdPage(row1, row2, id = 'page1', display = TRUE)
 
