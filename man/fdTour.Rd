@@ -43,6 +43,6 @@ tour = fdTour(list(
 
 
 fdPanelClassificationMetrics(actual, predicted) \%>\%
-  fdPreviewBoard(title = 'Classification Performance', wrapBox = T, tour)
+  fdPreviewBoard(title = 'Classification Performance', tour, wrap = 'rowbox')
 }
 
