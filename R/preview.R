@@ -16,8 +16,8 @@
 #' library(flightdeck)
 #' fdSimpleTable(mtcars) %>% fdPreview(title = 'Simple Table')
 #' fdSimpleTable(mtcars) %>% fdPreviewBoard(title = 'Simple Table')
-fdPreview <- function(widget, title = deparse(substitute(widget)), wrap = 'rowbox', 
-    wrapBox = NULL, ...){
+fdPreview <- function(widget, title = deparse(substitute(widget)), 
+    wrap = 'rowbox', ..., wrapBox = NULL){
   if (title[1] == ".") title = "Preview"
   if (!is.null(wrapBox) && !wrapBox) wrap = 'row'
   if (wrap == 'rowbox' || wrap == 'box'){
@@ -39,7 +39,7 @@ fdPreview <- function(widget, title = deparse(substitute(widget)), wrap = 'rowbo
 #' @inheritParams fdPreview
 #' @export
 fdPreviewBoard <- function(widget, title = deparse(substitute(widget)), 
-    wrap = 'rowbox', wrapBox = NULL, ...){
+    wrap = 'rowbox', ...,  wrapBox = NULL){
   if (title[1] == ".") title = "Preview"
   if (!is.null(wrapBox) && !wrapBox) wrap = 'row'
   if (wrap == 'rowbox' || wrap == 'box'){

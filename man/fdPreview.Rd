@@ -5,11 +5,11 @@
 \alias{fdPreviewBoard}
 \title{Preview a widget in the dashboard.}
 \usage{
-fdPreview(widget, title = deparse(substitute(widget)), wrap = "rowbox",
-  wrapBox = NULL, ...)
+fdPreview(widget, title = deparse(substitute(widget)), wrap = "rowbox", ...,
+  wrapBox = NULL)
 
 fdPreviewBoard(widget, title = deparse(substitute(widget)), wrap = "rowbox",
-  wrapBox = NULL, ...)
+  ..., wrapBox = NULL)
 }
 \arguments{
 \item{widget}{widget to preview}
@@ -20,9 +20,9 @@ fdPreviewBoard(widget, title = deparse(substitute(widget)), wrap = "rowbox",
 'box', 'rowbox' or 'none'
 \code{\link{fdRowBox}}}
 
-\item{wrapBox}{boolean indicating if we should set wrap = 'rowbox'}
-
 \item{...}{additional elements to pass to \code{\link{fdBody}}.}
+
+\item{wrapBox}{boolean indicating if we should set wrap = 'rowbox'}
 }
 \description{
 This function helps preview a widget in the dashboard with or without the
