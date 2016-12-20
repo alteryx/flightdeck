@@ -1,0 +1,69 @@
+authors:
+  Ramnath Vaidyanathan:
+    href: http://ramnathv.github.io
+  Alteryx:
+    href: https://www.alteryx.com
+    html: <img src="http://16315-presscdn-0-27.pagely.netdna-cdn.com/wp-content/uploads/2015/07/alteryx.jpg" height="24" />
+navbar:
+  title: "FlightDeck"
+  type: inverse
+  left:
+    - text: Introduction
+      href: articles/introduction.html
+    - text: Tutorial
+      href: articles/tutorial.html
+    - text: Reference
+      href: reference/index.html
+template:
+  path: "inst/pkgdown/templates"
+  default_assets: true
+  params:
+    bootswatch: yeti
+reference:
+  - title: Dashboard
+    desc: >
+      These functions help pull together the dashboard.
+    contents: 
+      - fdBoard
+      - fdHeader
+      - fdSidebar
+      - fdSidebarMenu
+      - fdBody
+      - fdPage
+  - title: Layout
+    desc: >
+      These functions help lay out the different panels in the dashboard.
+    contents:
+      - fdBox
+      - fdRow
+      - fdColumn
+  - title: Panels
+    desc: >
+      These functions help create panels displaying various model outputs.
+    contents: 
+      - starts_with('fdPanel')
+  - title: Widgets
+    desc: >
+      These functions help create widgets which can be composed into panels. 
+    contents:
+      - fdPlotly
+      - fdSimpleTable
+      - fdIcon
+      - fdValueBox
+      - fdInfoBox
+      - fdMessage
+      - fdNotification
+      - fdMessage
+      - fdModal
+      - fdDropdownMenu
+      - fdStat
+      - fdTour
+  - title: Render
+    desc: >
+      These functions help preview a widget.
+    contents:
+      - fdPreview
+      - fdPreviewBoard
+      - fdRender
+
+
