@@ -1,12 +1,18 @@
 ## Interactive Dashboards for Predictive Models
 
-__flightdeck__ is an R package designed to make it easy to create interactive dashboards for reporting outputs of predictive models.
+__FlightDeck__ is an R package designed to make it easy to create interactive dashboards for reporting outputs of predictive models.
 
 ## Installation
 
-flightdeck is not currently available from CRAN, but you can install the development version from github with:
+__FlighDdeck__ is not currently available from CRAN, and is under acive development. You can install a stable binary from https://alteryx.github.io/drat or the development version from github.
 
 ```r
+# Install stable binary...
+install.packages("flightdeck", 
+  repos = c(getOption('repos'), alteryx = 'https://alteryx.github.io/drat')
+)
+
+# ... or development version from github using devtools.
 devtools::install_github('alteryx/flightdeck')
 ```
 
