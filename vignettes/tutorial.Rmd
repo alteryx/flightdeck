@@ -1,0 +1,146 @@
+---
+title: "Building a Dashboard"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r cache = F, echo = F}
+knitr::opts_chunk$set(eval = F)
+library(flightdeck)
+```
+
+
+Let us start by building a simple linear regression model.
+
+```{r eval = TRUE}
+mod <- lm(mpg ~ ., data = mtcars)
+actual <- mtcars$mpg
+predicted <- predict(mod)
+summary(mod)
+```
+
+We first want to build a single page that showcases the summary of the model, which consists of the coefficient table and the important summary metrics. Accordingly, we want the first row of the dashboard to display three panels, each housing a summary statistic.
+
+```{r}
+statPanel <- fdRow(
+  fdInfoBox('Adjusted R-squared', '80.7%', 
+    color = 'blue', icon = fdIcon('chart-line', lib = 'entypo')),
+  fdInfoBox('F-Statistic', 13.93,  'on 10 and 21 degrees of freedom', 
+    color = 'green', icon = fdIcon('star', lib = 'entypo')),
+  fdInfoBox('Residual Standard Error', 2.65, 'on 21 degrees of freedom', 
+    color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
+)
+statPanel %>% fdPreview(wrap = 'none')
+```
+
+<div class='figure'>
+  <img src='http://imgur.com/hfIKfkG.png' width='90%' />
+</div>
+
+
+We want the second row of the page to display an interactive table of regression coefficients.
+
+```{r}
+coefPanel <- fdRowBox(fdPanelCoefficients(mod), width = 12)
+coefPanel %>% fdPreview(wrap = 'none')
+```
+
+<div class='figure'>
+  <img src='http://imgur.com/k7HZhkb.png' width='90%' />
+</div>
+
+We can put together these two rows into a page and display it.
+
+
+```{r}
+summaryPage <- fdPage(statPanel, coefPanel, id = 'summary-page', display = TRUE)
+
+fdBoard(
+  fdHeader(title = 'Linear Regression'),
+  fdSidebar(),
+  fdBody(summaryPage)
+)
+```
+
+<div class='figure'>
+  <img src='http://imgur.com/WkErKGq.png' width='90%' />
+</div>
+
+We now want another page that summarizes the model performance in more detail. This is usually done using the following three components
+
+1. Scatterplot of Actual vs. Predicted Values.
+2. Performance Measures (MAE, MAPE etc).
+3. Histogram of Model Residuals
+
+`flightdeck` supports these panels out of the box.
+
+```{r}
+myRegScatter <- fdPanelRegressionScatterplot(actual, predicted)
+myRegPerformance <- fdPanelRegressionMetrics(actual, predicted)
+myRegResiduals <- fdPanelRegressionResiduals(mod) 
+```
+
+Let us now put together these panels into a page.
+
+```{r}
+performancePanel <- fdRowBox(width = 12, title = 'Model Performance',
+  fdColumn(8, myRegScatter),
+  fdColumn(4, myRegPerformance)
+)
+residualsPanel <- fdRowBox(width = 12, myRegResiduals, title = 'Residuals')
+performancePage <- fdPage(
+  performancePanel, residualsPanel, id = 'performance-page', display = TRUE
+)
+fdBoard(
+  fdHeader(title = 'Linear Regression'),
+  fdSidebar(),
+  fdBody(performancePage)
+)
+```
+
+<div class='figure'>
+  <img src='http://imgur.com/47Uj7eH.png' width='90%' />
+</div>
+
+
+Let us now put together these two pages. We will need to build a sidebar so that a user can switch between these two pages with ease.
+
+```{r}
+sidebar <- fdSidebarMenu(
+  fdMenuItem('Summary', icon = fdIcon('th'), pageName = 'summary-page'),
+  fdMenuItem('Performance', icon = fdIcon('credit-card'), 
+    pageName = 'performance-page'
+  )
+)
+performancePage <- fdPage(
+  performancePanel, residualsPanel, id = 'performance-page', display = FALSE
+)
+fdBoard(
+  fdHeader(title = 'Linear Regression'),
+  fdSidebar(sidebar),
+  fdBody(summaryPage, performancePage)
+)
+```
+
+<div class='figure'>
+  <img src='http://imgur.com/pNBg6m0.png' width='90%' />
+</div>
+
+<style>
+.figure img {
+  max-width: 100%;
+  box-shadow: 1px 2px 20px 0px rgba(0,0,0,0.25);
+  border: 1px solid #ccc;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.figure .caption {
+  display: none;
+}
+</style>

@@ -1,0 +1,57 @@
+---
+title: "Introduction to FlightDeck"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo = F, cache = F}
+library(flightdeck)
+library(htmltools)
+knitr::opts_chunk$set(fig.cap = "", eval = FALSE)
+```
+
+<div class='well'>
+The basic idea of `flightdeck` is to let users below powerful interactive dashboards by composing [widgets](../reference/index.html#section-widgets) into [panels](../reference/index.html#section-panels), [organizing](../reference/index.html#section-layouts) them on a page and assembling them into a [dashboard](../reference/index.html#section-dashboard).
+</div>
+
+You can create a simple dashboard in seven lines of code!
+
+
+```{r}
+library(flightdeck)
+library(htmltools)
+fdBoard(
+  fdHeader(title = 'My Board'),
+  fdSidebar(p("Hello World!")),
+  fdBody()
+)
+```
+
+
+To learn more about how to build dashboards using __flighdeck__, read the tutorial.
+
+<a href='tutorial.html'>
+<button class='btn btn-primary'>
+ Goto Tutorial
+ <i class='fa fa-chevron-right'></i>
+</button>
+</a>
+
+<style>
+.figure img {
+  max-width: 100%;
+  box-shadow: 1px 2px 20px 0px rgba(0,0,0,0.25);
+  border: 1px solid #ccc;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.figure .caption {
+  display: none;
+}
+</style>
