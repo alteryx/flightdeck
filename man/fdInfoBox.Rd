@@ -41,6 +41,7 @@ boxes are meant to be placed in the main body of a dashboard.
 }
 \examples{
 library(flightdeck)
+library(htmltools)
 
 # Example 1
 tagList(
