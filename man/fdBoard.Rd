@@ -4,7 +4,7 @@
 \alias{fdBoard}
 \title{Create a dashboard}
 \usage{
-fdBoard(header, sidebar, body, theme = "skin-blue-light")
+fdBoard(header, sidebar, body, theme = "skin-blue-light", fixed = FALSE)
 }
 \arguments{
 \item{header}{A header created by \code{fdHeader}.}
@@ -14,29 +14,50 @@ fdBoard(header, sidebar, body, theme = "skin-blue-light")
 \item{body}{A body created by \code{fdBody}.}
 
 \item{theme}{A string indicating theme to use for the dashboard.}
+
+\item{fixed}{A boolean indicating if the dashboard should use a sticky header}
 }
 \description{
 This function creates a dashboard.
 }
 \examples{
-#' Example 1
+#' Example 1: Empty Dashboard
+
+myBoard1 <- fdBoard(
+  fdHeader(),
+  fdSidebar(),
+  fdBody()
+)
+
 if (interactive()){
-  fdBoard(
-    fdHeader(),
-    fdSidebar(),
-    fdBody()
-  ) 
+  myBoard1 
 }
 
-#' Example 2
+#' Example 2: Hello World!
+myBoard2 <- fdBoard(
+  fdHeader(title = 'My Board'),
+  fdSidebar(),
+  fdBody(
+    h3("Hello World!")
+  )
+) 
+
 if (interactive()){
-  fdBoard(
-    fdHeader(title = 'My Board'),
-    fdSidebar(),
-    fdBody(
-      h3("Hello World!")
-    )
-  ) 
+  myBoard2 
 }
+
+#' Example 3: Fixed Header. The header stays on the page as you scroll down.
+myBoard3 <- fdBoard(
+  fdHeader(title = 'Test'),
+  fdSidebar(),
+  fdBody(div(style = 'height:900px;')),
+  fixed = TRUE
+)
+
+if (interactive()){
+  myBoard3 
+}
+
+
 }
 
