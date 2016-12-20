@@ -5,13 +5,17 @@
 #' @param sidebar A sidebar created by \code{fdSidebar}.
 #' @param body A body created by \code{fdBody}.
 #' @param theme A string indicating theme to use for the dashboard.
+#' @param fixed A boolean indicating if the dashboard should use a sticky header
 #' @export
 #' @family dashboard
 #' @import htmltools
 #' @example inst/examples/fdBoard.R
-fdBoard <- function(header, sidebar, body, theme = 'skin-blue-light'){
+fdBoard <- function(header, sidebar, body, theme = 'skin-blue-light', 
+    fixed = FALSE){
   content <- div(class = "wrapper", header, sidebar, body)
-  dashboard <- tags$body(class=paste('hold-transition sidebar-mini', theme), content)
+  class <- paste('hold-transition sidebar-mini', theme)
+  if (fixed) class <- paste(class, 'fixed')
+  dashboard <- tags$body(class = class, content)
   addDeps(dashboard, theme) %>% browsable
 }
 
