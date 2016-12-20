@@ -4,7 +4,7 @@ __FlightDeck__ is an R package designed to make it easy to create interactive da
 
 ## Installation
 
-__FlighDdeck__ is not currently available from CRAN, and is under acive development. You can install a stable binary from https://alteryx.github.io/drat or the development version from github.
+__FlighDeck__ is not currently available from CRAN, and is under acive development. You can install a stable binary from https://alteryx.github.io/drat or the development version from github.
 
 ```r
 # Install stable binary...
