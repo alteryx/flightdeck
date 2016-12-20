@@ -22,7 +22,7 @@ template:
 reference:
   - title: Dashboard
     desc: >
-      These functions help pull together the dashboard.
+      These functions help assemble the overall dashboard.
     contents: 
       - fdBoard
       - fdHeader
@@ -32,19 +32,20 @@ reference:
       - fdPage
   - title: Layout
     desc: >
-      These functions help lay out the different panels in the dashboard.
+      These functions help organize different panels on the dashboard.
     contents:
       - fdBox
       - fdRow
       - fdColumn
   - title: Panels
     desc: >
-      These functions help create panels displaying various model outputs.
+      These functions help create panels that are composed of widgets to 
+      display different model outputs.
     contents: 
       - starts_with('fdPanel')
   - title: Widgets
     desc: >
-      These functions help create widgets which can be composed into panels. 
+      These functions help create widgets which can then be composed into panels. 
     contents:
       - fdPlotly
       - fdSimpleTable
