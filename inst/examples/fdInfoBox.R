@@ -1,4 +1,5 @@
 library(flightdeck)
+library(htmltools)
 
 # Example 1
 tagList(
