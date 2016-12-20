@@ -1,19 +1,38 @@
-#' Example 1
+#' Example 1: Empty Dashboard
+
+myBoard1 <- fdBoard(
+  fdHeader(),
+  fdSidebar(),
+  fdBody()
+)
+
 if (interactive()){
-  fdBoard(
-    fdHeader(),
-    fdSidebar(),
-    fdBody()
-  ) 
+  myBoard1 
 }
 
-#' Example 2
+#' Example 2: Hello World!
+myBoard2 <- fdBoard(
+  fdHeader(title = 'My Board'),
+  fdSidebar(),
+  fdBody(
+    h3("Hello World!")
+  )
+) 
+
 if (interactive()){
-  fdBoard(
-    fdHeader(title = 'My Board'),
-    fdSidebar(),
-    fdBody(
-      h3("Hello World!")
-    )
-  ) 
+  myBoard2 
 }
+
+#' Example 3: Fixed Header. The header stays on the page as you scroll down.
+myBoard3 <- fdBoard(
+  fdHeader(title = 'Test'),
+  fdSidebar(),
+  fdBody(div(style = 'height:900px;')),
+  fixed = TRUE
+)
+
+if (interactive()){
+  myBoard3 
+}
+
+
