@@ -84,7 +84,7 @@
     <p>This function creates a dashboard.</p>
     
 
-    <pre><span class='fu'>fdBoard</span>(<span class='no'>header</span>, <span class='no'>sidebar</span>, <span class='no'>body</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"skin-blue-light"</span>)</pre>
+    <pre><span class='fu'>fdBoard</span>(<span class='no'>header</span>, <span class='no'>sidebar</span>, <span class='no'>body</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"skin-blue-light"</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -96,28 +96,47 @@
       <dd>A body created by <code>fdBody</code>.</dd>
       <dt>theme</dt>
       <dd>A string indicating theme to use for the dashboard.</dd>
+      <dt>fixed</dt>
+      <dd>A boolean indicating if the dashboard should use a sticky header</dd>
     </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#' Example 1</span>
+    <pre class="examples"><div class='input'><span class='co'>#' Example 1: Empty Dashboard</span>
+
+<span class='no'>myBoard1</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
+  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(),
+  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
+  <span class='fu'><a href='fdBody.html'>fdBody</a></span>()
+)
+
 <span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='fu'>fdBoard</span>(
-    <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(),
-    <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
-    <span class='fu'><a href='fdBody.html'>fdBody</a></span>()
-  )
+  <span class='no'>myBoard1</span>
 }
 
-<span class='co'>#' Example 2</span>
-<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='fu'>fdBoard</span>(
-    <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'My Board'</span>),
-    <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
-    <span class='fu'><a href='fdBody.html'>fdBody</a></span>(
-      <span class='fu'>h3</span>(<span class='st'>"Hello World!"</span>)
-    )
+<span class='co'>#' Example 2: Hello World!</span>
+<span class='no'>myBoard2</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
+  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'My Board'</span>),
+  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
+  <span class='fu'><a href='fdBody.html'>fdBody</a></span>(
+    <span class='fu'>h3</span>(<span class='st'>"Hello World!"</span>)
   )
+)
+
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
+  <span class='no'>myBoard2</span>
+}
+
+<span class='co'>#' Example 3: Fixed Header. The header stays on the page as you scroll down.</span>
+<span class='no'>myBoard3</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
+  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Test'</span>),
+  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
+  <span class='fu'><a href='fdBody.html'>fdBody</a></span>(<span class='fu'>div</span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>'height:900px;'</span>)),
+  <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)
+
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
+  <span class='no'>myBoard3</span>
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
