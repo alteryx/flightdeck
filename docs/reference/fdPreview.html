@@ -85,11 +85,11 @@
 header and sidebar.</p>
     
 
-    <pre><span class='fu'>fdPreview</span>(<span class='no'>widget</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'>deparse</span>(<span class='fu'>substitute</span>(<span class='no'>widget</span>)), <span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>"rowbox"</span>,
-  <span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+    <pre><span class='fu'>fdPreview</span>(<span class='no'>widget</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'>deparse</span>(<span class='fu'>substitute</span>(<span class='no'>widget</span>)), <span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>"rowbox"</span>, <span class='no'>...</span>,
+  <span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>fdPreviewBoard</span>(<span class='no'>widget</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'>deparse</span>(<span class='fu'>substitute</span>(<span class='no'>widget</span>)), <span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>"rowbox"</span>,
-  <span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+  <span class='no'>...</span>, <span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -101,10 +101,10 @@ header and sidebar.</p>
       <dd>string indicating if the widget is to be wrapped in a &#39;row&#39;,
 &#39;box&#39;, &#39;rowbox&#39; or &#39;none&#39;
 <code><a href='fdBox.html'>fdRowBox</a></code></dd>
-      <dt>wrapBox</dt>
-      <dd>boolean indicating if we should set wrap = &#39;rowbox&#39;</dd>
       <dt>...</dt>
       <dd>additional elements to pass to <code><a href='fdBody.html'>fdBody</a></code>.</dd>
+      <dt>wrapBox</dt>
+      <dd>boolean indicating if we should set wrap = &#39;rowbox&#39;</dd>
     </dl>
     
 
