@@ -59,6 +59,12 @@ reference:
       - fdDropdownMenu
       - fdStat
       - fdTour
+  - title: Plots
+    desc: >
+       These functions create custom interactive plots
+    contents:
+      - fdPlotGlmnet
+      - fdPlotCvGlmnet
   - title: Render
     desc: >
       These functions help preview a widget.
