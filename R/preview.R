@@ -20,7 +20,7 @@ fdPreview <- function(widget, title = deparse(substitute(widget)),
     wrap = 'rowbox', ..., wrapBox = NULL){
   if (title[1] == ".") title = "Preview"
   if (!is.null(wrapBox) && !wrapBox) wrap = 'row'
-  if (wrap == 'rowbox' || wrap == 'box'){
+  if (!isBox(widget) && (wrap == 'rowbox' || wrap == 'box')){
     widget <- fdBox(width = 12, title = title, widget, solidHeader = TRUE)
   }
   if (wrap == 'rowbox' || wrap == 'row') {
