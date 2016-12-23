@@ -97,30 +97,7 @@ fdPanelRegressionScatterplot <- function(actual, predicted){
 fdPanelRegressionResiduals <- function(mod, digits = 4, 
     plotTitle = 'Histogram', ...){
   res <- residuals(mod)
-  residualSummary <- data.frame(
-    Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
-      "3rd Quartile", "Maximum"
-    ),
-    Value = format(summary(mod$residuals), digits = digits)
-  )
-  residualHistogram <- fdPlotly(
-    data = list(list(
-      x = unname(res),
-      type = 'histogram'
-    )),
-    list(
-      margin = list(t = 40), 
-      bargap = 0.05,
-      title = plotTitle,
-      ...
-    ),
-    list(displaylogo = FALSE, displayModeBar = FALSE),
-    height = 325
-  )
-  div(class = 'fd-panel-residuals',
-    fdColumn(8, residualHistogram),
-    fdColumn(4, fdSimpleTable(residualSummary))
-  )
+  fdPanelHistogram(res)
 }
 
 
