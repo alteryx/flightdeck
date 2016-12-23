@@ -82,15 +82,20 @@ fdPanelRegressionScatterplot <- function(actual, predicted){
 
 #' Displaying model residuals for a regression model
 #'
-#' @param mod model object
+#' @param mod model object with a residuals method
+#' @param digits number of digits to display in the summary statistics table
+#' @param plotTitle title of the histogram.
 #' @export
 #' @examples
 #' library(flightdeck)
 #' mod <- lm(mpg ~ ., data = mtcars)
 #' if (interactive()){
-#'   mod %>% fdPanelRegressionResiduals %>% fdPreview
+#'   mod %>% 
+#'     fdPanelRegressionResiduals(plotTitle = 'Histogram of Residuals') %>%
+#'     fdPreview
 #' }
-fdPanelRegressionResiduals <- function(mod, digits = 4){
+fdPanelRegressionResiduals <- function(mod, digits = 4, 
+    plotTitle = 'Histogram', ...){
   res <- residuals(mod)
   residualSummary <- data.frame(
     Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
@@ -103,7 +108,12 @@ fdPanelRegressionResiduals <- function(mod, digits = 4){
       x = unname(res),
       type = 'histogram'
     )),
-    list(margin = list(t = 40), bargap = 0.05),
+    list(
+      margin = list(t = 40), 
+      bargap = 0.05,
+      title = plotTitle,
+      ...
+    ),
     list(displaylogo = FALSE, displayModeBar = FALSE),
     height = 325
   )
