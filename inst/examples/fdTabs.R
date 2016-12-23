@@ -1,5 +1,6 @@
 library(flightdeck)
 if (interactive()){
+  # Example 1
   fdTabsetPanel(selected = 'Tab2',
     fdTabPanel('Tab1', h3("This is tab 1")),
     fdTabPanel('Tab2', h3("This is tab 2"))
@@ -10,10 +11,5 @@ if (interactive()){
 
 
 
-library(flightdeck)
-d <- fdTabContent(
-  fdTabContentItem(fdPlotGlmnet(fit, xvar = 'norm'), name = 'activity', active = TRUE),
-  fdTabContentItem(fdPlotGlmnet(fit, xvar = 'lambda'), name = 'timeline'),
-  fdTabContentItem(fdPlotGlmnet(fit, xvar = 'dev'), name = 'settings')
-)
+
 
