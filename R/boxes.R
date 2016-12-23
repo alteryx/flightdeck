@@ -144,7 +144,7 @@ fdValueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
     boxContent <- a(href = href, boxContent)
 
   div(class = if (!is.null(width)) paste0("col-sm-", width),
-    boxContent
+    boxContent, `data-widget-type` = 'box'
   )
 }
 
@@ -200,8 +200,18 @@ fdInfoBox <- function(title, value = NULL, subtitle = NULL,
   if (!is.null(href))
     boxContent <- a(href = href, boxContent)
 
-  div(class = if (!is.null(width)) paste0("col-sm-", width),
-    boxContent
+  r <- div(class = if (!is.null(width)) paste0("col-sm-", width),
+    boxContent, `data-widget-type` = 'box' 
   )
+  #attr(r, 'class') <- paste(attr(r, 'class'), 'fd-box')
+  return(r)
+}
+
+isBox <- function(x){
+  if (!is.null(x$attribs) && !is.null(x$`data-widget-type`)){
+    x$`data-widget-type` %in% c('box', 'panel')
+  } else {
+    FALSE
+  }
 }
 
