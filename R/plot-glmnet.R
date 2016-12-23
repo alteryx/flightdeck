@@ -3,10 +3,11 @@
 #' @param xvar What is on the X-axis. "norm" plots against the L1-norm of the
 #'   coefficients, "lambda" against the log-lambda sequence, and "dev" against
 #'   the percent deviance explained.
+#' @param title plot title.
 #' @param ... extra arguments passed to every series being plotted
 #' @export
 #' @example inst/examples/fdPlotGlmnet.R
-fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), ...){
+fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL, ...){
   d <- extractCoefGlmnet(x)
   xvar <- match.arg(xvar)
   xaxisTitle <- switch(xvar,
@@ -26,6 +27,7 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), ...){
       r = 30,
       b = 30
     ),
+    title = if (!is.null(title)) title,
     xaxis = list(title = xaxisTitle),
     yaxis = list(title = 'Coefficients')
   )
@@ -39,6 +41,7 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), ...){
 #' @param x fitted "cv.glmnet" object
 #' @param sign.lambda Either plot against log(lambda) (default) or its negative
 #'   if sign.lambda=-1
+#' @param title plot title.
 #' @param ... additional arguments. not currently used
 #' @export
 #' @example inst/examples/fdPlotCvGlmnet.R
@@ -58,7 +61,8 @@ fdPlotCvGlmnet <- function(x, sign.lambda = NULL){
       b = 30
     ),
     xaxis = list(title = 'Log Lambda'),
-    yaxis = list(title = 'Mean Squared Error')
+    yaxis = list(title = 'Mean Squared Error'),
+    title = if (!is.null(title)) title
   )
   config <- list(displaylogo = FALSE, displayModeBar = FALSE)
   fdPlotly(list(trace), layout, config)
