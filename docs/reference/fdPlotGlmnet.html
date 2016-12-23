@@ -84,7 +84,7 @@
     <p>Interactive coefficient profile plot for glmnet objects.</p>
     
 
-    <pre><span class='fu'>fdPlotGlmnet</span>(<span class='no'>x</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"norm"</span>, <span class='st'>"lambda"</span>, <span class='st'>"dev"</span>), <span class='no'>...</span>)</pre>
+    <pre><span class='fu'>fdPlotGlmnet</span>(<span class='no'>x</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"norm"</span>, <span class='st'>"lambda"</span>, <span class='st'>"dev"</span>), <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -94,6 +94,8 @@
       <dd>What is on the X-axis. &quot;norm&quot; plots against the L1-norm of the
 coefficients, &quot;lambda&quot; against the log-lambda sequence, and &quot;dev&quot; against
 the percent deviance explained.</dd>
+      <dt>title</dt>
+      <dd>plot title.</dd>
       <dt>...</dt>
       <dd>extra arguments passed to every series being plotted</dd>
     </dl>

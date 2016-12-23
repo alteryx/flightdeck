@@ -84,12 +84,16 @@
     <p>Displaying model residuals for a regression model</p>
     
 
-    <pre><span class='fu'>fdPanelRegressionResiduals</span>(<span class='no'>mod</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
+    <pre><span class='fu'>fdPanelRegressionResiduals</span>(<span class='no'>mod</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>plotTitle</span> <span class='kw'>=</span> <span class='st'>"Histogram"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>mod</dt>
-      <dd>model object</dd>
+      <dd>model object with a residuals method</dd>
+      <dt>digits</dt>
+      <dd>number of digits to display in the summary statistics table</dd>
+      <dt>plotTitle</dt>
+      <dd>title of the histogram.</dd>
     </dl>
     
 
@@ -97,7 +101,9 @@
     <pre class="examples"><span class='fu'>library</span>(<span class='no'>flightdeck</span>)
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'>lm</span>(<span class='no'>mpg</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)
 <span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='no'>fdPanelRegressionResiduals</span> <span class='kw'>%&gt;%</span> <span class='no'>fdPreview</span>
+  <span class='no'>mod</span> <span class='kw'>%&gt;%</span>
+    <span class='fu'>fdPanelRegressionResiduals</span>(<span class='kw'>plotTitle</span> <span class='kw'>=</span> <span class='st'>'Histogram of Residuals'</span>) <span class='kw'>%&gt;%</span>
+    <span class='no'>fdPreview</span>
 }</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
