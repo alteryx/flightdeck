@@ -34,7 +34,11 @@ fdPanelHistogram <- function(x, digits = 4, plotTitle = 'Histogram',
     height = 325
   )
   div(class = 'fd-panel-residuals',
-      fdColumn(8, xHistogram),
-      fdColumn(4, fdSimpleTable(xSummary))
+    fdColumn(8, xHistogram),
+    fdColumn(4, fdSimpleTable(xSummary))
   )
+}
+
+makePanel <- function(...){
+  div(..., `data-widget-type` = 'panel')
 }
