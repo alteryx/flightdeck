@@ -4,10 +4,14 @@
 \alias{fdPanelRegressionResiduals}
 \title{Displaying model residuals for a regression model}
 \usage{
-fdPanelRegressionResiduals(mod, digits = 4)
+fdPanelRegressionResiduals(mod, digits = 4, plotTitle = "Histogram", ...)
 }
 \arguments{
-\item{mod}{model object}
+\item{mod}{model object with a residuals method}
+
+\item{digits}{number of digits to display in the summary statistics table}
+
+\item{plotTitle}{title of the histogram.}
 }
 \description{
 Displaying model residuals for a regression model
@@ -16,7 +20,9 @@ Displaying model residuals for a regression model
 library(flightdeck)
 mod <- lm(mpg ~ ., data = mtcars)
 if (interactive()){
-  mod \%>\% fdPanelRegressionResiduals \%>\% fdPreview
+  mod \%>\% 
+    fdPanelRegressionResiduals(plotTitle = 'Histogram of Residuals') \%>\%
+    fdPreview
 }
 }
 

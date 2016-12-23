@@ -4,7 +4,7 @@
 \alias{fdPlotGlmnet}
 \title{Interactive coefficient profile plot for glmnet objects.}
 \usage{
-fdPlotGlmnet(x, xvar = c("norm", "lambda", "dev"), ...)
+fdPlotGlmnet(x, xvar = c("norm", "lambda", "dev"), title = NULL, ...)
 }
 \arguments{
 \item{x}{a glmnet model object}
@@ -12,6 +12,8 @@ fdPlotGlmnet(x, xvar = c("norm", "lambda", "dev"), ...)
 \item{xvar}{What is on the X-axis. "norm" plots against the L1-norm of the
 coefficients, "lambda" against the log-lambda sequence, and "dev" against
 the percent deviance explained.}
+
+\item{title}{plot title.}
 
 \item{...}{extra arguments passed to every series being plotted}
 }

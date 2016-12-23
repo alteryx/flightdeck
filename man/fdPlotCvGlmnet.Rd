@@ -12,6 +12,8 @@ fdPlotCvGlmnet(x, sign.lambda = NULL)
 \item{sign.lambda}{Either plot against log(lambda) (default) or its negative
 if sign.lambda=-1}
 
+\item{title}{plot title.}
+
 \item{...}{additional arguments. not currently used}
 }
 \description{
