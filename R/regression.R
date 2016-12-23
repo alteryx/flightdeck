@@ -80,9 +80,9 @@ fdPanelRegressionScatterplot <- function(actual, predicted){
   fdPlotly(data, layout, config)
 }
 
-#' Displaying model residuals for a regression model
+#' Display model residuals for a linear regression model
 #'
-#' @param mod model object with a residuals method
+#' @param mod lm model object with a residuals method
 #' @param digits number of digits to display in the summary statistics table
 #' @param plotTitle title of the histogram.
 #' @export

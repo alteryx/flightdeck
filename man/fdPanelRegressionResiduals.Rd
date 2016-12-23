@@ -2,19 +2,19 @@
 % Please edit documentation in R/regression.R
 \name{fdPanelRegressionResiduals}
 \alias{fdPanelRegressionResiduals}
-\title{Displaying model residuals for a regression model}
+\title{Display model residuals for a linear regression model}
 \usage{
 fdPanelRegressionResiduals(mod, digits = 4, plotTitle = "Histogram", ...)
 }
 \arguments{
-\item{mod}{model object with a residuals method}
+\item{mod}{lm model object with a residuals method}
 
 \item{digits}{number of digits to display in the summary statistics table}
 
 \item{plotTitle}{title of the histogram.}
 }
 \description{
-Displaying model residuals for a regression model
+Display model residuals for a linear regression model
 }
 \examples{
 library(flightdeck)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/tables.R
 \name{fdPanelImportance}
 \alias{fdPanelImportance}
-\title{Displaying variable importance}
+\title{Display variable importance}
 \usage{
 fdPanelImportance(mod, digits = 2, barColor = "steelblue")
 }
@@ -14,7 +14,7 @@ fdPanelImportance(mod, digits = 2, barColor = "steelblue")
 \item{barColor}{bar color}
 }
 \description{
-Displaying variable importance
+Display variable importance
 }
 \examples{
 library(rpart)

@@ -28,7 +28,7 @@ fdTable <- function(..., class = 'table table-striped'){
 }
 
 
-#' Displaying regression coefficients
+#' Display regression coefficients
 #'
 #'
 #' @param mod model object
@@ -89,7 +89,7 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue'){
     )
 }
 
-#' Displaying variable importance
+#' Display variable importance
 #'
 #' @inheritParams fdPanelCoefficients
 #' @import DT

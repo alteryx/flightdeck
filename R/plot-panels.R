@@ -1,4 +1,4 @@
-#' Displaying a histogram along with summary statistics
+#' Display a histogram and table of summary statistics
 #'
 #' @param x a numeric vector.
 #' @param digits number of digits to display in the summary statistics table.

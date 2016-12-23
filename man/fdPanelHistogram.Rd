@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot-panels.R
 \name{fdPanelHistogram}
 \alias{fdPanelHistogram}
-\title{Displaying a histogram along with summary statistics}
+\title{Display a histogram and table of summary statistics}
 \usage{
 fdPanelHistogram(x, digits = 4, plotTitle = "Histogram", ...)
 }
@@ -16,7 +16,7 @@ fdPanelHistogram(x, digits = 4, plotTitle = "Histogram", ...)
 \item{...}{extra arguments (not used currently).}
 }
 \description{
-Displaying a histogram along with summary statistics
+Display a histogram and table of summary statistics
 }
 \examples{
 library(flightdeck)
