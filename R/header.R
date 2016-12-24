@@ -4,15 +4,18 @@
 #' @param title The title to display in the header bar.
 #' @param miniTitle The title to display in the header bar when the sidebar is
 #'   collapsed.
+#' @param titleWidth The width of the title in pixels.
 #' @param .list An optional list containing elements to put in the header. These
 #'   are the identical to the \code{...} arguments, but provided in a list
 #'   format. This is useful when the elements going into the header are
 #'   programatically generated using \code{lapply} calls
 #' @export
 #' @example inst/examples/fdHeader.R
-fdHeader <- function(..., title = NULL, miniTitle = NULL, .list = NULL) {
+fdHeader <- function(..., title = NULL, miniTitle = NULL, titleWidth = NULL, 
+    .list = NULL) {
   items <- c(list(...), .list)
   tags$header(class = "main-header",
+    addCustomCssForTitle(titleWidth),
     tags$a(href="#", class='logo',
       if (!is.null(miniTitle)) span(class = "logo-mini", miniTitle),
       span(class = "logo-lg", title)
@@ -176,4 +179,26 @@ fdNotification <- function(text, icon = fdicon("warning"), status = "success",
     a(href = href, icon, text)
   )
 }
+
+addCustomCssForTitle <- function(width){
+  titleWidth <- validateCssUnit(width)
+  custom_css <- NULL
+  cssTemplate <- "@media (min-width: 768px) {
+     .main-header > .navbar {
+      margin-left: _WIDTH_;
+    }
+    .main-header .logo {
+      width: _WIDTH_;
+    }
+   }"
+  if (!is.null(titleWidth)) {
+    custom_css <- tags$head(
+      tags$style(HTML(
+        gsub("_WIDTH_", titleWidth, cssTemplate, fixed = TRUE)
+      ))
+    )
+  }
+  return(custom_css)
+}
+
 
