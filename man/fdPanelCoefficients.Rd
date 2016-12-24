@@ -4,7 +4,7 @@
 \alias{fdPanelCoefficients}
 \title{Display regression coefficients}
 \usage{
-fdPanelCoefficients(mod, digits = 3, barColor = "steelblue")
+fdPanelCoefficients(mod, digits = 3, barColor = "steelblue", ...)
 }
 \arguments{
 \item{mod}{model object}
@@ -12,18 +12,34 @@ fdPanelCoefficients(mod, digits = 3, barColor = "steelblue")
 \item{digits}{number of digits to display}
 
 \item{barColor}{bar color}
+
+\item{...}{additional arguments passed to \code{\link{createCoefficientsTable}}}
 }
 \description{
 Display regression coefficients
 }
 \examples{
 library(flightdeck)
+
+#' Example 1: Linear Regression Model
 data(diamonds, package = 'ggplot2')
-if (interactive()){
-  lm(price ~ ., data = diamonds) \%>\%
-    fdPanelCoefficients \%>\%
-    fdPreview  
+panel1 <- lm(price ~ ., data = diamonds) \%>\%
+  fdPanelCoefficients \%>\%
+  fdPreview  
+
+if (interactive()) {
+  panel1
 }
 
+#' Example 2: GlmNet Model
+library(glmnet)
+data(QuickStartExample)
+panel2 <- glmnet(x, y) \%>\%
+  fdPanelCoefficients(s = 0.3) \%>\%
+  fdPreview
+
+if (interactive()){
+  panel2
+}
 }
 
