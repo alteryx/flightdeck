@@ -71,6 +71,9 @@ createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
   )
 }
 
+#' @export
+createCoefficientsTable.cv.glmnet <- createCoefficientsTable.elnet
+
 #' Display regression coefficients
 #'
 #'
@@ -82,7 +85,7 @@ createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
 #' @export
 #' @example inst/examples/fdPanelCoefficients.R
 fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
-  coefTable <- createCoefficientsTable(mod, digits = digits)
+  coefTable <- createCoefficientsTable(mod, digits = digits, ...)
   extraOpts <- list(
     dom = 'Bfrtip',
     buttons = list(
