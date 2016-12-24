@@ -21,8 +21,10 @@ fdBoard(header, sidebar, body, theme = "skin-blue-light", fixed = FALSE)
 This function creates a dashboard.
 }
 \examples{
-#' Example 1: Empty Dashboard
+library(flightdeck)
+library(htmltools)
 
+#' Example 1: Empty Dashboard
 myBoard1 <- fdBoard(
   fdHeader(),
   fdSidebar(),

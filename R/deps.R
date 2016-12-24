@@ -33,6 +33,10 @@ addDeps <- function(x, theme) {
       script = 'js/app.min.js',
       stylesheet = c('css/AdminLTEAyx.css', sprintf('css/skins/%s.css', theme))
     ),
+    htmlDependency("jquery.slimscroll", "2.3.7",
+      c(file = lib.file("slimScroll")),
+      script = 'jquery.slimscroll.min.js'
+    ),
     htmlDependency("flightdeck", "0.1.0",
       c(file = lib.file("flightdeck")),
       script = "flightdeck.js",

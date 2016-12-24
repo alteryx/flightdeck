@@ -1,5 +1,7 @@
-#' Example 1: Empty Dashboard
+library(flightdeck)
+library(htmltools)
 
+#' Example 1: Empty Dashboard
 myBoard1 <- fdBoard(
   fdHeader(),
   fdSidebar(),
