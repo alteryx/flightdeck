@@ -4,7 +4,8 @@
 \alias{fdHeader}
 \title{Create the header of the dashboard}
 \usage{
-fdHeader(..., title = NULL, miniTitle = NULL, .list = NULL)
+fdHeader(..., title = NULL, miniTitle = NULL, titleWidth = NULL,
+  .list = NULL)
 }
 \arguments{
 \item{...}{Elements to in the dashboard header.}
@@ -13,6 +14,8 @@ fdHeader(..., title = NULL, miniTitle = NULL, .list = NULL)
 
 \item{miniTitle}{The title to display in the header bar when the sidebar is
 collapsed.}
+
+\item{titleWidth}{The width of the title in pixels.}
 
 \item{.list}{An optional list containing elements to put in the header. These
 are the identical to the \code{...} arguments, but provided in a list
