@@ -22,7 +22,7 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL, ...
   layout = list(
     plot_bgcolor = "#f6f6f6",
     margin = list(
-      t = 10,
+      t = if (is.null(title)) 10 else 40,
       l = 40,
       r = 30,
       b = 30
@@ -45,7 +45,7 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL, ...
 #' @param ... additional arguments. not currently used
 #' @export
 #' @example inst/examples/fdPlotCvGlmnet.R
-fdPlotCvGlmnet <- function(x, sign.lambda = NULL){
+fdPlotCvGlmnet <- function(x, sign.lambda = NULL, title = NULL, ...){
   d <- data.frame(
     x = if (is.null(sign.lambda)) log(x$lambda) else -log(x$lambda), 
     y = x$cvm, 
@@ -55,7 +55,7 @@ fdPlotCvGlmnet <- function(x, sign.lambda = NULL){
   layout = list(
     plot_bgcolor = "#f6f6f6",
     margin = list(
-      t = 10,
+      t = if (is.null(title)) 10 else 40,
       l = 40,
       r = 30,
       b = 30
