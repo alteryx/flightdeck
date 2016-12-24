@@ -28,65 +28,94 @@ fdTable <- function(..., class = 'table table-striped'){
 }
 
 
-#' Display regression coefficients
-#'
-#'
+#' Create a table of coefficents
+#' 
+#' This is an S3 method that creates a table of coefficients that can be passed
+#' to \code{\link{fdPanelCoefficients}} to display in a dashboard.
+#' 
 #' @param mod model object
 #' @param digits number of digits to display
-#' @param barColor bar color
-#' @import DT
+#' @param ... additional arguments passed to \code{\link{createCoefficientsTable}}
 #' @export
-#' @example inst/examples/fdPanelCoefficients.R
-fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue'){
+createCoefficientsTable <- function(mod, digits, ...){
+  UseMethod('createCoefficientsTable')
+}
+
+#' @export
+createCoefficientsTable.default <- function(mod, digits, ...){
   coefTable <- as.data.frame(summary(mod)$coef)
   coefTable$Impact <- abs(coefTable$Estimate)
-
-  add_star <- function(x){
-    paste(rep('&starf;', x), collapse = "")
-  }
-  coefTable$Confidence <-cut(
-    coefTable$`Pr(>|t|)`,
-    c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
-    c(add_star(3), add_star(2), add_star(1), "&#8226;", "")
-  )
-
+  coefTable$Confidence <- makeConfidenceStars(coefTable$`Pr(>|t|)`)
   coefTable <- cbind(Variable = rownames(coefTable), coefTable)
   coefTable <- coefTable[, c('Variable', 'Estimate', 'Impact',
     'Confidence', "Std. Error", "t value", "Pr(>|t|)"
   )]
   numericCols <- c('Estimate', 'Std. Error', 't value', 'Pr(>|t|)')
   coefTable[,numericCols] <- format(coefTable[,numericCols], digits = digits)
+  return(coefTable)
+}
+
+#' Create coefficient table from glmnet object
+#'
+#' @export
+#' @inheritParams createCoefficientsTable
+#' @param s Value of the penalty parameter lambda at which predictions are
+#'   required. Default is the entire sequence used to create the model.
+createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
+  requireNamespace('glmnet')
+  coefVector <- coef(mod, s = s)[,1]
+  data.frame(
+    Variable = names(coefVector),
+    Estimate = format(x = unname(coefVector), digits = digits),
+    Impact = abs(unname(coefVector))
+  )
+}
+
+#' Display regression coefficients
+#'
+#'
+#' @param mod model object
+#' @param digits number of digits to display
+#' @param barColor bar color
+#' @param ... additional arguments passed to \code{\link{createCoefficientsTable}}
+#' @import DT
+#' @export
+#' @example inst/examples/fdPanelCoefficients.R
+fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
+  coefTable <- createCoefficientsTable(mod, digits = digits)
+  extraOpts <- list(
+    dom = 'Bfrtip',
+    buttons = list(
+      list(
+        extend = 'colvis',
+        text = 'Display Advanced Statistics', columns = 4:6
+      )
+    ),
+    columnDefs = list(
+      list(targets = 4:6, visible = F)
+    )
+  )
   table1 <- datatable(
     coefTable,
     rownames = FALSE,
     extensions = c('Buttons', 'Responsive'),
-    options = list(
-      dom = 'Bfrtip',
-      buttons = list(
-        list(
-          extend = 'colvis',
-          text = 'Display Advanced Statistics', columns =4:6
-        )
-      ),
-      columnDefs = list(
-        list(targets = 4:6, visible = F)
-      )
-    ),
+    options = if (NCOL(coefTable) >= 4) extraOpts else list(),
     style = 'bootstrap',
     width = '100%',
     height = if (NROW(coefTable) > 10) 550 else NULL,
     class = c('stripe', 'hover', 'cell-border'),
     escape = FALSE
   )
-
-  table1 %>%
-    formatStyle('Impact',
+  if ('Impact' %in% names(coefTable)){
+    table1 <-  formatStyle(table1, 'Impact',
       background = styleColorBar(range(coefTable$Impact), barColor),
       backgroundSize = '98% 88%',
       backgroundRepeat = 'no-repeat',
       backgroundPosition = 'center',
       color = 'transparent'
     )
+  }
+  table1
 }
 
 #' Display variable importance
