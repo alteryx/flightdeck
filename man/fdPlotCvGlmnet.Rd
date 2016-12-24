@@ -4,7 +4,7 @@
 \alias{fdPlotCvGlmnet}
 \title{Interactive plot for cv.glmnet object.}
 \usage{
-fdPlotCvGlmnet(x, sign.lambda = NULL)
+fdPlotCvGlmnet(x, sign.lambda = NULL, title = NULL, ...)
 }
 \arguments{
 \item{x}{fitted "cv.glmnet" object}
