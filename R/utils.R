@@ -14,3 +14,15 @@ NULL
 pkgFile <- function(...){
   system.file(..., package = 'flightdeck')
 }
+
+addStar <- function(x){
+  paste(rep('&starf;', x), collapse = "")
+}
+
+makeConfidenceStars <- function(x){
+  cut(
+    x,
+    c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
+    c(addStar(3), addStar(2), addStar(1), "&#8226;", "")
+  )
+}
