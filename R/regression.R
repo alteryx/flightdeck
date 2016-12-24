@@ -39,8 +39,8 @@ computeRegressionMetrics <- function(actual, predicted,
 #' @family regression
 #' @example inst/examples/fdPanelRegressionScatterplot.R
 fdPanelRegressionScatterplot <- function(actual, predicted){
-  actual <- unname(actual)
-  predicted <- unname(predicted)
+  actual <- unname(as.vector(actual))
+  predicted <- unname(as.vector(predicted))
   data = list(
     list(
       x = actual,

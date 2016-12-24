@@ -14,6 +14,7 @@
 #' }
 fdPanelHistogram <- function(x, digits = 4, plotTitle = 'Histogram', 
     ...){
+  x <- as.vector(x)
   xSummary <- data.frame(
     Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
       "3rd Quartile", "Maximum"),
