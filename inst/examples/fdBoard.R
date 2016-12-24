@@ -35,4 +35,14 @@ if (interactive()){
   myBoard3 
 }
 
+#' Example 4: Long Titles
+myBoard4 <- fdBoard(
+  fdHeader(
+    title = 'This is a really really really long title', 
+    titleWidth = 300
+  ),
+  fdSidebar(),
+  fdBody()
+)
+
 
