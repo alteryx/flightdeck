@@ -116,6 +116,15 @@ the percent deviance explained.</dd>
 
   <span class='co'># Don't show legend</span>
   <span class='fu'>fdPlotGlmnet</span>(<span class='no'>fit</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+  <span class='co'># Putting everything in a tabset panel</span>
+  <span class='fu'><a href='fdTabsetPanel.html'>fdTabsetPanel</a></span>(<span class='kw'>selected</span> <span class='kw'>=</span> <span class='st'>'L1 Norm'</span>,
+    <span class='fu'><a href='fdTabsetPanel.html'>fdTabPanel</a></span>(<span class='st'>'L1 Norm'</span>, <span class='fu'>fdPlotGlmnet</span>(<span class='no'>fit</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='st'>'norm'</span>)),
+    <span class='fu'><a href='fdTabsetPanel.html'>fdTabPanel</a></span>(<span class='st'>'Lambda'</span>, <span class='fu'>fdPlotGlmnet</span>(<span class='no'>fit</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='st'>'lambda'</span>)),
+    <span class='fu'><a href='fdTabsetPanel.html'>fdTabPanel</a></span>(<span class='st'>'Deviance'</span>, <span class='fu'>fdPlotGlmnet</span>(<span class='no'>fit</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='st'>'dev'</span>))
+  ) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='fdColumn.html'>fdColumn</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>12</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>'row'</span>)
 }</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

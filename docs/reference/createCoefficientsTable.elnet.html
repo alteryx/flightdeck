@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Display regression coefficients — fdPanelCoefficients • flightdeck</title>
+<title>Create coefficient table from glmnet object — createCoefficientsTable.elnet • flightdeck</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,14 +77,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Display regression coefficients</h1>
+    <h1>Create coefficient table from glmnet object</h1>
     </div>
 
     
-    <p>Display regression coefficients</p>
+    <p>Create coefficient table from glmnet object</p>
     
 
-    <pre><span class='fu'>fdPanelCoefficients</span>(<span class='no'>mod</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>barColor</span> <span class='kw'>=</span> <span class='st'>"steelblue"</span>, <span class='no'>...</span>)</pre>
+    <pre><span class='co'># S3 method for elnet</span>
+<span class='fu'><a href='createCoefficientsTable.html'>createCoefficientsTable</a></span>(<span class='no'>mod</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -92,44 +93,20 @@
       <dd>model object</dd>
       <dt>digits</dt>
       <dd>number of digits to display</dd>
-      <dt>barColor</dt>
-      <dd>bar color</dd>
+      <dt>s</dt>
+      <dd>Value of the penalty parameter lambda at which predictions are
+required. Default is the entire sequence used to create the model.</dd>
       <dt>...</dt>
       <dd>additional arguments passed to <code><a href='createCoefficientsTable.html'>createCoefficientsTable</a></code></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='fu'>library</span>(<span class='no'>flightdeck</span>)
-
-<span class='co'>#' Example 1: Linear Regression Model</span>
-<span class='fu'>data</span>(<span class='no'>diamonds</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>'ggplot2'</span>)
-<span class='no'>panel1</span> <span class='kw'>&lt;-</span> <span class='fu'>lm</span>(<span class='no'>price</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>diamonds</span>) <span class='kw'>%&gt;%</span>
-  <span class='no'>fdPanelCoefficients</span> <span class='kw'>%&gt;%</span>
-  <span class='no'>fdPreview</span>
-
-<span class='kw'>if</span> (<span class='fu'>interactive</span>()) {
-  <span class='no'>panel1</span>
-}
-
-<span class='co'>#' Example 2: GlmNet Model</span>
-<span class='fu'>library</span>(<span class='no'>glmnet</span>)
-<span class='fu'>data</span>(<span class='no'>QuickStartExample</span>)
-<span class='no'>panel2</span> <span class='kw'>&lt;-</span> <span class='fu'>glmnet</span>(<span class='no'>x</span>, <span class='no'>y</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>fdPanelCoefficients</span>(<span class='kw'>s</span> <span class='kw'>=</span> <span class='fl'>0.3</span>) <span class='kw'>%&gt;%</span>
-  <span class='no'>fdPreview</span>
-
-<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='no'>panel2</span>
-}</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>
