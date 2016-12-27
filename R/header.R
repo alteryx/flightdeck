@@ -181,7 +181,7 @@ fdNotification <- function(text, icon = fdicon("warning"), status = "success",
 }
 
 addCustomCssForTitle <- function(width){
-  titleWidth <- validateCssUnit(width)
+  titleWidth <- htmltools::validateCssUnit(width)
   custom_css <- NULL
   cssTemplate <- "@media (min-width: 768px) {
      .main-header > .navbar {
@@ -201,4 +201,56 @@ addCustomCssForTitle <- function(width){
   return(custom_css)
 }
 
-
+addCustomCssForSidebarWidth <- function(width){
+  sidebarWidth <- htmltools::validateCssUnit(width)
+  custom_css <- NULL
+  cssTemplate <- "   
+      @media (min-width: 768px) {
+        .content-wrapper,
+        .right-side,
+        .main-footer {
+          margin-left: _WIDTH_;
+        }
+        .main-sidebar,
+        .left-side {
+          width: _WIDTH_;
+        }
+      }
+      @media (max-width: 767px) {
+        .sidebar-open .content-wrapper,
+        .sidebar-open .right-side,
+        .sidebar-open .main-footer {
+          -webkit-transform: translate(_WIDTH_, 0);
+          -ms-transform: translate(_WIDTH_, 0);
+          -o-transform: translate(_WIDTH_, 0);
+          transform: translate(_WIDTH_, 0);
+        }
+      }
+      @media (max-width: 767px) {
+        .main-sidebar,
+        .left-side {
+          -webkit-transform: translate(-_WIDTH_, 0);
+          -ms-transform: translate(-_WIDTH_, 0);
+          -o-transform: translate(-_WIDTH_, 0);
+          transform: translate(-_WIDTH_, 0);
+        }
+      }
+      @media (min-width: 768px) {
+        .sidebar-collapse .main-sidebar,
+        .sidebar-collapse .left-side {
+          -webkit-transform: translate(-_WIDTH_, 0);
+          -ms-transform: translate(-_WIDTH_, 0);
+          -o-transform: translate(-_WIDTH_, 0);
+          transform: translate(-_WIDTH_, 0);
+        }
+      }
+    ')"
+  if (!is.null(sidebarWidth)) {
+    custom_css <- tags$head(
+      tags$style(HTML(
+        gsub("_WIDTH_", sidebarWidth, cssTemplate, fixed = TRUE)
+      ))
+    )
+  }
+  return(custom_css)
+}

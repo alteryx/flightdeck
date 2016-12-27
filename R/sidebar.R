@@ -6,8 +6,9 @@
 #' @export
 #' @seealso \code{\link{fdSidebarMenu}}
 #' @example inst/examples/fdSidebar.R
-fdSidebar <- function(...) {
+fdSidebar <- function(..., sidebarWidth = NULL) {
   tags$aside(class = "main-sidebar fd-main-sidebar",
+    addCustomCssForSidebarWidth(sidebarWidth),
     tags$section(class = "sidebar fd-sidebar", list(...))
   )
 }
