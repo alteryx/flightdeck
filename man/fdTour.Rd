@@ -44,5 +44,28 @@ tour = fdTour(list(
 
 fdPanelClassificationMetrics(actual, predicted) \%>\%
   fdPreviewBoard(title = 'Classification Performance', tour, wrap = 'rowbox')
+
+tourButton <- tags$li(
+  tags$a(id = 'tour', href = "#", fdIcon('play'), 'Tour')
+)
+
+tour = fdTour(list(
+  list(intro = 'Decision Tree'),
+  list(
+    intro = "This panel displays class-wise performance metrics.",
+    element = htmlwidgets::JS("document.querySelector('.box')"),
+    numberPosition = "top-right",
+    tooltipPosition = "right"
+  )
+), list(), '#tour', width = 90, height = 30)
+
+fdBoard(
+  fdHeader(title = 'Decision Tree', tourButton), 
+  fdSidebar(), 
+  fdBody(
+    fdRowBox(width = 12, fdPanelClassificationMetrics(actual, predicted)), 
+    tour
+  )
+)
 }
 

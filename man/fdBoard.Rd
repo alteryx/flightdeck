@@ -66,7 +66,7 @@ myBoard4 <- fdBoard(
     title = 'This is a really really really long title', 
     titleWidth = 300
   ),
-  fdSidebar(),
+  fdSidebar(sidebarWidth = 300),
   fdBody()
 )
 

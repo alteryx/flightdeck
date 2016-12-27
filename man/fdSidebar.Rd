@@ -4,7 +4,7 @@
 \alias{fdSidebar}
 \title{Create the sidebar of the dashboard.}
 \usage{
-fdSidebar(...)
+fdSidebar(..., sidebarWidth = NULL)
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}
