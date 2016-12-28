@@ -7,6 +7,8 @@
 #' @param ... additional arguments to pass to \code{\link[graphics]{cdplot}}
 #' @example inst/examples/fdPlotConditionalDensity.R
 #' @export
+# TODO
+# 1. add annotations to indicate y variable levels
 fdPlotConditionalDensity <- function(x, y, title  = NULL, ...){
   dots <- list(...)
   cdcPlotData <- cdplot(x, y, ..., plot = F)
