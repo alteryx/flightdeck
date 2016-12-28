@@ -1,5 +1,5 @@
 dependencies:
 - name: plotly.js
-  version: 1.12.0
+  version: 1.21.2
   src: htmlwidgets/lib/plotly
-  script: plotly-1.12.0.min.js
+  script: plotly-cartesian-1.21.2.min.js
