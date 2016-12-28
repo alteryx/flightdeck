@@ -124,7 +124,30 @@ on a page of the dashboard. It relies on the <a href = 'http://introjs.com/'>htt
 
 
 <span class='fu'><a href='fdPanelClassificationMetrics.html'>fdPanelClassificationMetrics</a></span>(<span class='no'>actual</span>, <span class='no'>predicted</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='fdPreview.html'>fdPreviewBoard</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Classification Performance'</span>, <span class='no'>tour</span>, <span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>'rowbox'</span>)</pre>
+  <span class='fu'><a href='fdPreview.html'>fdPreviewBoard</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Classification Performance'</span>, <span class='no'>tour</span>, <span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>'rowbox'</span>)
+
+<span class='no'>tourButton</span> <span class='kw'>&lt;-</span> <span class='no'>tags</span>$<span class='fu'>li</span>(
+  <span class='no'>tags</span>$<span class='fu'>a</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>'tour'</span>, <span class='kw'>href</span> <span class='kw'>=</span> <span class='st'>"#"</span>, <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'play'</span>), <span class='st'>'Tour'</span>)
+)
+
+<span class='no'>tour</span> <span class='kw'>=</span> <span class='fu'>fdTour</span>(<span class='fu'>list</span>(
+  <span class='fu'>list</span>(<span class='kw'>intro</span> <span class='kw'>=</span> <span class='st'>'Decision Tree'</span>),
+  <span class='fu'>list</span>(
+    <span class='kw'>intro</span> <span class='kw'>=</span> <span class='st'>"This panel displays class-wise performance metrics."</span>,
+    <span class='kw'>element</span> <span class='kw'>=</span> <span class='kw'>htmlwidgets</span><span class='kw'>::</span><span class='fu'>JS</span>(<span class='st'>"document.querySelector('.box')"</span>),
+    <span class='kw'>numberPosition</span> <span class='kw'>=</span> <span class='st'>"top-right"</span>,
+    <span class='kw'>tooltipPosition</span> <span class='kw'>=</span> <span class='st'>"right"</span>
+  )
+), <span class='fu'>list</span>(), <span class='st'>'#tour'</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>30</span>)
+
+<span class='fu'><a href='fdBoard.html'>fdBoard</a></span>(
+  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Decision Tree'</span>, <span class='no'>tourButton</span>),
+  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
+  <span class='fu'><a href='fdBody.html'>fdBody</a></span>(
+    <span class='fu'><a href='fdBox.html'>fdRowBox</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>12</span>, <span class='fu'><a href='fdPanelClassificationMetrics.html'>fdPanelClassificationMetrics</a></span>(<span class='no'>actual</span>, <span class='no'>predicted</span>)),
+    <span class='no'>tour</span>
+  )
+)</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

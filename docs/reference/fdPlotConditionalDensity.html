@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a dashboard — fdBoard • flightdeck</title>
+<title>Interactive Conditional Density Plot — fdPlotConditionalDensity • flightdeck</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,79 +77,49 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a dashboard</h1>
+    <h1>Interactive Conditional Density Plot</h1>
     </div>
 
     
-    <p>This function creates a dashboard.</p>
+    <p>Interactive Conditional Density Plot</p>
     
 
-    <pre><span class='fu'>fdBoard</span>(<span class='no'>header</span>, <span class='no'>sidebar</span>, <span class='no'>body</span>, <span class='kw'>theme</span> <span class='kw'>=</span> <span class='st'>"skin-blue-light"</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre><span class='fu'>fdPlotConditionalDensity</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
-      <dt>header</dt>
-      <dd>A header created by <code>fdHeader</code>.</dd>
-      <dt>sidebar</dt>
-      <dd>A sidebar created by <code>fdSidebar</code>.</dd>
-      <dt>body</dt>
-      <dd>A body created by <code>fdBody</code>.</dd>
-      <dt>theme</dt>
-      <dd>A string indicating theme to use for the dashboard.</dd>
-      <dt>fixed</dt>
-      <dd>A boolean indicating if the dashboard should use a sticky header</dd>
+      <dt>x</dt>
+      <dd>a numeric vector</dd>
+      <dt>y</dt>
+      <dd>a &quot;factor&quot; interpreted to be the dependenty variable</dd>
+      <dt>title</dt>
+      <dd>optional title for the plot</dd>
+      <dt>...</dt>
+      <dd>additional arguments to pass to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/cdplot'>cdplot</a></code></dd>
     </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='fu'>library</span>(<span class='no'>flightdeck</span>)
-<span class='fu'>library</span>(<span class='no'>htmltools</span>)
-
-<span class='co'>#' Example 1: Empty Dashboard</span>
-<span class='no'>myBoard1</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
-  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(),
-  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
-  <span class='fu'><a href='fdBody.html'>fdBody</a></span>()
+<span class='co'># Example 1: NASA space shuttle o-ring failures</span>
+<span class='no'>fail</span> <span class='kw'>&lt;-</span> <span class='fu'>factor</span>(<span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
+  <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
+  <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"no"</span>, <span class='st'>"yes"</span>)
 )
-
+<span class='no'>temperature</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(
+  <span class='fl'>53</span>, <span class='fl'>57</span>, <span class='fl'>58</span>, <span class='fl'>63</span>, <span class='fl'>66</span>, <span class='fl'>67</span>, <span class='fl'>67</span>, <span class='fl'>67</span>, <span class='fl'>68</span>, <span class='fl'>69</span>, <span class='fl'>70</span>, <span class='fl'>70</span>,
+  <span class='fl'>70</span>, <span class='fl'>70</span>, <span class='fl'>72</span>, <span class='fl'>73</span>, <span class='fl'>75</span>, <span class='fl'>75</span>, <span class='fl'>76</span>, <span class='fl'>76</span>, <span class='fl'>78</span>, <span class='fl'>79</span>, <span class='fl'>81</span>
+)
+<span class='co'># Conditional Density Plot</span>
+<span class='co'># cdplot(fail ~ temperature)</span>
 <span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='no'>myBoard1</span>
+  <span class='fu'>fdPlotConditionalDensity</span>(<span class='no'>temperature</span>, <span class='no'>fail</span>)
 }
 
-<span class='co'>#' Example 2: Hello World!</span>
-<span class='no'>myBoard2</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
-  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'My Board'</span>),
-  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
-  <span class='fu'><a href='fdBody.html'>fdBody</a></span>(
-    <span class='fu'>h3</span>(<span class='st'>"Hello World!"</span>)
-  )
-)
-
+<span class='co'># Example 2: Iris</span>
 <span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='no'>myBoard2</span>
-}
-
-<span class='co'>#' Example 3: Fixed Header. The header stays on the page as you scroll down.</span>
-<span class='no'>myBoard3</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
-  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Test'</span>),
-  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(),
-  <span class='fu'><a href='fdBody.html'>fdBody</a></span>(<span class='fu'>div</span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>'height:900px;'</span>)),
-  <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)
-
-<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
-  <span class='no'>myBoard3</span>
-}
-
-<span class='co'>#' Example 4: Long Titles</span>
-<span class='no'>myBoard4</span> <span class='kw'>&lt;-</span> <span class='fu'>fdBoard</span>(
-  <span class='fu'><a href='fdHeader.html'>fdHeader</a></span>(
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'This is a really really really long title'</span>,
-    <span class='kw'>titleWidth</span> <span class='kw'>=</span> <span class='fl'>300</span>
-  ),
-  <span class='fu'><a href='fdSidebar.html'>fdSidebar</a></span>(<span class='kw'>sidebarWidth</span> <span class='kw'>=</span> <span class='fl'>300</span>),
-  <span class='fu'><a href='fdBody.html'>fdBody</a></span>()
-)</pre>
+  <span class='fu'>fdPlotConditionalDensity</span>(<span class='no'>iris</span>$<span class='no'>Petal.Length</span>, <span class='no'>iris</span>$<span class='no'>Species</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'Petal.Length'</span>)
+}</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
