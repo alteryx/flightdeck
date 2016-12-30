@@ -45,9 +45,9 @@ fdPlotConfusionMatrix <- function(x, class = 'table table-bordered'){
   for (i in 1:NROW(d2)){
     for (j in 1:NCOL(d2)){
       phrase <- if (i == j) 'correctly' else 'incorrectly'
-      pct <- d[i, j]/sum(d[i,])
+      pct <- x[i, j]/sum(x[i,])
       title <- sprintf('%s %% of %s are %s classified as %s',
-                       format(pct*100, 2), rownames(d)[i], phrase, colnames(d)[j]             
+        format(pct*100, 2), rownames(x)[i], phrase, colnames(x)[j]             
       )
       background = if (i == j) {
         paste0('rgba(44, 160, 44, ', pct , ' )')
@@ -55,7 +55,7 @@ fdPlotConfusionMatrix <- function(x, class = 'table table-bordered'){
         paste0('rgba(214, 39, 40,  ', pct, ' )')
       }
       d2[i,j] <- makeTooltip(
-        paste0(d[i, j], ' (', format(pct*100, 2), '%)'),
+        paste0(x[i, j], ' (', format(pct*100, 2), '%)'),
         title, 
         pct, 
         phrase
