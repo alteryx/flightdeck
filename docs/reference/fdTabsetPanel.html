@@ -86,9 +86,9 @@
     <p>Make a tab panel</p>
     
 
-    <pre><span class='fu'>fdTabsetPanel</span>(<span class='no'>...</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre><span class='fu'>fdTabsetPanel</span>(<span class='no'>...</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.list</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>fdTabPanel</span>(<span class='no'>title</span>, <span class='no'>...</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='no'>title</span>)
+<span class='fu'>fdTabPanel</span>(<span class='no'>title</span>, <span class='no'>...</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='fu'>makeHtmlId</span>(<span class='no'>title</span>))
 
 <span class='fu'>fdTabNav</span>(<span class='no'>...</span>)
 
@@ -104,6 +104,8 @@
       <dd>elements to put in. see details.</dd>
       <dt>selected</dt>
       <dd>id of the active tab</dd>
+      <dt>.list</dt>
+      <dd>elements to put in as a list.</dd>
       <dt>active</dt>
       <dd>boolean indicating if tab is active</dd>
       <dt>...</dt>
