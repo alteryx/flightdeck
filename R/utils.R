@@ -26,3 +26,10 @@ makeConfidenceStars <- function(x){
     c(addStar(3), addStar(2), addStar(1), "&#8226;", "")
   )
 }
+
+#' @export
+makeHtmlId <- function(x){
+  x <- gsub(".", "-", make.names(x), fixed = TRUE)
+  x <- gsub("_", "-", x, fixed = TRUE)
+  tolower(x)
+}
