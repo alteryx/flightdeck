@@ -1,0 +1,20 @@
+library(flightdeck)
+library(rpart)
+mod <- rpart(Species ~ ., data = iris)
+outcome <- as.character(attr(mod, 'ylevels')[mod$y])
+pred <- predict(mod, type = "class")
+d <- as.data.frame.matrix(table(outcome, pred))
+
+if (interactive()){
+  fdRowBox(width = 6,
+    fdPlotConfusionMatrix(d),
+    title = 'Confusion Matrix',
+    footer = paste0(
+      'Numbers in parantheses indicate % of observations', 
+      'correctly classified. Hover for more details'
+    ) 
+  ) %>% 
+  fdPreview(wrap = 'none')
+}
+
+
