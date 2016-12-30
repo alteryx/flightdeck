@@ -101,11 +101,11 @@
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'>rpart</span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)
 <span class='no'>outcome</span> <span class='kw'>&lt;-</span> <span class='fu'>as.character</span>(<span class='fu'>attr</span>(<span class='no'>mod</span>, <span class='st'>'ylevels'</span>)[<span class='no'>mod</span>$<span class='no'>y</span>])
 <span class='no'>pred</span> <span class='kw'>&lt;-</span> <span class='fu'>predict</span>(<span class='no'>mod</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"class"</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>as.data.frame.matrix</span>(<span class='fu'>table</span>(<span class='no'>outcome</span>, <span class='no'>pred</span>))
+<span class='no'>cmat</span> <span class='kw'>&lt;-</span> <span class='fu'>as.data.frame.matrix</span>(<span class='fu'>table</span>(<span class='no'>outcome</span>, <span class='no'>pred</span>))
 
 <span class='kw'>if</span> (<span class='fu'>interactive</span>()){
   <span class='fu'><a href='fdBox.html'>fdRowBox</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
-    <span class='fu'>fdPlotConfusionMatrix</span>(<span class='no'>d</span>),
+    <span class='fu'>fdPlotConfusionMatrix</span>(<span class='no'>cmat</span>),
     <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Confusion Matrix'</span>,
     <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>paste</span>(
       <span class='st'>'Numbers in parantheses indicate % of observations'</span>,
