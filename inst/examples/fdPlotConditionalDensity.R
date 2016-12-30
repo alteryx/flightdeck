@@ -18,3 +18,31 @@ if (interactive()){
 if (interactive()){
   fdPlotConditionalDensity(iris$Petal.Length, iris$Species, xlab = 'Petal.Length')
 }
+
+# Example 3A: Panel of Plots
+dat <- iris
+dat$Species <- as.factor(dat$Species)
+eachPlotWidth = 6
+numericColumns <- names(dat)[sapply(dat, is.numeric)]
+# Facets in a Single Panel
+cdPlots <- lapply(numericColumns, function(x){
+  plt <- fdPlotConditionalDensity(x = dat[[x]], y = dat[['Species']], 
+    xlab = x, showlegend = F
+  )
+  fdColumn(plt, width = eachPlotWidth)
+})
+
+fdRow(cdPlots) %>% 
+  fdPreviewBoard(title = 'Conditional Density Plots', wrap = 'box')
+
+# Tabbed Panel
+cdPlots <- lapply(numericColumns, function(x){
+  plt <-  fdPlotConditionalDensity(x = dat[[x]], y = dat[['Species']], 
+    xlab = x, showlegend = F
+  )
+  fdTabPanel(plt, title = x)
+})
+
+fdTabsetPanel(selected = makeHtmlId('Sepal.Length'), .list = cdPlots) %>%
+  fdColumn(width = 12) %>%
+  fdPreview(wrap = 'row')
