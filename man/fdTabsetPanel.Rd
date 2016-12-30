@@ -9,9 +9,9 @@
 \alias{fdTabsetPanel}
 \title{Make a tabset panel}
 \usage{
-fdTabsetPanel(..., selected = NULL)
+fdTabsetPanel(..., selected = NULL, .list = NULL)
 
-fdTabPanel(title, ..., id = title)
+fdTabPanel(title, ..., id = makeHtmlId(title))
 
 fdTabNav(...)
 
@@ -25,6 +25,8 @@ fdTabContentItem(..., id = NULL, active = FALSE)
 \item{...}{elements to put in. see details.}
 
 \item{selected}{id of the active tab}
+
+\item{.list}{elements to put in as a list.}
 
 \item{active}{boolean indicating if tab is active}
 
