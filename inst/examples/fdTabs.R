@@ -1,4 +1,7 @@
 library(flightdeck)
+library(htmltools)
+
+# Example 1
 if (interactive()){
   # Example 1
   fdTabsetPanel(selected = 'Tab2',
@@ -8,8 +11,3 @@ if (interactive()){
     fdColumn(width = 12) %>%
     fdPreview(wrap = 'row')
 }
-
-
-
-
-
