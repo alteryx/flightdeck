@@ -2,9 +2,10 @@
 #' 
 #' @param ... elements to put in. see details.
 #' @param selected id of the active tab
+#' @param .list elements to put in as a list.
 #' @export
-fdTabsetPanel <- function(..., selected = NULL){
-  tabContent <- list(...)
+fdTabsetPanel <- function(..., selected = NULL, .list = NULL){
+  tabContent <- c(list(...), .list)
   tabNav <- lapply(tabContent, function(tp){
     fdTabNavItem(
       tp$attribs$`data-title`, 
@@ -30,7 +31,7 @@ fdTabsetPanel <- function(..., selected = NULL){
 #' @rdname fdTabsetPanel
 #' @param ... elements to put in the panel
 #' @export
-fdTabPanel <- function(title, ..., id = title){
+fdTabPanel <- function(title, ..., id = makeHtmlId(title)){
   if (is.null(id)){
     stop('A tab pane needs to have a name.')
   }
