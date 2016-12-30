@@ -83,3 +83,62 @@ fdPlotConfusionMatrix <- function(x, class = 'table table-bordered', digits = 3)
   d2 <- cbind(Actual = rownames(d2), d2)
   fdSimpleTable(d2, class = paste(class, 'fd-confusion-matrix'))
 }
+
+
+#' Interactive performance plots for classification models.
+#' 
+#' @param perf an object of class \code{\link[ROCR]{performance}}
+#' @param digits number of digits to display
+#' @param title optional title
+#' @export
+#' @example inst/examples/fdPlotClassificationPerformance.R
+fdPlotClassificationPerformance <- function(perf, digits = 3, title = NULL){
+  if (!inherits(perf, 'performance')){
+    stop("The argument perf needs to be an object of class performance.")
+  }
+  d <- data.frame(
+    x = perf@x.values[[1]],
+    y = perf@y.values[[1]],
+    cutoff = perf@alpha.values[[1]]
+  )
+  tpl <- "%s: %s"
+  d$text <- paste(
+    sprintf(tpl, perf@x.name, format(d$x, digits = digits)), "<br>",
+    sprintf(tpl, perf@y.name, format(d$y, digits = digits)), "<br>",
+    sprintf(tpl, 'Threshold', format(d$cutoff, digits = digits))
+  )
+  dat <- list(
+    list(
+      x = d$x,
+      y = d$y,
+      type = 'scatter',
+      mode = 'line',
+      showlegend = F,
+      hoverinfo = 'text',
+      text = d$text
+    ),
+    list(
+      x = d$x,
+      y = d$x,
+      type = 'scatter',
+      mode = 'line',
+      showlegend = F,
+      hoverinfo = "text"
+    )
+  )
+  layout_ <- list(
+    plot_bgcolor = "#f6f6f6",
+    margin = list(
+      t = 10,
+      l = 40,
+      r = 30,
+      b = 30
+    ),
+    hovermode = 'closest',
+    xaxis = list(title = perf@x.name),
+    yaxis = list(title = perf@y.name),
+    title = title
+  )
+  config <- list(displaylogo = FALSE, displayModeBar = FALSE)
+  fdPlotly(dat, layout_, config)
+}
