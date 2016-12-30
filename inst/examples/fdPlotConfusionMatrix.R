@@ -9,7 +9,7 @@ if (interactive()){
   fdRowBox(width = 6,
     fdPlotConfusionMatrix(d),
     title = 'Confusion Matrix',
-    footer = paste0(
+    footer = paste(
       'Numbers in parantheses indicate % of observations', 
       'correctly classified. Hover for more details'
     ) 

@@ -26,7 +26,7 @@ fdPlotConditionalDensity <- function(x, y, title  = NULL, ...){
   fdPlotly(traces, layout)
 }
 
-#' Plot a confusion matrix
+#' Interactive Confusion Matrix
 #' 
 #' @param x confusion matrix with row and column names representing classes
 #' @param class html class to style the confusion matrix table
