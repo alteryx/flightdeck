@@ -16,7 +16,7 @@ Imports:
   plyr,
   yaml,
   htmltools (>= 0.3.5),
-  htmlwidgets (>= 0.8),
+  htmlwidgets (>= 0.7),
   magrittr,
   DT (>= 0.2),
   MLmetrics,
