@@ -66,6 +66,7 @@ reference:
       - fdPlotGlmnet
       - fdPlotCvGlmnet
       - fdPlotConditionalDensity
+      - fdPlotConfusionMatrix
   - title: Render
     desc: >
       These functions help preview a widget.
