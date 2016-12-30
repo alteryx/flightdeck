@@ -25,3 +25,43 @@ fdPlotConditionalDensity <- function(x, y, title  = NULL, ...){
   )
   fdPlotly(traces, layout)
 }
+
+#' Plot a confusion matrix
+#' 
+#' @param x confusion matrix with row and column names representing classes
+#' @param class html class to style the confusion matrix table
+#' @export
+#' @example inst/examples/fdPlotConfusionMatrix.R 
+fdPlotConfusionMatrix <- function(x, class = 'table table-bordered'){
+  makeTooltip <- function(x, title, pct, phrase){
+    tpl <- '
+    <div data-toggle="tooltip" title="%s"data-value=%s data-phrase="%s">
+    %s
+    </div>
+    '
+    sprintf(tpl, title, pct, phrase, x)
+  }
+  d2 <- x
+  for (i in 1:NROW(d2)){
+    for (j in 1:NCOL(d2)){
+      phrase <- if (i == j) 'correctly' else 'incorrectly'
+      pct <- d[i, j]/sum(d[i,])
+      title <- sprintf('%s %% of %s are %s classified as %s',
+                       format(pct*100, 2), rownames(d)[i], phrase, colnames(d)[j]             
+      )
+      background = if (i == j) {
+        paste0('rgba(44, 160, 44, ', pct , ' )')
+      } else {
+        paste0('rgba(214, 39, 40,  ', pct, ' )')
+      }
+      d2[i,j] <- makeTooltip(
+        paste0(d[i, j], ' (', format(pct*100, 2), '%)'),
+        title, 
+        pct, 
+        phrase
+      )
+    }
+  }
+  d2 <- cbind(Actual = rownames(d2), d2)
+  fdSimpleTable(d2, class = paste(class, 'fd-confusion-matrix'))
+}
