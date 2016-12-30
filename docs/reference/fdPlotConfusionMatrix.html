@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot a confusion matrix — fdPlotConfusionMatrix • flightdeck</title>
+<title>Interactive Confusion Matrix — fdPlotConfusionMatrix • flightdeck</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,11 +77,11 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot a confusion matrix</h1>
+    <h1>Interactive Confusion Matrix</h1>
     </div>
 
     
-    <p>Plot a confusion matrix</p>
+    <p>Interactive Confusion Matrix</p>
     
 
     <pre><span class='fu'>fdPlotConfusionMatrix</span>(<span class='no'>x</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"table table-bordered"</span>)</pre>
@@ -107,7 +107,7 @@
   <span class='fu'><a href='fdBox.html'>fdRowBox</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>6</span>,
     <span class='fu'>fdPlotConfusionMatrix</span>(<span class='no'>d</span>),
     <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Confusion Matrix'</span>,
-    <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(
+    <span class='kw'>footer</span> <span class='kw'>=</span> <span class='fu'>paste</span>(
       <span class='st'>'Numbers in parantheses indicate % of observations'</span>,
       <span class='st'>'correctly classified. Hover for more details'</span>
     )

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plots.R
 \name{fdPlotConfusionMatrix}
 \alias{fdPlotConfusionMatrix}
-\title{Plot a confusion matrix}
+\title{Interactive Confusion Matrix}
 \usage{
 fdPlotConfusionMatrix(x, class = "table table-bordered")
 }
@@ -12,7 +12,7 @@ fdPlotConfusionMatrix(x, class = "table table-bordered")
 \item{class}{html class to style the confusion matrix table}
 }
 \description{
-Plot a confusion matrix
+Interactive Confusion Matrix
 }
 \examples{
 library(flightdeck)
@@ -26,7 +26,7 @@ if (interactive()){
   fdRowBox(width = 6,
     fdPlotConfusionMatrix(d),
     title = 'Confusion Matrix',
-    footer = paste0(
+    footer = paste(
       'Numbers in parantheses indicate \% of observations', 
       'correctly classified. Hover for more details'
     ) 
