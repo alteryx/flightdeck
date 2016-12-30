@@ -30,3 +30,11 @@
   margin-right: 5px;
   color: #000;
 }
+
+.fd-definition{
+  color: steelblue;
+  cursor: pointer;
+}
+.fd-definition:hover{
+  text-decoration:underline;
+}
