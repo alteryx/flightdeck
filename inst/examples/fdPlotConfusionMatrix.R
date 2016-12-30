@@ -3,11 +3,11 @@ library(rpart)
 mod <- rpart(Species ~ ., data = iris)
 outcome <- as.character(attr(mod, 'ylevels')[mod$y])
 pred <- predict(mod, type = "class")
-d <- as.data.frame.matrix(table(outcome, pred))
+cmat <- as.data.frame.matrix(table(outcome, pred))
 
 if (interactive()){
   fdRowBox(width = 6,
-    fdPlotConfusionMatrix(d),
+    fdPlotConfusionMatrix(cmat),
     title = 'Confusion Matrix',
     footer = paste(
       'Numbers in parantheses indicate % of observations', 
