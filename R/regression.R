@@ -85,6 +85,7 @@ fdPanelRegressionScatterplot <- function(actual, predicted){
 #' @param mod lm model object with a residuals method
 #' @param digits number of digits to display in the summary statistics table
 #' @param plotTitle title of the histogram.
+#' @param ... additional arguments. not used currently.
 #' @export
 #' @examples
 #' library(flightdeck)
@@ -101,6 +102,9 @@ fdPanelRegressionResiduals <- function(mod, digits = 4,
 }
 
 
+#' Display a panel of metrics
+#' 
+#' @param x a data frame containing metrics to display.
 #' @export
 fdPanelMetrics <- function(x){
   l <- plyr::alply(x, 1, function(d){

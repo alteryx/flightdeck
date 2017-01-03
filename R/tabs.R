@@ -29,7 +29,8 @@ fdTabsetPanel <- function(..., selected = NULL, .list = NULL){
 #' 
 #' @inheritParams fdTabsetPanel
 #' @rdname fdTabsetPanel
-#' @param ... elements to put in the panel
+#' @param title title to use.
+#' @param id html id to add.
 #' @export
 fdTabPanel <- function(title, ..., id = makeHtmlId(title)){
   if (is.null(id)){
@@ -57,8 +58,7 @@ fdTabContent <- function(...){
 
 #' @inheritParams fdTabsetPanel
 #' @rdname fdTabsetPanel
-#' @param name unique name to identify tab
-#' @param active boolean indicating if tab is active
+#' @param active boolean indicating if tab is active.
 #' @export
 fdTabNavItem <- function(..., id = NULL, active = FALSE){
   if (is.null(id)){

@@ -5,11 +5,10 @@
 #' @param title Optional title.
 #' @param footer Optional footer text.
 #' @param status The status of the item This determines the item's background
-#'   color. Valid statuses are listed in \link{validStatuses}.
+#'   color.
 #' @param solidHeader Should the header be shown with a solid color background?
 #' @param background If NULL (the default), the background of the box will be
-#'   white. Otherwise, a color string. Valid colors are listed in
-#'   \link{validColors}.
+#'   white. Otherwise, a color string.
 #' @param width The width of the box, using the Bootstrap grid system. This is
 #'   used for row-based layouts. The overall width of a region is 12, so the
 #'   default valueBox width of 4 occupies 1/3 of that width. For column-based
@@ -22,6 +21,8 @@
 #' @param collapsed If TRUE, start collapsed. This must be used with
 #'   \code{collapsible=TRUE}.
 #' @param ... Contents of the box.
+#' @param extraBoxClass extra class to provide to the box.
+#' @param extraHeader extra header to provide to the box
 #'
 #' @family boxes
 #'
@@ -69,7 +70,7 @@ fdBox <- function(..., title = NULL, footer = NULL, status = NULL,
     collapseTag <- div(class = "box-tools pull-right",
       tags$button(class = paste0("btn btn-box-tool"),
         `data-widget` = "collapse",
-        icon(collapseIcon)
+        fdIcon(collapseIcon)
       )
     )
   }
@@ -119,8 +120,7 @@ fdRowBox <- function(..., title = NULL, footer = NULL, status = NULL,
 #' @param value The value to display in the box. Usually a number or short text.
 #' @param subtitle Subtitle text.
 #' @param icon An icon tag, created by \code{\link[shiny]{icon}}.
-#' @param color A color for the box. Valid colors are listed in
-#'   \link{validColors}.
+#' @param color A color for the box.
 #' @param href An optional URL to link to.
 #'
 #' @family boxes
@@ -159,8 +159,7 @@ fdValueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @param value The value to display in the box. Usually a number or short text.
 #' @param subtitle Subtitle text (optional).
 #' @param icon An icon tag, created by \code{\link[shiny]{icon}}.
-#' @param color A color for the box. Valid colors are listed in
-#'   \link{validColors}.
+#' @param color A color for the box.
 #' @param fill If \code{FALSE} (the default), use a white background for the
 #'   content, and the \code{color} argument for the background of the icon. If
 #'   \code{TRUE}, use the \code{color} argument for the background of the

@@ -27,6 +27,9 @@ makeConfidenceStars <- function(x){
   )
 }
 
+#' Make a valid html id from a string
+#' 
+#' @param x string to convert into a valid html id.
 #' @export
 makeHtmlId <- function(x){
   x <- gsub(".", "-", make.names(x), fixed = TRUE)

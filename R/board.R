@@ -38,6 +38,7 @@ fdPage <- function(..., id, display = FALSE){
 
 #' Create the body of the dashboard.
 #'
+#' @param ... items to put in the body.
 #' @export
 fdBody <- function(...){
   div(class = "content-wrapper",

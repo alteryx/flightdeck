@@ -3,6 +3,7 @@
 #'
 #' This creates a sidebar for the dashboard
 #' @param ... Items to put in the sidebar.
+#' @param sidebarWidth width for the sidebar.
 #' @export
 #' @seealso \code{\link{fdSidebarMenu}}
 #' @example inst/examples/fdSidebar.R

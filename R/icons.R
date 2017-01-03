@@ -1,10 +1,9 @@
 #' Create a font icon.
 #'
 #' @param name name of the icon
-#' @param class
-#'   \link[=http://www.w3schools.com/tags/att_global_class.asp]{class} attribute
-#'   to add. See details for an example.
+#' @param class html class attribute to add. See details for an example.
 #' @param lib font library to use. See details.
+#' @param ... extra items to be passed to the icon.
 #' @export
 #' @details 
 #' This function supports four font libraries at present. A detailed list of fonts

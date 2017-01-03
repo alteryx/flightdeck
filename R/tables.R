@@ -3,7 +3,8 @@
 #' @details 
 #' The \code{\link{fdTable}} function is just syntactic sugar for
 #' \code{\link{fdSimpleTable}}
-#' @param x data frame to be displayed as a html table
+#' @param x data frame to be displayed as a html table.
+#' @param class html class to add to the table.
 #' @export
 #' @examples
 #' fdSimpleTable(mtcars) %>% fdPreview
@@ -159,6 +160,14 @@ fdPanelImportance <- function(mod, digits = 2, barColor = 'steelblue'){
 
 #' Display a statistic
 #'
+#'
+#' @param name name to indicate for the progress bar.
+#' @param value value for the progress bar.
+#' @param color color of the progress bar.
+#' @param note note to display.
+#' @param pct percentage to indicate in bar.
+#' @param showBar boolean indicating if a bar is to be displayed.
+#' @param digits number of digits to display.
 #' @export
 fdStat <- function(name, value, color = 'green', note = name, pct = value*100,
     showBar = TRUE, digits = 4){

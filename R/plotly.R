@@ -3,6 +3,11 @@
 #' This function is a lightweight wrapper around plotly.js. For complete
 #' documentation, please refer to \url{https://plot.ly/javascript/reference/}.
 #'
+#' @param data list of traces to plot.
+#' @param layout list consisting of the layout to use for the plot.
+#' @param config list consisting of configuration to use for the plot.
+#' @param width width of the plot.
+#' @param height height of the plot.
 #' @import htmlwidgets
 #' @export
 #' @example inst/examples/fdPlotly.R

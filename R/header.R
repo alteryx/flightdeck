@@ -41,13 +41,11 @@ fdHeader <- function(..., title = NULL, miniTitle = NULL, titleWidth = NULL,
 #' @param type The type of menu. Should be one of "messages", "notifications",
 #'   "tasks".
 #' @param badgeStatus The status of the badge which displays the number of items
-#'   in the menu. This determines the badge's color. Valid statuses are listed
-#'   in \link{validStatuses}. A value of \code{NULL} means to not display a
-#'   badge.
+#'   in the menu. This determines the badge's color. A value of \code{NULL}
+#'   means to not display a badge.
 #' @param ... Items to put in the menu. Typically, message menus should contain
-#'   \code{\link{messageItem}}s, notification menus should contain
-#'   \code{\link{notificationItem}}s, and task menus should contain
-#'   \code{\link{taskItem}}s.
+#'   \code{\link{fdMessage}}s, notification menus should contain
+#'   \code{\link{fdNotification}}s.
 #' @param icon An icon to display in the header. By default, the icon is
 #'   automatically selected depending on \code{type}, but it can be overriden
 #'   with this argument.
@@ -75,7 +73,7 @@ fdDropdownMenu <- function(...,
     icon <- switch(type,
       messages = fdIcon("envelope-o"),
       notifications = fdIcon("warning"),
-      tasks = dfIcon("tasks")
+      tasks = fdIcon("tasks")
     )
   }
 
@@ -161,12 +159,12 @@ fdMessage <- function(from, message, icon = fdIcon("user"), time = NULL,
 #' @param text The notification text.
 #' @param icon An icon tag, created by \code{\link{fdIcon}}.
 #' @param status The status of the item This determines the item's background
-#'   color. Valid statuses are listed in \link{validStatuses}.
+#'   color.
 #' @param href An optional URL to link to.
 #'
 #' @family menu items
 #' @export
-fdNotification <- function(text, icon = fdicon("warning"), status = "success", 
+fdNotification <- function(text, icon = fdIcon("warning"), status = "success", 
     href = NULL){
   # tagAssert(icon, type = "i")
   # validateStatus(status)
