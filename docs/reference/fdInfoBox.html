@@ -101,8 +101,7 @@ boxes are meant to be placed in the main body of a dashboard.</p>
       <dt>icon</dt>
       <dd>An icon tag, created by <code><a href='http://www.rdocumentation.org/packages/shiny/topics/icon'>icon</a></code>.</dd>
       <dt>color</dt>
-      <dd>A color for the box. Valid colors are listed in
-validColors.</dd>
+      <dd>A color for the box.</dd>
       <dt>width</dt>
       <dd>The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the
@@ -130,24 +129,23 @@ background.</dd>
 <span class='fu'>library</span>(<span class='no'>htmltools</span>)
 
 <span class='co'># Example 1</span>
-<span class='fu'>tagList</span>(
-  <span class='fu'>fdInfoBox</span>(<span class='st'>'Adjusted R-squared'</span>, <span class='st'>'86.9%'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'chart-line'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
-  <span class='fu'>fdInfoBox</span>(<span class='st'>'F-Statistic'</span>, <span class='fl'>13.93</span>,  <span class='st'>'on 10 and 21 degrees of freedom'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'green'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'star'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
-  <span class='fu'>fdInfoBox</span>(<span class='st'>'Residual Standard Error'</span>, <span class='fl'>2.65</span>, <span class='st'>'on 21 degrees of freedom'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'purple'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'flash'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>))
-) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='no'>F</span>)
+
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
+  <span class='fu'>tagList</span>(
+    <span class='fu'>fdInfoBox</span>(<span class='st'>'Adjusted R-squared'</span>, <span class='st'>'86.9%'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'chart-line'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
+    <span class='fu'>fdInfoBox</span>(<span class='st'>'F-Statistic'</span>, <span class='fl'>13.93</span>,  <span class='st'>'on 10 and 21 degrees of freedom'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'green'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'star'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
+    <span class='fu'>fdInfoBox</span>(<span class='st'>'Residual Standard Error'</span>, <span class='fl'>2.65</span>, <span class='st'>'on 21 degrees of freedom'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'purple'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'flash'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>))
+  ) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='no'>F</span>)
+}
 
 
 <span class='co'># Example 2: Interactive help embedded in stat box.</span>
 <span class='co'># The message supports markdown.</span>
-<span class='no'>msg</span> <span class='kw'>&lt;-</span> <span class='st'>"The adjusted R-squared compares the explanatory power of regression models that contain different numbers of predictors.
-
-Suppose you compare a five-predictor model with a higher R-squared to a one-predictor model. Does the five predictor model have a higher R-squared because it’s better? Or is the R-squared higher because it has more predictors? Simply compare the adjusted R-squared values to find out!
-
-The adjusted R-squared is a modified version of R-squared that has been adjusted for the number of predictors in the model. The adjusted R-squared increases only if the new term improves the model more than would be expected by chance. It decreases when a predictor improves the model by less than expected by chance. The adjusted R-squared can be negative, but it’s usually not.  It is always lower than the R-squared."</span>
+<span class='no'>msg</span> <span class='kw'>&lt;-</span> <span class='st'>"The adjusted R-squared measures the explanatory power of regression models."</span>
 
 
 
@@ -156,15 +154,17 @@ The adjusted R-squared is a modified version of R-squared that has been adjusted
     <span class='fu'><a href='fdModal.html'>fdModal</a></span>(<span class='no'>msg</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Adjusted R-Squared'</span>)
 )
 
-<span class='fu'>tagList</span>(
-  <span class='fu'>fdInfoBox</span>(<span class='no'>adjRsquared</span>, <span class='st'>'86.9%'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'chart-line'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
-  <span class='fu'>fdInfoBox</span>(<span class='st'>'F-Statistic'</span>, <span class='fl'>13.93</span>,  <span class='st'>'on 10 and 21 degrees of freedom'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'green'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'star'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
-  <span class='fu'>fdInfoBox</span>(<span class='st'>'Residual Standard Error'</span>, <span class='fl'>2.65</span>, <span class='st'>'on 21 degrees of freedom'</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'purple'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'flash'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>))
-) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='no'>F</span>)</pre>
+<span class='kw'>if</span> (<span class='fu'>interactive</span>()){
+  <span class='fu'>tagList</span>(
+    <span class='fu'>fdInfoBox</span>(<span class='no'>adjRsquared</span>, <span class='st'>'86.9%'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'chart-line'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
+    <span class='fu'>fdInfoBox</span>(<span class='st'>'F-Statistic'</span>, <span class='fl'>13.93</span>,  <span class='st'>'on 10 and 21 degrees of freedom'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'green'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'star'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>)),
+    <span class='fu'>fdInfoBox</span>(<span class='st'>'Residual Standard Error'</span>, <span class='fl'>2.65</span>, <span class='st'>'on 21 degrees of freedom'</span>,
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'purple'</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>'flash'</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'entypo'</span>))
+  ) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrapBox</span> <span class='kw'>=</span> <span class='no'>F</span>)
+}</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

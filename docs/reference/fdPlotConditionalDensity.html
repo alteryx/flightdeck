@@ -131,7 +131,7 @@
 <span class='co'># Facets in a Single Panel</span>
 <span class='no'>cdPlots</span> <span class='kw'>&lt;-</span> <span class='fu'>lapply</span>(<span class='no'>numericColumns</span>, <span class='kw'>function</span>(<span class='no'>x</span>){
   <span class='no'>plt</span> <span class='kw'>&lt;-</span> <span class='fu'>fdPlotConditionalDensity</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>dat</span><span class='kw'>[[</span><span class='no'>x</span>]], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>dat</span><span class='kw'>[[</span><span class='st'>'Species'</span>]],
-    <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='no'>F</span>
+    <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
   )
   <span class='fu'><a href='fdColumn.html'>fdColumn</a></span>(<span class='no'>plt</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='no'>eachPlotWidth</span>)
 })
@@ -142,12 +142,12 @@
 <span class='co'># Tabbed Panel</span>
 <span class='no'>cdPlots</span> <span class='kw'>&lt;-</span> <span class='fu'>lapply</span>(<span class='no'>numericColumns</span>, <span class='kw'>function</span>(<span class='no'>x</span>){
   <span class='no'>plt</span> <span class='kw'>&lt;-</span>  <span class='fu'>fdPlotConditionalDensity</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>dat</span><span class='kw'>[[</span><span class='no'>x</span>]], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>dat</span><span class='kw'>[[</span><span class='st'>'Species'</span>]],
-    <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='no'>F</span>
+    <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>showlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
   )
   <span class='fu'><a href='fdTabsetPanel.html'>fdTabPanel</a></span>(<span class='no'>plt</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='no'>x</span>)
 })
 
-<span class='fu'><a href='fdTabsetPanel.html'>fdTabsetPanel</a></span>(<span class='kw'>selected</span> <span class='kw'>=</span> <span class='fu'>makeHtmlId</span>(<span class='st'>'Sepal.Length'</span>), <span class='kw'>.list</span> <span class='kw'>=</span> <span class='no'>cdPlots</span>) <span class='kw'>%&gt;%</span>
+<span class='fu'><a href='fdTabsetPanel.html'>fdTabsetPanel</a></span>(<span class='kw'>selected</span> <span class='kw'>=</span> <span class='fu'><a href='makeHtmlId.html'>makeHtmlId</a></span>(<span class='st'>'Sepal.Length'</span>), <span class='kw'>.list</span> <span class='kw'>=</span> <span class='no'>cdPlots</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='fdColumn.html'>fdColumn</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>12</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='fdPreview.html'>fdPreview</a></span>(<span class='kw'>wrap</span> <span class='kw'>=</span> <span class='st'>'row'</span>)</pre>
   </div>

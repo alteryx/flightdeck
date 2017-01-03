@@ -112,7 +112,11 @@ element that will be displayed on click or hover.</p>
 
 <span class='co'># Tooltlip</span>
 <span class='no'>myIcon</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='fdIcon.html'>fdIcon</a></span>(<span class='st'>"info-sign"</span>, <span class='kw'>lib</span> <span class='kw'>=</span> <span class='st'>'glyphicon'</span>)
-<span class='no'>tooltipData</span> <span class='kw'>&lt;-</span> <span class='fu'>list</span>(<span class='kw'>message</span> <span class='kw'>=</span> <span class='st'>'This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good if residuals are lined well on the straight dashed line.'</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Residuals'</span>, <span class='kw'>placement</span> <span class='kw'>=</span> <span class='st'>'right'</span>)
+<span class='no'>tooltipData</span> <span class='kw'>&lt;-</span> <span class='fu'>list</span>(
+  <span class='kw'>message</span> <span class='kw'>=</span> <span class='st'>'This plot shows if residuals are normally distributed.'</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>'Residuals'</span>,
+  <span class='kw'>placement</span> <span class='kw'>=</span> <span class='st'>'right'</span>
+)
 
 <span class='no'>box1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='fdBox.html'>fdBox</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'>span</span>(<span class='st'>"Tooltip"</span>, <span class='no'>myIcon</span> <span class='kw'>%&gt;%</span> <span class='fu'>fdTooltip</span>(<span class='kw'>.list</span> <span class='kw'>=</span> <span class='no'>tooltipData</span>)))
 <span class='no'>box2</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='fdBox.html'>fdBox</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'>span</span>(<span class='st'>"Popover"</span>, <span class='no'>myIcon</span> <span class='kw'>%&gt;%</span> <span class='fu'>fdPopover</span>(<span class='kw'>.list</span> <span class='kw'>=</span> <span class='no'>tooltipData</span>)))

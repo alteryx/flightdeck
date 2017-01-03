@@ -91,17 +91,15 @@
     <dl class="dl-horizontal">
       <dt>...</dt>
       <dd>Items to put in the menu. Typically, message menus should contain
-<code>messageItem</code>s, notification menus should contain
-<code>notificationItem</code>s, and task menus should contain
-<code>taskItem</code>s.</dd>
+<code><a href='fdMessage.html'>fdMessage</a></code>s, notification menus should contain
+<code><a href='fdNotification.html'>fdNotification</a></code>s.</dd>
       <dt>type</dt>
       <dd>The type of menu. Should be one of &quot;messages&quot;, &quot;notifications&quot;,
 &quot;tasks&quot;.</dd>
       <dt>badgeStatus</dt>
       <dd>The status of the badge which displays the number of items
-in the menu. This determines the badge&#39;s color. Valid statuses are listed
-in validStatuses. A value of <code>NULL</code> means to not display a
-badge.</dd>
+in the menu. This determines the badge&#39;s color. A value of <code>NULL</code>
+means to not display a badge.</dd>
       <dt>icon</dt>
       <dd>An icon to display in the header. By default, the icon is
 automatically selected depending on <code>type</code>, but it can be overriden
