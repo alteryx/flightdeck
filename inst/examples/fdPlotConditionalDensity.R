@@ -27,7 +27,7 @@ numericColumns <- names(dat)[sapply(dat, is.numeric)]
 # Facets in a Single Panel
 cdPlots <- lapply(numericColumns, function(x){
   plt <- fdPlotConditionalDensity(x = dat[[x]], y = dat[['Species']], 
-    xlab = x, showlegend = F
+    xlab = x, showlegend = FALSE
   )
   fdColumn(plt, width = eachPlotWidth)
 })
@@ -38,7 +38,7 @@ fdRow(cdPlots) %>%
 # Tabbed Panel
 cdPlots <- lapply(numericColumns, function(x){
   plt <-  fdPlotConditionalDensity(x = dat[[x]], y = dat[['Species']], 
-    xlab = x, showlegend = F
+    xlab = x, showlegend = FALSE
   )
   fdTabPanel(plt, title = x)
 })
