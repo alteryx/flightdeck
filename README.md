@@ -1,5 +1,7 @@
 ## Interactive Dashboards for Predictive Models
 
+[![Travis-CI Build Status](https://travis-ci.org/alteryx/flightdeck.svg?branch=master)](https://travis-ci.org/alteryx/flightdeck)
+
 __FlightDeck__ is an R package designed to make it easy to create interactive dashboards for reporting outputs of predictive models.
 
 ## Installation
