@@ -6,6 +6,9 @@
 \usage{
 fdBody(...)
 }
+\arguments{
+\item{...}{items to put in the body.}
+}
 \description{
 Create the body of the dashboard.
 }

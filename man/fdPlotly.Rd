@@ -7,6 +7,17 @@
 fdPlotly(data, layout = NULL, config = NULL, width = NULL,
   height = NULL)
 }
+\arguments{
+\item{data}{list of traces to plot.}
+
+\item{layout}{list consisting of the layout to use for the plot.}
+
+\item{config}{list consisting of configuration to use for the plot.}
+
+\item{width}{width of the plot.}
+
+\item{height}{height of the plot.}
+}
 \description{
 This function is a lightweight wrapper around plotly.js. For complete
 documentation, please refer to \url{https://plot.ly/javascript/reference/}.

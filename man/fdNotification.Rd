@@ -4,7 +4,7 @@
 \alias{fdNotification}
 \title{Create a notification}
 \usage{
-fdNotification(text, icon = fdicon("warning"), status = "success",
+fdNotification(text, icon = fdIcon("warning"), status = "success",
   href = NULL)
 }
 \arguments{
@@ -13,7 +13,7 @@ fdNotification(text, icon = fdicon("warning"), status = "success",
 \item{icon}{An icon tag, created by \code{\link{fdIcon}}.}
 
 \item{status}{The status of the item This determines the item's background
-color. Valid statuses are listed in \link{validStatuses}.}
+color.}
 
 \item{href}{An optional URL to link to.}
 }

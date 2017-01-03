@@ -22,13 +22,12 @@ fdRowBox(..., title = NULL, footer = NULL, status = NULL,
 \item{footer}{Optional footer text.}
 
 \item{status}{The status of the item This determines the item's background
-color. Valid statuses are listed in \link{validStatuses}.}
+color.}
 
 \item{solidHeader}{Should the header be shown with a solid color background?}
 
 \item{background}{If NULL (the default), the background of the box will be
-white. Otherwise, a color string. Valid colors are listed in
-\link{validColors}.}
+white. Otherwise, a color string.}
 
 \item{width}{The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the
@@ -44,6 +43,10 @@ the user to collapse the box.}
 
 \item{collapsed}{If TRUE, start collapsed. This must be used with
 \code{collapsible=TRUE}.}
+
+\item{extraBoxClass}{extra class to provide to the box.}
+
+\item{extraHeader}{extra header to provide to the box}
 }
 \description{
 Boxes can be used to hold content in the main body of a dashboard.

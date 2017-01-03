@@ -10,7 +10,9 @@ fdSimpleTable(x, class = "table table-striped")
 fdTable(..., class = "table table-striped")
 }
 \arguments{
-\item{x}{data frame to be displayed as a html table}
+\item{x}{data frame to be displayed as a html table.}
+
+\item{class}{html class to add to the table.}
 
 \item{...}{columns for the table.}
 }

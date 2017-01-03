@@ -9,10 +9,11 @@ fdIcon(name, class = NULL, lib = "font-awesome", ...)
 \arguments{
 \item{name}{name of the icon}
 
-\item{class}{\link[=http://www.w3schools.com/tags/att_global_class.asp]{class} attribute
-to add. See details for an example.}
+\item{class}{html class attribute to add. See details for an example.}
 
 \item{lib}{font library to use. See details.}
+
+\item{...}{extra items to be passed to the icon.}
 }
 \description{
 Create a font icon.

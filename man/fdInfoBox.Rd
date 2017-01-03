@@ -17,8 +17,7 @@ fdInfoBox(title, value = NULL, subtitle = NULL,
 
 \item{icon}{An icon tag, created by \code{\link[shiny]{icon}}.}
 
-\item{color}{A color for the box. Valid colors are listed in
-\link{validColors}.}
+\item{color}{A color for the box.}
 
 \item{width}{The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the
@@ -44,24 +43,23 @@ library(flightdeck)
 library(htmltools)
 
 # Example 1
-tagList(
-  fdInfoBox('Adjusted R-squared', '86.9\%', 
-    color = 'blue', icon = fdIcon('chart-line', lib = 'entypo')),
-  fdInfoBox('F-Statistic', 13.93,  'on 10 and 21 degrees of freedom', 
-    color = 'green', icon = fdIcon('star', lib = 'entypo')),
-  fdInfoBox('Residual Standard Error', 2.65, 'on 21 degrees of freedom', 
-    color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
-) \%>\%
-  fdPreview(wrapBox = F)
+
+if (interactive()){
+  tagList(
+    fdInfoBox('Adjusted R-squared', '86.9\%', 
+      color = 'blue', icon = fdIcon('chart-line', lib = 'entypo')),
+    fdInfoBox('F-Statistic', 13.93,  'on 10 and 21 degrees of freedom', 
+      color = 'green', icon = fdIcon('star', lib = 'entypo')),
+    fdInfoBox('Residual Standard Error', 2.65, 'on 21 degrees of freedom', 
+      color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
+  ) \%>\%
+    fdPreview(wrapBox = F)
+}
 
 
 # Example 2: Interactive help embedded in stat box.
 # The message supports markdown.
-msg <- "The adjusted R-squared compares the explanatory power of regression models that contain different numbers of predictors.
-
-Suppose you compare a five-predictor model with a higher R-squared to a one-predictor model. Does the five predictor model have a higher R-squared because it’s better? Or is the R-squared higher because it has more predictors? Simply compare the adjusted R-squared values to find out!
-
-The adjusted R-squared is a modified version of R-squared that has been adjusted for the number of predictors in the model. The adjusted R-squared increases only if the new term improves the model more than would be expected by chance. It decreases when a predictor improves the model by less than expected by chance. The adjusted R-squared can be negative, but it’s usually not.  It is always lower than the R-squared."
+msg <- "The adjusted R-squared measures the explanatory power of regression models."
 
 
 
@@ -70,15 +68,17 @@ adjRsquared <- span("Adjusted R-squared",
     fdModal(msg, title = 'Adjusted R-Squared')
 )
 
-tagList(
-  fdInfoBox(adjRsquared, '86.9\%', 
-    color = 'blue', icon = fdIcon('chart-line', lib = 'entypo')),
-  fdInfoBox('F-Statistic', 13.93,  'on 10 and 21 degrees of freedom', 
-    color = 'green', icon = fdIcon('star', lib = 'entypo')),
-  fdInfoBox('Residual Standard Error', 2.65, 'on 21 degrees of freedom', 
-    color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
-) \%>\%
-  fdPreview(wrapBox = F)
+if (interactive()){
+  tagList(
+    fdInfoBox(adjRsquared, '86.9\%', 
+      color = 'blue', icon = fdIcon('chart-line', lib = 'entypo')),
+    fdInfoBox('F-Statistic', 13.93,  'on 10 and 21 degrees of freedom', 
+      color = 'green', icon = fdIcon('star', lib = 'entypo')),
+    fdInfoBox('Residual Standard Error', 2.65, 'on 21 degrees of freedom', 
+      color = 'purple', icon = fdIcon('flash', lib = 'entypo'))
+  ) \%>\%
+    fdPreview(wrapBox = F)
+}
 }
 \seealso{
 \code{\link{fdBox}} for usage examples.

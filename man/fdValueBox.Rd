@@ -14,8 +14,7 @@ fdValueBox(value, subtitle, icon = NULL, color = "aqua", width = 4,
 
 \item{icon}{An icon tag, created by \code{\link[shiny]{icon}}.}
 
-\item{color}{A color for the box. Valid colors are listed in
-\link{validColors}.}
+\item{color}{A color for the box.}
 
 \item{width}{The width of the box, using the Bootstrap grid system. This is
 used for row-based layouts. The overall width of a region is 12, so the

@@ -12,6 +12,8 @@ fdPanelRegressionResiduals(mod, digits = 4, plotTitle = "Histogram", ...)
 \item{digits}{number of digits to display in the summary statistics table}
 
 \item{plotTitle}{title of the histogram.}
+
+\item{...}{additional arguments. not used currently.}
 }
 \description{
 Display model residuals for a linear regression model

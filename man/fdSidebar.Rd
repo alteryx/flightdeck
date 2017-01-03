@@ -8,6 +8,8 @@ fdSidebar(..., sidebarWidth = NULL)
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}
+
+\item{sidebarWidth}{width for the sidebar.}
 }
 \description{
 This creates a sidebar for the dashboard

@@ -9,17 +9,15 @@ fdDropdownMenu(..., type = c("messages", "notifications", "tasks"),
 }
 \arguments{
 \item{...}{Items to put in the menu. Typically, message menus should contain
-\code{\link{messageItem}}s, notification menus should contain
-\code{\link{notificationItem}}s, and task menus should contain
-\code{\link{taskItem}}s.}
+\code{\link{fdMessage}}s, notification menus should contain
+\code{\link{fdNotification}}s.}
 
 \item{type}{The type of menu. Should be one of "messages", "notifications",
 "tasks".}
 
 \item{badgeStatus}{The status of the badge which displays the number of items
-in the menu. This determines the badge's color. Valid statuses are listed
-in \link{validStatuses}. A value of \code{NULL} means to not display a
-badge.}
+in the menu. This determines the badge's color. A value of \code{NULL}
+means to not display a badge.}
 
 \item{icon}{An icon to display in the header. By default, the icon is
 automatically selected depending on \code{type}, but it can be overriden

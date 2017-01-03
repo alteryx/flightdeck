@@ -7,6 +7,21 @@
 fdStat(name, value, color = "green", note = name, pct = value * 100,
   showBar = TRUE, digits = 4)
 }
+\arguments{
+\item{name}{name to indicate for the progress bar.}
+
+\item{value}{value for the progress bar.}
+
+\item{color}{color of the progress bar.}
+
+\item{note}{note to display.}
+
+\item{pct}{percentage to indicate in bar.}
+
+\item{showBar}{boolean indicating if a bar is to be displayed.}
+
+\item{digits}{number of digits to display.}
+}
 \description{
 Display a statistic
 }

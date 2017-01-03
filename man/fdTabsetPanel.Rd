@@ -28,11 +28,11 @@ fdTabContentItem(..., id = NULL, active = FALSE)
 
 \item{.list}{elements to put in as a list.}
 
-\item{active}{boolean indicating if tab is active}
+\item{title}{title to use.}
 
-\item{...}{elements to put in the panel}
+\item{id}{html id to add.}
 
-\item{name}{unique name to identify tab}
+\item{active}{boolean indicating if tab is active.}
 }
 \description{
 Make a tabset panel
