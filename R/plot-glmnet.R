@@ -149,7 +149,7 @@ makeTrace <- function(x, y, name, data, ...){
   )
 }
 
-#' Make an error bar trace
+# Make an error bar trace
 makeErrorBarTrace <- function(x, y, e, data){
   makeTrace(x = x, y = y, name = y, data = data,
     error_y = list(type = 'data', array = data[[e]], visible = TRUE),

@@ -1,4 +1,4 @@
-#' Progress Bar
+# Progress Bar
 progressBar <- function(pct, status = 'success', showText = TRUE){
   div(class = 'progress',
     div(
