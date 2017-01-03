@@ -5,10 +5,10 @@ Authors@R: c(
     person("Ramnath", "Vaidyanathan", role = c("aut", "cre"), email = "ramnath@alteryx.com"),
     person("Alteryx", role = c("cph", "fnd"))
   )
-Description: Interactive Dashboards for Predictive Models
+Description: Interactive Dashboards for Predictive Models.
 Depends:
     R (>= 3.2.3)
-License: MIT + File LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
@@ -21,11 +21,16 @@ Imports:
   DT (>= 0.2),
   MLmetrics,
   commonmark,
-  jsonlite
+  jsonlite,
+  ggplot2
 Suggests: 
   knitr,
   rmarkdown,
-  AlteryxRviz
+  AlteryxRviz,
+  ROCR,
+  rpart,
+  glmnet,
+  rpart.plot
 VignetteBuilder: knitr
 URL: https://github.com/alteryx/flightdeck
 BugReports: https://github.com/alteryx/flightdeck/issues
