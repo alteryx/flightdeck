@@ -26,11 +26,12 @@ Imports:
 Suggests: 
   knitr,
   rmarkdown,
-  AlteryxRviz,
   ROCR,
   rpart,
   glmnet,
   rpart.plot
+Enhances:
+  AlteryxRviz
 VignetteBuilder: knitr
 URL: https://github.com/alteryx/flightdeck
 BugReports: https://github.com/alteryx/flightdeck/issues
