@@ -129,7 +129,10 @@
 <span class='co'>#     extraBoxClass = 'table-responsive'),</span>
 <span class='co'>#   fdRowBox(width = 12, title = 'Mismatch Matrix', </span>
 <span class='co'>#     fdPlotClassificationMismatch(confusion),</span>
-<span class='co'>#     footer = 'This table shows pairs of actual and predicted values sorted by their frequency of mismatches'</span>
+<span class='co'>#     footer = paste(</span>
+<span class='co'>#       'This table shows pairs of actual and predicted values',</span>
+<span class='co'>#        'sorted by their frequency of mismatches'</span>
+<span class='co'>#      )</span>
 <span class='co'>#   )</span>
 <span class='co'># ) %&gt;%</span>
 <span class='co'>#   fdPreview(wrap = 'none')</span></pre>

@@ -48,7 +48,10 @@ if (interactive()){
 #     extraBoxClass = 'table-responsive'),
 #   fdRowBox(width = 12, title = 'Mismatch Matrix', 
 #     fdPlotClassificationMismatch(confusion),
-#     footer = 'This table shows pairs of actual and predicted values sorted by their frequency of mismatches'
+#     footer = paste(
+#       'This table shows pairs of actual and predicted values',
+#        'sorted by their frequency of mismatches'
+#      )
 #   )
 # ) \%>\%
 #   fdPreview(wrap = 'none')
