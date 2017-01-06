@@ -25,7 +25,7 @@ if (interactive()){
 #     fdPlotConfusionMatrix(confusion), 
 #     extraBoxClass = 'table-responsive'),
 #   fdRowBox(width = 12, title = 'Mismatch Matrix', 
-#     fdPlotClassificationMismatch(confusion),
+#     fdPlotMismatchMatrix(confusion),
 #     footer = paste(
 #       'This table shows pairs of actual and predicted values',
 #        'sorted by their frequency of mismatches'
