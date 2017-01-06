@@ -83,8 +83,10 @@ fdBox <- function(..., title = NULL, footer = NULL, status = NULL,
       extraHeader
     )
   }
-
+  # TODO: 
+  # Switch out all such statements with fdColumn, which is more flexible
   div(class = if (!is.null(width)) paste0("col-sm-", width),
+  #fdColumn(width = width,
     div(class = boxClass,
       style = if (!is.null(style)) style,
       headerTag,
