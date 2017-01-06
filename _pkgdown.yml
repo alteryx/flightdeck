@@ -67,6 +67,7 @@ reference:
       - fdPlotCvGlmnet
       - fdPlotConditionalDensity
       - fdPlotConfusionMatrix
+      - fdPlotMismatchMatrix
       - fdPlotClassificationPerformance
   - title: Render
     desc: >
