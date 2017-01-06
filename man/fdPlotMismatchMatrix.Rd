@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot-mismatch.R
 \name{fdPlotMismatchMatrix}
 \alias{fdPlotMismatchMatrix}
-\title{Plot classification mismatches}
+\title{Interactive Mismatch Matrix}
 \usage{
 fdPlotMismatchMatrix(x, class = "table table-bordered",
   barColor = "#e15759", digits = 3)
@@ -17,7 +17,7 @@ fdPlotMismatchMatrix(x, class = "table table-bordered",
 \item{digits}{number of digits to display.}
 }
 \description{
-Plot classification mismatches
+Interactive Mismatch Matrix
 }
 \examples{
 library(rpart)

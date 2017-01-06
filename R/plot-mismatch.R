@@ -1,4 +1,4 @@
-#' Plot classification mismatches
+#' Interactive Mismatch Matrix
 #' 
 #' 
 #' @param x matrix or table of actual vs. predicted values.
