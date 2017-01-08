@@ -1,6 +1,6 @@
 Package: flightdeck
 Title: Interactive Dashboards for Predictive Models
-Version: 0.2.9
+Version: 0.3.0
 Authors@R: c(
     person("Ramnath", "Vaidyanathan", role = c("aut", "cre"), email = "ramnath@alteryx.com"),
     person("Alteryx", role = c("cph", "fnd"))
