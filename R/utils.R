@@ -36,3 +36,11 @@ makeHtmlId <- function(x){
   x <- gsub("_", "-", x, fixed = TRUE)
   tolower(x)
 }
+
+inAlteryx <- function(){
+  exists("AlteryxDataOutput", .GlobalEnv)
+}
+
+stylesheet <- function(x){
+  paste0(x, if (inAlteryx()) '-selfcontained' else '', '.min.css')
+}
