@@ -22,7 +22,7 @@ addDeps <- function(x, theme) {
     htmlDependency("bootstrap", '3.3.6',
       c(file = lib.file('bootstrap')),
       script = "js/bootstrap.min.js",
-      stylesheet = 'css/bootstrap.min.css'
+      stylesheet = stylesheet("css/bootstrap")
     ),
     htmlDependency("bootbox", '4.4.0',
       c(file = lib.file('bootbox')),

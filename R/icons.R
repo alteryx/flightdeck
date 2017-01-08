@@ -43,7 +43,7 @@ fdIcon <- function (name, class = NULL, lib = "font-awesome", ...){
     htmlDependencies(iconTag) <- htmlDependency(
        "FontAwesome", "4.7.0",
        c(file = lib.file('fontawesome')),
-       stylesheet = 'css/font-awesome.min.css'
+       stylesheet = stylesheet('css/font-awesome')
     )
   }
   if (lib == "ionicons"){
