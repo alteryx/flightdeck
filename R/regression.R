@@ -108,8 +108,13 @@ fdPanelRegressionResiduals <- function(mod, digits = 4,
 
 #' Display a panel of metrics
 #' 
-#' @param x a data frame containing metrics to display.
+#' @param x a data frame containing metrics to display. see details
 #' @export
+#' @details This function currently assumes that the data frame contains four
+#'   columns named \code{Metric}, \code{Abbreviation}, \code{Value}, and
+#'   \code{Scaled}. The \code{Value} column contains the value to display, while
+#'   \code{Scaled} takes Yes/No values to indicate if a percentage bar should be
+#'   displayed for the metric in question.
 fdPanelMetrics <- function(x){
   l <- plyr::alply(x, 1, function(d){
     fdStat(d$Abbreviation, d$Value, note = d$Metric, showBar = d$Scaled == "Yes")

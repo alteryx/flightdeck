@@ -89,8 +89,16 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>x</dt>
-      <dd>a data frame containing metrics to display.</dd>
+      <dd>a data frame containing metrics to display. see details</dd>
     </dl>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This function currently assumes that the data frame contains four
+  columns named <code>Metric</code>, <code>Abbreviation</code>, <code>Value</code>, and
+  <code>Scaled</code>. The <code>Value</code> column contains the value to display, while
+  <code>Scaled</code> takes Yes/No values to indicate if a percentage bar should be
+  displayed for the metric in question.</p>
     
 
   </div>
@@ -98,7 +106,9 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>
