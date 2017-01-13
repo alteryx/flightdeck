@@ -44,3 +44,64 @@ inAlteryx <- function(){
 stylesheet <- function(x){
   paste0(x, if (inAlteryx()) '-selfcontained' else '', '.min.css')
 }
+
+
+# Tries very hard to compute a sensible R squared, else returns NaN.
+#
+# @param y_pred one numeric vector
+# @param y_true another numeric vector of the same length
+# @author Todd Morley
+R2_Score <- function(y_pred, y_true){
+  if(
+    !inherits(x = y_pred, what = 'numeric') ||
+    !inherits(x = y_true, what = 'numeric')
+  ){
+    stop(
+      msg = paste(
+        "An object other than a numeric vector was passed",
+        "AlteryxPredictive::rSquared().  Please contact Alteryx Support. "
+      )
+    )
+  }
+  if(length(y_pred) != length(y_true)){
+    stop(
+      msg = paste(
+        "The vectors passed to AlteryxPredictive::rSquared() were of",
+        "unequal length.  Please contact Alteryx Support. "
+      )
+    )
+  }
+  r_squared <- NULL
+  try(
+    expr = r_squared <-
+      cov(y_pred, y_true)^2 /
+      (var(y_pred) * var(y_true)),
+    silent = TRUE
+  )
+  if(
+    is.null(r_squared) ||
+    is.nan(r_squared) ||
+    r_squared < 0.0 ||
+    r_squared > 1.0
+  ){
+    try(
+      expr = r_squared <-
+        exp(
+          2 * log(cov(y_pred, y_true)) -
+            log(var(y_pred)) -
+            log(var(y_true))
+        ),
+      silent = TRUE
+    )
+  }
+  if(
+    is.null(r_squared) ||
+    is.nan(r_squared) ||
+    r_squared < 0.0 ||
+    r_squared > 1.0
+  ){
+    r_squared <- NaN
+  }
+  return(r_squared)
+}
+
