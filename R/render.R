@@ -64,12 +64,13 @@ fdRender <- function(x, libdir = NULL, nOutput = 3, debug = FALSE,
     css2 <- do.call(function(...){paste(..., collapse = '\n')}, css)
     css3 <- paste(c("<style>", css2, "</style>"), collapse = '\n')
     tpl <- '<htmlpassthrough><![CDATA[ \n <div>%s\n  %s\n %s\n</div>\n ]]></htmlpassthrough>'
-    tpl2 <- '<htmlcontent><![CDATA[ %s\n  %s\n %s\n ]]></htmlcontent>'
+    tpl2 <- '<htmlcontent><![CDATA[ %s\n  %s\n %s\n %s\n <style>body > div{font-size: inherit !important;}</style>]]></htmlcontent>'
     html_content = enc2utf8(sprintf(
       tpl2,
       js3,
       rendered$html,
-      css3
+      css3,
+      rendered$head
     ))
   }
   output = c(
