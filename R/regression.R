@@ -21,7 +21,11 @@ fdPanelRegressionMetrics <- function(actual, predicted,
 computeRegressionMetrics <- function(actual, predicted,
    metrics = c("MAE", "MAPE", "MedianAPE", "RMSE", "RMSLE", "RAE", "R2_Score")){
   d <- plyr::ldply(metrics, function(f){
-    fn <- getFromNamespace(f, 'MLmetrics')
+    fn <- if (f == 'R2_Score'){
+      getFromNamespace(f, 'flightdeck')
+    } else {
+      getFromNamespace(f, 'MLmetrics')
+    }
     value = fn(y_pred = predicted, y_true = actual)
     data.frame(Abbreviation = f, Value = value)
   })
