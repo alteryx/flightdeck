@@ -4,14 +4,17 @@
 #'   coefficients, "lambda" against the log-lambda sequence, and "dev" against
 #'   the percent deviance explained.
 #' @param title plot title.
-#' @param xaxisTitles custom x axis titles for each \code{xvar}
+#' @param xaxisTitles custom x axis titles for each \code{xvar}.
+#' @param yaxisTitle custom y axis title.
 #' @param ... extra arguments passed to every series being plotted
 #' @export
 #' @example inst/examples/fdPlotGlmnet.R
 fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL, 
     xaxisTitles = c(
       norm = 'L1 Norm', lambda = 'Log Lambda', dev = 'Fraction Deviance Explained'
-    ), ...
+    ), 
+    yaxisTitle = 'Coefficients', 
+    ...
 ){
   d <- extractCoefGlmnet(x)
   xvar <- match.arg(xvar)
@@ -30,7 +33,7 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL,
     ),
     title = if (!is.null(title)) title,
     xaxis = list(title = xaxisTitle),
-    yaxis = list(title = 'Coefficients')
+    yaxis = list(title = yaxisTitle)
   )
   config <- list(displaylogo = FALSE, displayModeBar = FALSE)
   fdPlotly(unname(traces), layout, config)
