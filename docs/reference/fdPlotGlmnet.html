@@ -84,7 +84,9 @@
     <p>Interactive coefficient profile plot for glmnet objects.</p>
     
 
-    <pre><span class='fu'>fdPlotGlmnet</span>(<span class='no'>x</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"norm"</span>, <span class='st'>"lambda"</span>, <span class='st'>"dev"</span>), <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre><span class='fu'>fdPlotGlmnet</span>(<span class='no'>x</span>, <span class='kw'>xvar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"norm"</span>, <span class='st'>"lambda"</span>, <span class='st'>"dev"</span>), <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>xaxisTitles</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>norm</span> <span class='kw'>=</span> <span class='st'>"L1 Norm"</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='st'>"Log Lambda"</span>, <span class='kw'>dev</span> <span class='kw'>=</span>
+  <span class='st'>"Fraction Deviance Explained"</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -96,6 +98,8 @@ coefficients, &quot;lambda&quot; against the log-lambda sequence, and &quot;dev&
 the percent deviance explained.</dd>
       <dt>title</dt>
       <dd>plot title.</dd>
+      <dt>xaxisTitles</dt>
+      <dd>custom x axis titles for each <code>xvar</code></dd>
       <dt>...</dt>
       <dd>extra arguments passed to every series being plotted</dd>
     </dl>
