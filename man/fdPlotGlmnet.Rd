@@ -6,7 +6,7 @@
 \usage{
 fdPlotGlmnet(x, xvar = c("norm", "lambda", "dev"), title = NULL,
   xaxisTitles = c(norm = "L1 Norm", lambda = "Log Lambda", dev =
-  "Fraction Deviance Explained"), ...)
+  "Fraction Deviance Explained"), yaxisTitle = "Coefficients", ...)
 }
 \arguments{
 \item{x}{a glmnet model object}
@@ -17,7 +17,9 @@ the percent deviance explained.}
 
 \item{title}{plot title.}
 
-\item{xaxisTitles}{custom x axis titles for each \code{xvar}}
+\item{xaxisTitles}{custom x axis titles for each \code{xvar}.}
+
+\item{yaxisTitle}{custom y axis title.}
 
 \item{...}{extra arguments passed to every series being plotted}
 }
