@@ -5,11 +5,17 @@
 #' @param class html class for table.
 #' @param barColor color for bars.
 #' @param digits number of digits to display.
+#' @param columnNames custom column names for the table.
 #' @export
 #' @example inst/examples/fdPlotMismatchMatrix.R
 fdPlotMismatchMatrix <- function(x, 
     class = 'table table-bordered',
-    barColor = '#e15759', digits = 3){
+    barColor = '#e15759', digits = 3,
+    columnNames = c(actual = 'Actual', predicted = 'Predicted', 
+      frequency = 'Frequency', percentage = 'Percentage', 
+      cumulative_pct = 'Cumulative Pct'
+    )
+){
   d <- as.data.frame(x)
   d <- d[(d[[1]] != d[[2]]) & (d[[3]] != 0),]
   d$pct <- d$Freq/sum(d$Freq)*100
@@ -17,21 +23,7 @@ fdPlotMismatchMatrix <- function(x,
   d <- plyr::arrange(d, plyr::desc(pct))
   d$cumpct <- cumsum(d$pct)
   d$cumpct <- format(d$cumpct, digits = digits)
-  names(d) <- c(
-    "Actual", "Predicted", "Frequency", "Percentage", "Cumulative Pct"
-  )
-  extraOpts <- list(
-    dom = 'Bfrtip',
-    buttons = list(
-      list(
-        extend = 'colvis',
-        text = 'Display Advanced Statistics', columns = 4:6
-      )
-    ),
-    columnDefs = list(
-      list(targets = 4:6, visible = F)
-    )
-  )
+  names(d) <- unname(columnNames)
   table1 <- DT::datatable(
     d,
     rownames = FALSE,
@@ -43,13 +35,13 @@ fdPlotMismatchMatrix <- function(x,
     class = c('stripe', 'hover', 'cell-border'),
     escape = FALSE
   ) %>%
-    DT::formatStyle('Percentage',
+    DT::formatStyle(columnNames['percentage'],
       background = styleColorBarReverse(c(0, 100), barColor),
       backgroundSize = '98% 88%',
       backgroundRepeat = 'no-repeat',
       backgroundPosition = 'center'
     ) %>%
-    DT::formatStyle('Cumulative Pct',
+    DT::formatStyle(columnNames['cumulative_pct'],
       background = styleColorBarReverse(c(0, 100), barColor),
       backgroundSize = '98% 88%',
       backgroundRepeat = 'no-repeat',
