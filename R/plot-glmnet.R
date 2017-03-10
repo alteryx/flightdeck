@@ -10,8 +10,8 @@
 #' @export
 #' @example inst/examples/fdPlotGlmnet.R
 fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL, 
-    xaxisTitles = c(
-      norm = 'L1 Norm', lambda = 'Log Lambda', dev = 'Fraction Deviance Explained'
+    xaxisTitles = c(norm = 'L1 Norm', 
+      lambda = 'Log Lambda', dev = 'Fraction Deviance Explained'
     ), 
     yaxisTitle = 'Coefficients', 
     ...
@@ -46,10 +46,16 @@ fdPlotGlmnet <- function(x, xvar = c("norm", "lambda", "dev"), title = NULL,
 #' @param sign.lambda Either plot against log(lambda) (default) or its negative
 #'   if sign.lambda=-1
 #' @param title plot title.
+#' @param xaxisTitle custom x axis title
+#' @param yaxisTitle custom y axis title.
 #' @param ... additional arguments. not currently used
 #' @export
 #' @example inst/examples/fdPlotCvGlmnet.R
-fdPlotCvGlmnet <- function(x, sign.lambda = NULL, title = NULL, ...){
+fdPlotCvGlmnet <- function(x, sign.lambda = NULL, title = NULL, 
+   xaxisTitle = 'Log Lambda',
+   yaxisTitle = 'Coefficients',
+   ...
+){
   d <- data.frame(
     x = if (is.null(sign.lambda)) log(x$lambda) else -log(x$lambda), 
     y = x$cvm, 
@@ -64,8 +70,8 @@ fdPlotCvGlmnet <- function(x, sign.lambda = NULL, title = NULL, ...){
       r = 30,
       b = 30
     ),
-    xaxis = list(title = 'Log Lambda'),
-    yaxis = list(title = 'Mean Squared Error'),
+    xaxis = list(title = xaxisTitle),
+    yaxis = list(title = yaxisTitle),
     title = if (!is.null(title)) title
   )
   config <- list(displaylogo = FALSE, displayModeBar = FALSE)
