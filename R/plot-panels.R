@@ -3,6 +3,8 @@
 #' @param x a numeric vector.
 #' @param digits number of digits to display in the summary statistics table.
 #' @param plotTitle title of the histogram.
+#' @param statNames named vector of statistics.
+#' @param tabColNames named vector of table column names.
 #' @param ... extra arguments (not used currently).
 #' @export
 #' @examples
@@ -12,14 +14,19 @@
 #'     fdPanelHistogram(plotTitle = 'Histogram of Residuals') %>%
 #'     fdPreview
 #' }
-fdPanelHistogram <- function(x, digits = 4, plotTitle = 'Histogram', 
-    ...){
+fdPanelHistogram <- function(x, digits = 4, plotTitle = 'Histogram',
+    statNames = c(minimum = "Minimum", q1 = "1st Quartile", 
+      median = "Median", mean = "Mean", q3 = "3rd Quartile", maximum = "Maximum"
+    ), 
+    tabColNames = c(stat = 'Statistic', val = 'Value'),
+    ...
+){
   x <- as.vector(x)
   xSummary <- data.frame(
-    Statistic = c("Minimum", "1st Quartile", "Median", "Mean",
-      "3rd Quartile", "Maximum"),
-    Value = format(summary(x), digits = digits)
+    stat = statNames[c("minimum", "q1", "median", "mean", "q3", "maximum")],
+    val = format(summary(x), digits = digits)
   )
+  names(xSummary) <- tabColNames[c('stat', 'val')]
   xHistogram <- fdPlotly(
     data = list(list(
       x = unname(x),
