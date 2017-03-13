@@ -4,7 +4,10 @@
 \alias{fdPanelHistogram}
 \title{Display a histogram and table of summary statistics}
 \usage{
-fdPanelHistogram(x, digits = 4, plotTitle = "Histogram", ...)
+fdPanelHistogram(x, digits = 4, plotTitle = "Histogram",
+  statNames = c(minimum = "Minimum", q1 = "1st Quartile", median = "Median",
+  mean = "Mean", q3 = "3rd Quartile", maximum = "Maximum"),
+  tabColNames = c(stat = "Statistic", val = "Value"), ...)
 }
 \arguments{
 \item{x}{a numeric vector.}
@@ -12,6 +15,10 @@ fdPanelHistogram(x, digits = 4, plotTitle = "Histogram", ...)
 \item{digits}{number of digits to display in the summary statistics table.}
 
 \item{plotTitle}{title of the histogram.}
+
+\item{statNames}{named vector of statistics.}
+
+\item{tabColNames}{named vector of table column names.}
 
 \item{...}{extra arguments (not used currently).}
 }

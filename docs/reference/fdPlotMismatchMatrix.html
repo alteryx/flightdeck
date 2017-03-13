@@ -85,7 +85,9 @@
     
 
     <pre><span class='fu'>fdPlotMismatchMatrix</span>(<span class='no'>x</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"table table-bordered"</span>,
-  <span class='kw'>barColor</span> <span class='kw'>=</span> <span class='st'>"#e15759"</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
+  <span class='kw'>barColor</span> <span class='kw'>=</span> <span class='st'>"#e15759"</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>columnNames</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>actual</span> <span class='kw'>=</span> <span class='st'>"Actual"</span>,
+  <span class='kw'>predicted</span> <span class='kw'>=</span> <span class='st'>"Predicted"</span>, <span class='kw'>frequency</span> <span class='kw'>=</span> <span class='st'>"Frequency"</span>, <span class='kw'>percentage</span> <span class='kw'>=</span> <span class='st'>"Percentage"</span>,
+  <span class='kw'>cumulative_pct</span> <span class='kw'>=</span> <span class='st'>"Cumulative Pct"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -97,6 +99,8 @@
       <dd>color for bars.</dd>
       <dt>digits</dt>
       <dd>number of digits to display.</dd>
+      <dt>columnNames</dt>
+      <dd>custom column names for the table.</dd>
     </dl>
     
 

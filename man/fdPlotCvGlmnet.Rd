@@ -4,7 +4,8 @@
 \alias{fdPlotCvGlmnet}
 \title{Interactive plot for cv.glmnet object.}
 \usage{
-fdPlotCvGlmnet(x, sign.lambda = NULL, title = NULL, ...)
+fdPlotCvGlmnet(x, sign.lambda = NULL, title = NULL,
+  xaxisTitle = "Log Lambda", yaxisTitle = "Coefficients", ...)
 }
 \arguments{
 \item{x}{fitted "cv.glmnet" object}
@@ -13,6 +14,10 @@ fdPlotCvGlmnet(x, sign.lambda = NULL, title = NULL, ...)
 if sign.lambda=-1}
 
 \item{title}{plot title.}
+
+\item{xaxisTitle}{custom x axis title}
+
+\item{yaxisTitle}{custom y axis title.}
 
 \item{...}{additional arguments. not currently used}
 }

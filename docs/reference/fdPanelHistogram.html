@@ -84,7 +84,10 @@
     <p>Display a histogram and table of summary statistics</p>
     
 
-    <pre><span class='fu'>fdPanelHistogram</span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>plotTitle</span> <span class='kw'>=</span> <span class='st'>"Histogram"</span>, <span class='no'>...</span>)</pre>
+    <pre><span class='fu'>fdPanelHistogram</span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>plotTitle</span> <span class='kw'>=</span> <span class='st'>"Histogram"</span>,
+  <span class='kw'>statNames</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>minimum</span> <span class='kw'>=</span> <span class='st'>"Minimum"</span>, <span class='kw'>q1</span> <span class='kw'>=</span> <span class='st'>"1st Quartile"</span>, <span class='kw'>median</span> <span class='kw'>=</span> <span class='st'>"Median"</span>,
+  <span class='kw'>mean</span> <span class='kw'>=</span> <span class='st'>"Mean"</span>, <span class='kw'>q3</span> <span class='kw'>=</span> <span class='st'>"3rd Quartile"</span>, <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='st'>"Maximum"</span>),
+  <span class='kw'>tabColNames</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"Statistic"</span>, <span class='kw'>val</span> <span class='kw'>=</span> <span class='st'>"Value"</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -94,6 +97,10 @@
       <dd>number of digits to display in the summary statistics table.</dd>
       <dt>plotTitle</dt>
       <dd>title of the histogram.</dd>
+      <dt>statNames</dt>
+      <dd>named vector of statistics.</dd>
+      <dt>tabColNames</dt>
+      <dd>named vector of table column names.</dd>
       <dt>...</dt>
       <dd>extra arguments (not used currently).</dd>
     </dl>

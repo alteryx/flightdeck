@@ -84,7 +84,8 @@
     <p>This plots MSE vs Log Lambda</p>
     
 
-    <pre><span class='fu'>fdPlotCvGlmnet</span>(<span class='no'>x</span>, <span class='kw'>sign.lambda</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre><span class='fu'>fdPlotCvGlmnet</span>(<span class='no'>x</span>, <span class='kw'>sign.lambda</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>xaxisTitle</span> <span class='kw'>=</span> <span class='st'>"Log Lambda"</span>, <span class='kw'>yaxisTitle</span> <span class='kw'>=</span> <span class='st'>"Coefficients"</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -95,6 +96,10 @@
 if sign.lambda=-1</dd>
       <dt>title</dt>
       <dd>plot title.</dd>
+      <dt>xaxisTitle</dt>
+      <dd>custom x axis title</dd>
+      <dt>yaxisTitle</dt>
+      <dd>custom y axis title.</dd>
       <dt>...</dt>
       <dd>additional arguments. not currently used</dd>
     </dl>

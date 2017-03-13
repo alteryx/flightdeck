@@ -5,7 +5,9 @@
 \title{Interactive Mismatch Matrix}
 \usage{
 fdPlotMismatchMatrix(x, class = "table table-bordered",
-  barColor = "#e15759", digits = 3)
+  barColor = "#e15759", digits = 3, columnNames = c(actual = "Actual",
+  predicted = "Predicted", frequency = "Frequency", percentage = "Percentage",
+  cumulative_pct = "Cumulative Pct"))
 }
 \arguments{
 \item{x}{matrix or table of actual vs. predicted values.}
@@ -15,6 +17,8 @@ fdPlotMismatchMatrix(x, class = "table table-bordered",
 \item{barColor}{color for bars.}
 
 \item{digits}{number of digits to display.}
+
+\item{columnNames}{custom column names for the table.}
 }
 \description{
 Interactive Mismatch Matrix
