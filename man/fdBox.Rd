@@ -60,4 +60,3 @@ Other boxes: \code{\link{fdInfoBox}},
 Other boxes: \code{\link{fdInfoBox}},
   \code{\link{fdValueBox}}
 }
-

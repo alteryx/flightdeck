@@ -19,4 +19,3 @@ This function currently assumes that the data frame contains four
   \code{Scaled} takes Yes/No values to indicate if a percentage bar should be
   displayed for the metric in question.
 }
-

@@ -19,4 +19,3 @@ required. Default is the entire sequence used to create the model.}
 \description{
 Create coefficient table from glmnet object
 }
-

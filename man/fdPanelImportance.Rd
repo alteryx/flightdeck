@@ -25,4 +25,3 @@ if (interactive()){
     fdPreview
 }
 }
-

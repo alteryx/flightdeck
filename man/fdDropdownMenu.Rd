@@ -33,4 +33,3 @@ Create a dropdown menu
 \seealso{
 \code{\link{fdHeader}} for example usage.
 }
-

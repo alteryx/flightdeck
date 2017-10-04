@@ -42,4 +42,3 @@ if (interactive()) {
 \seealso{
 \code{\link{fdSidebarMenu}}
 }
-

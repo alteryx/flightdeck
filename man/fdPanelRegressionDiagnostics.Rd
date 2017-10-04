@@ -19,4 +19,3 @@ Display a panel of diagnostic plots for regression models
 mod <- lm(mpg ~ ., data = mtcars)
 fdPanelRegressionDiagnostics(mod) \%>\% fdPreview(wrap = 'none')
 }
-

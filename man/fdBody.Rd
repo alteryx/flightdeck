@@ -12,4 +12,3 @@ fdBody(...)
 \description{
 Create the body of the dashboard.
 }
-

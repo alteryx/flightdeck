@@ -16,4 +16,3 @@ fdPage(..., id, display = FALSE)
 \description{
 This function creates a single page.
 }
-

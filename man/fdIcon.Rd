@@ -35,4 +35,3 @@ the class \code{popover} could display a help note on being clicked.
   \item entypo \url{http://getbootstrap.com/components/}
 }
 }
-

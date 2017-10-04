@@ -34,4 +34,3 @@ to be placed in the main body of a dashboard.
 
 Other boxes: \code{\link{fdBox}}, \code{\link{fdInfoBox}}
 }
-

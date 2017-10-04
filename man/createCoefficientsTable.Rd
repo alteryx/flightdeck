@@ -17,4 +17,3 @@ createCoefficientsTable(mod, digits, ...)
 This is an S3 method that creates a table of coefficients that can be passed
 to \code{\link{fdPanelCoefficients}} to display in a dashboard.
 }
-

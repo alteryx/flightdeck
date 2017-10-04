@@ -54,4 +54,3 @@ fdPlotConfusionMatrix(cmat2) \%>\%
 
 
 }
-

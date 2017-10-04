@@ -23,4 +23,3 @@ Create a notification
 \seealso{
 Other menu items: \code{\link{fdMessage}}
 }
-

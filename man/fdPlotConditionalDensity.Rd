@@ -70,4 +70,3 @@ fdTabsetPanel(selected = makeHtmlId('Sepal.Length'), .list = cdPlots) \%>\%
   fdColumn(width = 12) \%>\%
   fdPreview(wrap = 'row')
 }
-

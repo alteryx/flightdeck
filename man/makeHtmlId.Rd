@@ -12,4 +12,3 @@ makeHtmlId(x)
 \description{
 Make a valid html id from a string
 }
-

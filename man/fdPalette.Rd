@@ -9,4 +9,3 @@ fdPalette()
 \description{
 Alteryx Color Palette
 }
-

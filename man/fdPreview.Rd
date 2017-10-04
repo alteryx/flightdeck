@@ -33,4 +33,3 @@ library(flightdeck)
 fdSimpleTable(mtcars) \%>\% fdPreview(title = 'Simple Table')
 fdSimpleTable(mtcars) \%>\% fdPreviewBoard(title = 'Simple Table')
 }
-
