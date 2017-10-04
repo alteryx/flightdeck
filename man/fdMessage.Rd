@@ -49,4 +49,3 @@ fdBoard(fdHeader(myMenu), fdSidebar(), fdBody())
 
 Other menu items: \code{\link{fdNotification}}
 }
-

@@ -25,4 +25,3 @@ fdStat(name, value, color = "green", note = name, pct = value * 100,
 \description{
 Display a statistic
 }
-

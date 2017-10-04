@@ -39,4 +39,3 @@ fdTabsetPanel(selected = makeHtmlId('ROC Chart'),
   fdColumn(width = 12) \%>\%
   fdPreview(wrap = 'row')
 }
-

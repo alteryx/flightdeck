@@ -45,10 +45,9 @@ createCoefficientsTable <- function(mod, digits, ...){
 #' @export
 createCoefficientsTable.default <- function(mod, digits, ...){
   coefTable <- as.data.frame(summary(mod)$coef)
-  coefTable$Impact <- abs(coefTable$Estimate)
   coefTable$Confidence <- makeConfidenceStars(coefTable$`Pr(>|t|)`)
   coefTable <- cbind(Variable = rownames(coefTable), coefTable)
-  coefTable <- coefTable[, c('Variable', 'Estimate', 'Impact',
+  coefTable <- coefTable[, c('Variable', 'Estimate',
     'Confidence', "Std. Error", "t value", "Pr(>|t|)"
   )]
   numericCols <- c('Estimate', 'Std. Error', 't value', 'Pr(>|t|)')
@@ -67,8 +66,7 @@ createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
   coefVector <- coef(mod, s = s)[,1]
   data.frame(
     Variable = names(coefVector),
-    Estimate = format(x = unname(coefVector), digits = digits),
-    Impact = abs(unname(coefVector))
+    Estimate = format(x = unname(coefVector), digits = digits)
   )
 }
 
@@ -92,11 +90,11 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
     buttons = list(
       list(
         extend = 'colvis',
-        text = 'Display Advanced Statistics', columns = 4:6
+        text = 'Display Advanced Statistics', columns = 3:5
       )
     ),
     columnDefs = list(
-      list(targets = 4:6, visible = F)
+      list(targets = 3:5, visible = F)
     )
   )
   table1 <- datatable(
@@ -110,17 +108,8 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
     class = c('stripe', 'hover', 'cell-border'),
     escape = FALSE
   )
-  if ('Impact' %in% names(coefTable)){
-    table1 <-  formatStyle(table1, 'Impact',
-      background = styleColorBar(range(coefTable$Impact), barColor),
-      backgroundSize = '98% 88%',
-      backgroundRepeat = 'no-repeat',
-      backgroundPosition = 'center',
-      color = 'transparent'
-    )
   }
-  table1
-}
+
 
 #' Display variable importance
 #'
@@ -130,11 +119,9 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
 #' @example inst/examples/fdPanelImportance.R
 fdPanelImportance <- function(mod, digits = 2, barColor = 'steelblue'){
   coefTable <- data.frame(
-    Variable = names(mod$variable.importance),
-    Impact = mod$variable.importance/sum(mod$variable.importance)
+    Variable = names(mod$variable.importance)
   )
-  coefTable$Importance <- coefTable$Impact
-  coefTable <- coefTable[,c('Variable', 'Importance', 'Impact')]
+  coefTable <- coefTable[,c('Variable', 'Importance')]
   datatable(
     coefTable,
     options = list(
@@ -196,7 +183,7 @@ fdStat <- function(name, value, color = 'green', note = name, pct = value*100,
 # Interactive table of regression coefficients
 fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
   names(coefTable) <- c('Term', 'Estimate', 'Std. Error', 'Statistic', 'P Value')
-  coefTable$Impact <- abs(coefTable$Estimate)
+  
 
   add_star <- function(x){
     paste(rep('&starf;', x), collapse = "")
@@ -206,7 +193,7 @@ fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
     c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
     c(add_star(3), add_star(2), add_star(1), "&#8226;", "")
   )
-  coefTable <- coefTable[, c('Term', 'Estimate', 'Impact',
+  coefTable <- coefTable[, c('Term', 'Estimate',
     'Confidence', "Std. Error", "Statistic", "P Value"
   )]
   numericCols <- c('Estimate', 'Std. Error', 'Statistic', 'P Value')
@@ -233,13 +220,4 @@ fdTidyTable <- function(coefTable, digits = 3, barColor = 'steelblue'){
     class = c('stripe', 'hover', 'cell-border'),
     escape = FALSE
   )
-
-  table1 %>%
-    formatStyle('Impact',
-      background = styleColorBar(range(coefTable$Impact), barColor),
-      backgroundSize = '98% 88%',
-      backgroundRepeat = 'no-repeat',
-      backgroundPosition = 'center',
-      color = 'transparent'
-    )
 }

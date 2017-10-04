@@ -85,4 +85,3 @@ if (interactive()){
 
 Other boxes: \code{\link{fdBox}}, \code{\link{fdValueBox}}
 }
-

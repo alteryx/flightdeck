@@ -68,4 +68,3 @@ if (interactive()){
     fdPreview(wrapBox = F)
 }
 }
-

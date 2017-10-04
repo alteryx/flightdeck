@@ -19,4 +19,3 @@ fdColumn(width, ..., offset = NULL, id = paste0("column-", round(runif(1) *
 \description{
 Create a column
 }
-

@@ -42,4 +42,3 @@ if (interactive()){
   panel2
 }
 }
-

@@ -26,4 +26,3 @@ The \code{\link{fdTable}} function is just syntactic sugar for
 \examples{
 fdSimpleTable(mtcars) \%>\% fdPreview
 }
-

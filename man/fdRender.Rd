@@ -21,4 +21,3 @@ fdRender(x, libdir = NULL, nOutput = 3, debug = FALSE,
 \description{
 Render a dashboard in Alteryx.
 }
-
