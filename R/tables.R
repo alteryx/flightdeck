@@ -66,7 +66,7 @@ createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
   coefVector <- coef(mod, s = s)[,1]
   data.frame(
     Variable = names(coefVector),
-    Estimate = format(x = unname(coefVector), digits = digits),
+    Estimate = format(x = unname(coefVector), digits = digits)
   )
 }
 
