@@ -45,10 +45,9 @@ createCoefficientsTable <- function(mod, digits, ...){
 #' @export
 createCoefficientsTable.default <- function(mod, digits, ...){
   coefTable <- as.data.frame(summary(mod)$coef)
-  coefTable$Impact <- abs(coefTable$Estimate)
   coefTable$Confidence <- makeConfidenceStars(coefTable$`Pr(>|t|)`)
   coefTable <- cbind(Variable = rownames(coefTable), coefTable)
-  coefTable <- coefTable[, c('Variable', 'Estimate', 'Impact',
+  coefTable <- coefTable[, c('Variable', 'Estimate', 
     'Confidence', "Std. Error", "t value", "Pr(>|t|)"
   )]
   numericCols <- c('Estimate', 'Std. Error', 't value', 'Pr(>|t|)')
@@ -67,8 +66,7 @@ createCoefficientsTable.elnet <- function(mod, digits = 3, s = NULL, ...){
   coefVector <- coef(mod, s = s)[,1]
   data.frame(
     Variable = names(coefVector),
-    Estimate = format(x = unname(coefVector), digits = digits),
-    Impact = abs(unname(coefVector))
+    Estimate = format(x = unname(coefVector), digits = digits)
   )
 }
 
@@ -92,11 +90,11 @@ fdPanelCoefficients <- function(mod, digits = 3, barColor = 'steelblue', ...){
     buttons = list(
       list(
         extend = 'colvis',
-        text = 'Display Advanced Statistics', columns = 4:6
+        text = 'Display Advanced Statistics', columns = 3:5
       )
     ),
     columnDefs = list(
-      list(targets = 4:6, visible = F)
+      list(targets = 3:5, visible = F)
     )
   )
   table1 <- datatable(
